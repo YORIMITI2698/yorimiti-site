@@ -49,7 +49,7 @@ export default function Graphic() {
       <Navbar />
 
       {/* Graphic Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20" style={{ backgroundColor: '#4D4398' }}>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20" style={{ backgroundColor: '#18141a' }}>
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center"

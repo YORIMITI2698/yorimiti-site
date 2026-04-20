@@ -64,7 +64,7 @@ export default function Services() {
   }
 
   const handleYORIMITIHover = (isHovering) => {
-    setBackgroundColor(isHovering ? '#4D4398' : 'white')
+    setBackgroundColor(isHovering ? '#18141a' : 'white')
   }
 
   return (
