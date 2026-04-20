@@ -166,6 +166,7 @@ export default function Contact() {
 
               {/* 納期 */}
               <div>
+                <label className="block text-gray-700 font-semibold mb-3">納品希望日</label>
                 <input
                   type="date"
                   value={vocalMixData.deadline}
