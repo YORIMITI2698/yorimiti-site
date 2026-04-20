@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 const services = [
   {
@@ -38,6 +38,30 @@ const SELECTED_LAYOUT = 'B'
 
 export default function Services() {
   const [backgroundColor, setBackgroundColor] = useState('white')
+
+  // YORIMITI graphic image hover effect
+  const yorimitiImageRef = useRef(null)
+  const [yorimitiMousePosition, setYorimitiMousePosition] = useState({ x: 0, y: 0 })
+  const [yorimitiIsHovering, setYorimitiIsHovering] = useState(false)
+
+  const handleYORIMITIImageMouseMove = (e) => {
+    if (!yorimitiImageRef.current) return
+
+    const rect = yorimitiImageRef.current.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width - 0.5
+    const y = (e.clientY - rect.top) / rect.height - 0.5
+
+    setYorimitiMousePosition({ x: x * 20, y: y * 20 })
+  }
+
+  const handleYORIMITIImageEnter = () => {
+    setYorimitiIsHovering(true)
+  }
+
+  const handleYORIMITIImageLeave = () => {
+    setYorimitiIsHovering(false)
+    setYorimitiMousePosition({ x: 0, y: 0 })
+  }
 
   const handleYORIMITIHover = (isHovering) => {
     setBackgroundColor(isHovering ? '#4D4398' : 'white')
@@ -389,15 +413,23 @@ export default function Services() {
               </motion.div>
 
               <motion.div
+                ref={yorimitiImageRef}
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                whileHover={{
-                  scale: 1.05,
-                  backgroundColor: '#4D4398'
-                }}
+                animate={yorimitiIsHovering ? { scale: 1.05 } : { scale: 1 }}
                 className="hidden lg:block lg:col-span-2 rounded-lg"
+                onMouseMove={handleYORIMITIImageMouseMove}
+                onMouseEnter={handleYORIMITIImageEnter}
+                onMouseLeave={handleYORIMITIImageLeave}
+                style={{
+                  rotateX: yorimitiIsHovering ? yorimitiMousePosition.y : 0,
+                  rotateY: yorimitiIsHovering ? -yorimitiMousePosition.x : 0,
+                  transformStyle: 'preserve-3d',
+                  backgroundColor: backgroundColor,
+                  transition: 'background-color 0.3s ease-out',
+                }}
               >
                 <div className="relative aspect-[3/2] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow rounded-lg">
                   <Image
