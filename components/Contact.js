@@ -145,6 +145,7 @@ export default function Contact() {
                   placeholder="曲名"
                   value={vocalMixData.songName}
                   onChange={(e) => handleVocalMixChange('songName', e.target.value)}
+                  required
                   className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors"
                 />
                 <input type="hidden" name="vocal_songName" value={vocalMixData.songName} />
@@ -157,6 +158,7 @@ export default function Contact() {
                   placeholder="キー変更（例：-3, +2）"
                   value={vocalMixData.keyChange}
                   onChange={(e) => handleVocalMixChange('keyChange', e.target.value)}
+                  required
                   className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors"
                 />
                 <input type="hidden" name="vocal_keyChange" value={vocalMixData.keyChange} />
@@ -168,6 +170,7 @@ export default function Contact() {
                   type="date"
                   value={vocalMixData.deadline}
                   onChange={(e) => handleVocalMixChange('deadline', e.target.value)}
+                  required
                   className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 focus:border-accent-cyan focus:outline-none transition-colors"
                 />
                 <input type="hidden" name="vocal_deadline" value={vocalMixData.deadline} />
@@ -175,12 +178,13 @@ export default function Contact() {
 
               {/* 録音データ */}
               <div>
-                <label className="block text-gray-700 font-semibold mb-3">録音DATA</label>
+                <label className="block text-gray-700 font-semibold mb-3">録音データ</label>
                 <input
                   type="text"
                   placeholder="Google Drive / ギガファイル便など"
                   value={vocalMixData.recordingData}
                   onChange={(e) => handleVocalMixChange('recordingData', e.target.value)}
+                  required
                   className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors"
                 />
                 <input type="hidden" name="vocal_recordingData" value={vocalMixData.recordingData} />
