@@ -23,7 +23,7 @@ export default function Navbar() {
               { name: 'SERVICES', href: '/services' },
               { name: 'PRICE', href: '/pricing' },
               { name: 'GRAPHIC', href: '/graphic' },
-              { name: 'WORKS', href: '#portfolio' },
+              { name: 'WORKS', href: '/works' },
               { name: 'CONTACT', href: '/contact' },
             ].map((item) => (
               <Link
@@ -57,7 +57,7 @@ export default function Navbar() {
               { name: 'SERVICES', href: '/services' },
               { name: 'PRICE', href: '/pricing' },
               { name: 'GRAPHIC', href: '/graphic' },
-              { name: 'WORKS', href: '#portfolio' },
+              { name: 'WORKS', href: '/works' },
               { name: 'CONTACT', href: '/contact' },
             ].map((item) => (
               <Link
