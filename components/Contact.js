@@ -14,6 +14,13 @@ export default function Contact() {
     recordingData: '',
     options: []
   })
+  const [bocalroMVData, setBocalroMVData] = useState({
+    songName: '',
+    deadline: '',
+    referenceVideo: '',
+    sharedData: '',
+    includeVocalMix: false
+  })
 
   const serviceOptions = ['通常のご相談', 'Vocal Mix', 'ボカロMV']
   const menuOptions = ['Full', '1Chorus', 'Short']
@@ -30,6 +37,10 @@ export default function Contact() {
         ? vocalMixData.options.filter(o => o !== option)
         : [...vocalMixData.options, option]
     })
+  }
+
+  const handleBocalroMVChange = (field, value) => {
+    setBocalroMVData({ ...bocalroMVData, [field]: value })
   }
 
   const handleSubmit = async (e) => {
@@ -212,11 +223,153 @@ export default function Contact() {
             </motion.div>
           )}
 
+          {/* ボカロMV 追加フィールド */}
+          {selectedService === 'ボカロMV' && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-6 pt-6 border-t border-purple-500/20"
+            >
+              {/* 曲名 */}
+              <div>
+                <input
+                  type="text"
+                  placeholder="曲名"
+                  value={bocalroMVData.songName}
+                  onChange={(e) => handleBocalroMVChange('songName', e.target.value)}
+                  required
+                  className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors"
+                />
+                <input type="hidden" name="mv_songName" value={bocalroMVData.songName} />
+              </div>
+
+              {/* 納期 */}
+              <div>
+                <label className="block text-gray-700 font-semibold mb-3">納期</label>
+                <input
+                  type="date"
+                  value={bocalroMVData.deadline}
+                  onChange={(e) => handleBocalroMVChange('deadline', e.target.value)}
+                  required
+                  className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 focus:border-accent-cyan focus:outline-none transition-colors"
+                />
+                <input type="hidden" name="mv_deadline" value={bocalroMVData.deadline} />
+              </div>
+
+              {/* 参考動画 */}
+              <div>
+                <input
+                  type="text"
+                  placeholder="参考動画（YouTubeリンクなど）"
+                  value={bocalroMVData.referenceVideo}
+                  onChange={(e) => handleBocalroMVChange('referenceVideo', e.target.value)}
+                  required
+                  className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors"
+                />
+                <input type="hidden" name="mv_referenceVideo" value={bocalroMVData.referenceVideo} />
+              </div>
+
+              {/* 共有データ */}
+              <div>
+                <input
+                  type="text"
+                  placeholder="共有データ（イラスト、楽曲等の素材がすでにあれば入れてください）"
+                  value={bocalroMVData.sharedData}
+                  onChange={(e) => handleBocalroMVChange('sharedData', e.target.value)}
+                  className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors"
+                />
+                <input type="hidden" name="mv_sharedData" value={bocalroMVData.sharedData} />
+              </div>
+
+              {/* Mixも同時に依頼する */}
+              <div>
+                <label className="flex items-center gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={bocalroMVData.includeVocalMix}
+                    onChange={(e) => handleBocalroMVChange('includeVocalMix', e.target.checked)}
+                    className="w-5 h-5 accent-accent-cyan rounded"
+                  />
+                  <span className="text-gray-700 font-semibold">Mixも同時に依頼する</span>
+                </label>
+                <input type="hidden" name="mv_includeVocalMix" value={bocalroMVData.includeVocalMix ? 'はい' : 'いいえ'} />
+              </div>
+
+              {/* Mixも同時に依頼する場合のVocal Mix フィールド */}
+              {bocalroMVData.includeVocalMix && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-6 pt-6 border-t border-purple-500/20"
+                >
+                  <p className="text-gray-700 font-semibold">Vocal Mix の詳細</p>
+
+                  {/* メニュー選択 */}
+                  <div>
+                    <div className="flex gap-3">
+                      {menuOptions.map((menu) => (
+                        <motion.button
+                          key={menu}
+                          type="button"
+                          onClick={() => handleVocalMixChange('menu', menu)}
+                          className={`px-4 py-2 rounded-lg font-semibold transition-all ${
+                            vocalMixData.menu === menu
+                              ? 'bg-accent-cyan text-white'
+                              : 'bg-white border border-purple-500/30 text-gray-900 hover:border-accent-cyan'
+                          }`}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          {menu}
+                        </motion.button>
+                      ))}
+                    </div>
+                    <input type="hidden" name="mv_vocal_menu" value={vocalMixData.menu} />
+                  </div>
+
+                  {/* キー変更 */}
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="キー変更（例：-3, +2）"
+                      value={vocalMixData.keyChange}
+                      onChange={(e) => handleVocalMixChange('keyChange', e.target.value)}
+                      required
+                      className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors"
+                    />
+                    <input type="hidden" name="mv_vocal_keyChange" value={vocalMixData.keyChange} />
+                  </div>
+
+                  {/* オプション */}
+                  <div>
+                    <label className="block text-gray-700 font-semibold mb-3">オプション</label>
+                    <div className="space-y-3">
+                      {optionChoices.map((option) => (
+                        <label key={option} className="flex items-center gap-3 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={vocalMixData.options.includes(option)}
+                            onChange={() => handleOptionToggle(option)}
+                            className="w-5 h-5 accent-accent-cyan rounded"
+                          />
+                          <span className="text-gray-700">{option}</span>
+                        </label>
+                      ))}
+                    </div>
+                    <input type="hidden" name="mv_vocal_options" value={vocalMixData.options.join(', ')} />
+                  </div>
+                </motion.div>
+              )}
+            </motion.div>
+          )}
+
           <div>
             <textarea
               name="message"
               placeholder="お問い合わせ内容"
-              required={selectedService !== 'Vocal Mix'}
+              required={selectedService !== 'Vocal Mix' && selectedService !== 'ボカロMV'}
               rows="5"
               className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors resize-none"
             />
