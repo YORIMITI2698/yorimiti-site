@@ -13,7 +13,7 @@ const services = [
   {
     icon: '✂️',
     title: 'Editing',
-    description: 'ボカロMV、通常動画の高品質編集。'
+    description: '高品質な動画編集サービス。'
   },
   {
     icon: '🎨',
