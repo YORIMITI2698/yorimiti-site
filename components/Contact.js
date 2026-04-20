@@ -16,8 +16,8 @@ export default function Contact() {
   })
 
   const serviceOptions = ['通常のご相談', 'Vocal Mix', 'ボカロMV']
-  const menuOptions = ['Full', '1Cho', 'Short']
-  const optionChoices = ['アカペラ', 'Inst＋ハモリ']
+  const menuOptions = ['Full', '1Chorus', 'Short']
+  const optionChoices = ['短納期', 'ハモリガイド作成', 'アカペラ書き出し', 'Inst+ハモリ書き出し']
 
   const handleVocalMixChange = (field, value) => {
     setVocalMixData({ ...vocalMixData, [field]: value })
@@ -115,7 +115,6 @@ export default function Contact() {
             >
               {/* メニュー選択 */}
               <div>
-                <label className="block text-gray-700 font-semibold mb-3">メニュー選択</label>
                 <div className="flex gap-3">
                   {menuOptions.map((menu) => (
                     <motion.button
@@ -136,6 +135,8 @@ export default function Contact() {
                 </div>
                 <input type="hidden" name="vocal_menu" value={vocalMixData.menu} />
               </div>
+
+              {/* Full / 1Chorus / Short 表記修正 */}
 
               {/* 曲名 */}
               <div>
@@ -174,10 +175,10 @@ export default function Contact() {
 
               {/* 録音データ */}
               <div>
-                <label className="block text-gray-700 font-semibold mb-3">録音データ</label>
+                <label className="block text-gray-700 font-semibold mb-3">録音DATA</label>
                 <input
                   type="text"
-                  placeholder="Google Drive リンクなど"
+                  placeholder="Google Drive / ギガファイル便など"
                   value={vocalMixData.recordingData}
                   onChange={(e) => handleVocalMixChange('recordingData', e.target.value)}
                   className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors"
@@ -210,7 +211,7 @@ export default function Contact() {
             <textarea
               name="message"
               placeholder="お問い合わせ内容"
-              required
+              required={selectedService !== 'Vocal Mix'}
               rows="5"
               className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors resize-none"
             />
