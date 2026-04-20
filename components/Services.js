@@ -19,6 +19,11 @@ const services = [
     icon: '🎨',
     title: 'Animation MV',
     description: 'リリックビデオからオリジナルMVまで、多様なモーショングラフィック制作。'
+  },
+  {
+    icon: '🖼️',
+    title: 'YORIMITI graphic',
+    description: 'ロゴ、サムネイル、バナーなどのグラフィックデザイン。'
   }
 ]
 

@@ -35,6 +35,16 @@ export default function Services() {
         '楽曲MIX・マスタリング',
         'フル企画制作対応'
       ]
+    },
+    {
+      icon: '🖼️',
+      title: 'YORIMITI graphic',
+      description: 'ロゴ、サムネイル、バナーなどのグラフィックデザイン。',
+      details: [
+        'ロゴデザイン',
+        'サムネイル制作',
+        'バナー・UI デザイン'
+      ]
     }
   ]
 
