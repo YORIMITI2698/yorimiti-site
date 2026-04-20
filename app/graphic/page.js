@@ -49,7 +49,7 @@ export default function Graphic() {
       <Navbar />
 
       {/* Graphic Hero */}
-      <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden pt-20">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20" style={{ backgroundColor: '#4D4398' }}>
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center"
@@ -57,12 +57,9 @@ export default function Graphic() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight text-black mb-6 italic" style={{ fontFamily: 'Georgia, Garamond, serif' }}>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight text-white mb-6 italic" style={{ fontFamily: 'Georgia, Garamond, serif' }}>
               YORIMITI Graphic
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">
-              ブランドを彩るグラフィックデザイン
-            </p>
           </motion.div>
         </div>
       </section>
