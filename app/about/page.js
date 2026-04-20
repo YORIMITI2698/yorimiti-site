@@ -14,9 +14,9 @@ export default function About() {
       image: '/0006.png'
     },
     {
-      name: '來世',
-      role: 'MIX',
-      bio: 'ご依頼の受付を開始しました。元音響屋さんVtuberにぜひお任せください!',
+      name: '來世.xisz',
+      role: 'Mixing&Mastering Engineer',
+      bio: '元音響屋さんの現役VSinger',
       image: '/0005.png'
     }
   ]
