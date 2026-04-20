@@ -244,9 +244,9 @@ export default function Contact() {
                 <input type="hidden" name="mv_songName" value={bocalroMVData.songName} />
               </div>
 
-              {/* 納期 */}
+              {/* 納品希望日 */}
               <div>
-                <label className="block text-gray-700 font-semibold mb-3">納期</label>
+                <label className="block text-gray-700 font-semibold mb-3">納品希望日</label>
                 <input
                   type="date"
                   value={bocalroMVData.deadline}
