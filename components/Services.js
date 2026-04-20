@@ -379,10 +379,13 @@ export default function Services() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="hidden lg:block lg:col-span-2"
+                whileHover={{
+                  scale: 1.05,
+                  backgroundColor: '#4D4398'
+                }}
+                className="hidden lg:block lg:col-span-2 rounded-lg"
               >
-                <div className="relative aspect-[3/2] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
+                <div className="relative aspect-[3/2] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow rounded-lg">
                   <Image
                     src="/0008.jpg"
                     alt="YORIMITI graphic Service"
