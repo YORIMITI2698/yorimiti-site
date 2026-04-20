@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const services = [
   {
@@ -36,8 +37,17 @@ const SELECTED_LAYOUT = 'B'
 // ========================================
 
 export default function Services() {
+  const [backgroundColor, setBackgroundColor] = useState('white')
+
+  const handleYORIMITIHover = (isHovering) => {
+    setBackgroundColor(isHovering ? '#4D4398' : 'white')
+  }
+
   return (
-    <section className="py-20 bg-white bg-washi-texture">
+    <section
+      className="py-20 bg-washi-texture transition-colors duration-300"
+      style={{ backgroundColor }}
+    >
       <div className="max-w-full mx-auto px-4 lg:px-12">
         <motion.h2
           className="text-7xl md:text-8xl font-light italic text-gray-900 mb-20"
@@ -350,7 +360,11 @@ export default function Services() {
             </div>
 
             {/* Row 4: YORIMITI graphic */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            <div
+              className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start"
+              onMouseEnter={() => handleYORIMITIHover(true)}
+              onMouseLeave={() => handleYORIMITIHover(false)}
+            >
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
