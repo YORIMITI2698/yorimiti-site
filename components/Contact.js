@@ -38,7 +38,7 @@ export default function Contact() {
               name="name"
               placeholder="お名前"
               required
-              className="w-full px-6 py-3 bg-dark-secondary border border-purple-500/20 rounded-lg text-text-primary placeholder-text-secondary focus:border-accent-cyan focus:outline-none transition-colors"
+              className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors"
             />
           </div>
 
@@ -48,7 +48,7 @@ export default function Contact() {
               name="email"
               placeholder="メールアドレス"
               required
-              className="w-full px-6 py-3 bg-dark-secondary border border-purple-500/20 rounded-lg text-text-primary placeholder-text-secondary focus:border-accent-cyan focus:outline-none transition-colors"
+              className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors"
             />
           </div>
 
@@ -57,7 +57,7 @@ export default function Contact() {
               type="text"
               name="service"
               placeholder="ご希望のサービス"
-              className="w-full px-6 py-3 bg-dark-secondary border border-purple-500/20 rounded-lg text-text-primary placeholder-text-secondary focus:border-accent-cyan focus:outline-none transition-colors"
+              className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors"
             />
           </div>
 
@@ -67,7 +67,7 @@ export default function Contact() {
               placeholder="お問い合わせ内容"
               required
               rows="5"
-              className="w-full px-6 py-3 bg-dark-secondary border border-purple-500/20 rounded-lg text-text-primary placeholder-text-secondary focus:border-accent-cyan focus:outline-none transition-colors resize-none"
+              className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors resize-none"
             />
           </div>
 
