@@ -18,9 +18,10 @@ export default function Navbar() {
           {/* Desktop Menu - Right Top */}
           <div className="hidden md:flex gap-8 pt-4">
             {[
-              { name: 'HOME', href: '#home' },
+              { name: 'HOME', href: '/' },
               { name: 'ABOUT', href: '/about' },
               { name: 'SERVICES', href: '/services' },
+              { name: 'PRICE', href: '/pricing' },
               { name: 'WORKS', href: '#portfolio' },
               { name: 'CONTACT', href: '/contact' },
             ].map((item) => (
@@ -50,9 +51,10 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden pb-4 space-y-2">
             {[
-              { name: 'HOME', href: '#home' },
+              { name: 'HOME', href: '/' },
               { name: 'ABOUT', href: '/about' },
               { name: 'SERVICES', href: '/services' },
+              { name: 'PRICE', href: '/pricing' },
               { name: 'WORKS', href: '#portfolio' },
               { name: 'CONTACT', href: '/contact' },
             ].map((item) => (
