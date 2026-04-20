@@ -5,6 +5,9 @@ import { useState } from 'react'
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [selectedService, setSelectedService] = useState('通常のご相談')
+
+  const serviceOptions = ['通常のご相談', 'Vocal Mix', 'ボカロMV']
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -53,11 +56,29 @@ export default function Contact() {
           </div>
 
           <div>
+            <label className="block text-gray-700 font-semibold mb-4">ご希望のサービス</label>
+            <div className="flex gap-3 flex-wrap">
+              {serviceOptions.map((option) => (
+                <motion.button
+                  key={option}
+                  type="button"
+                  onClick={() => setSelectedService(option)}
+                  className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+                    selectedService === option
+                      ? 'bg-gradient-purple-blue text-white shadow-lg'
+                      : 'bg-white border border-purple-500/30 text-gray-900 hover:border-accent-cyan'
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {option}
+                </motion.button>
+              ))}
+            </div>
             <input
-              type="text"
+              type="hidden"
               name="service"
-              placeholder="ご希望のサービス"
-              className="w-full px-6 py-3 bg-white border border-purple-500/30 rounded-lg text-gray-900 placeholder-gray-500 focus:border-accent-cyan focus:outline-none transition-colors"
+              value={selectedService}
             />
           </div>
 
