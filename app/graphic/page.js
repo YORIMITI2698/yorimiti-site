@@ -77,7 +77,7 @@ export default function Graphic() {
               transition={{ duration: 0.8 }}
             >
               <motion.p
-                className="text-sm text-gray-400 mb-4"
+                className="text-sm text-text-secondary mb-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -94,7 +94,7 @@ export default function Graphic() {
                 YORIMITI Graphic
               </motion.h1>
               <motion.p
-                className="text-base md:text-lg text-gray-300 leading-relaxed mb-8 max-w-md"
+                className="text-base md:text-lg text-text-secondary leading-relaxed mb-8 max-w-md"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -104,7 +104,7 @@ export default function Graphic() {
                 グラフィックデザインをまとめています。
               </motion.p>
               <motion.p
-                className="text-sm md:text-base text-gray-400 leading-relaxed mb-8 max-w-md"
+                className="text-sm md:text-base text-text-secondary leading-relaxed mb-8 max-w-md"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
@@ -129,7 +129,7 @@ export default function Graphic() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="relative aspect-square bg-gradient-to-br from-gray-900 to-black rounded-xl overflow-hidden border border-gray-800">
+              <div className="relative aspect-square bg-gradient-to-br from-dark-highlight to-black rounded-xl overflow-hidden border border-dark-highlight">
                 <svg className="w-full h-full" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                   {/* Abstract Design Elements */}
                   <motion.circle cx="200" cy="200" r="150" fill="none" stroke="rgba(255, 255, 255, 0.1)" strokeWidth="2" animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} />
@@ -152,7 +152,7 @@ export default function Graphic() {
       </section>
 
       {/* Graphic Services Section - Dark Theme */}
-      <section className="py-32 px-4" style={{ backgroundColor: '#0f0f0f' }}>
+      <section className="py-32 px-4 bg-dark-bg">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             className="text-5xl md:text-6xl font-light text-center mb-20 text-white"
@@ -169,7 +169,7 @@ export default function Graphic() {
             {graphicServices.map((service, index) => (
               <motion.div
                 key={index}
-                className="border border-gray-700 rounded-lg p-8 hover:border-white transition-all duration-300 group"
+                className="border border-dark-highlight rounded-lg p-8 hover:border-white transition-all duration-300 group"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -178,10 +178,10 @@ export default function Graphic() {
               >
                 <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
                 <h3 className="text-2xl font-light text-white mb-4" style={{ fontFamily: 'Georgia, Garamond, serif' }}>{service.title}</h3>
-                <p className="text-gray-400 mb-6">{service.description}</p>
+                <p className="text-text-secondary mb-6">{service.description}</p>
                 <ul className="space-y-3">
                   {service.features.map((feature, i) => (
-                    <li key={i} className="text-gray-500 text-sm flex items-start">
+                    <li key={i} className="text-text-secondary text-sm flex items-start">
                       <span className="text-white mr-3">→</span>
                       <span>{feature}</span>
                     </li>

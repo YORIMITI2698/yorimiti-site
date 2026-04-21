@@ -27,7 +27,7 @@ export default function Statement() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-between overflow-hidden bg-white">
+    <section className="relative min-h-screen flex items-center justify-between overflow-hidden bg-dark-bg border-b border-dark-highlight">
 
       {/* Content Container */}
       <div className="relative z-10 w-full max-w-full mx-auto px-4 sm:px-6 lg:px-12">
@@ -40,8 +40,8 @@ export default function Statement() {
             viewport={{ once: true }}
           >
             <motion.p
-              className="cursor-pointer leading-tight"
-              style={{ fontFamily: 'Georgia, Garamond, serif', color: '#0A0A0A' }}
+              className="cursor-pointer leading-tight text-white"
+              style={{ fontFamily: 'Georgia, Garamond, serif' }}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 2 }}

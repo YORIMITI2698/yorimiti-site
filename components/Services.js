@@ -64,17 +64,17 @@ export default function Services() {
   }
 
   const handleYORIMITIHover = (isHovering) => {
-    setBackgroundColor(isHovering ? '#18141a' : 'white')
+    setBackgroundColor(isHovering ? '#0f0f1e' : '#0a0a0a')
   }
 
   return (
     <section
-      className="py-20 bg-washi-texture transition-colors duration-300"
+      className="py-20 transition-colors duration-300"
       style={{ backgroundColor }}
     >
       <div className="max-w-full mx-auto px-4 lg:px-12">
         <motion.h2
-          className="text-7xl md:text-8xl font-light italic text-gray-900 mb-20"
+          className="text-7xl md:text-8xl font-light text-white mb-20"
           style={{ fontFamily: 'Georgia, Garamond, serif' }}
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -125,10 +125,10 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center"
               >
-                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   Drone Operation
                 </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-lg text-text-secondary leading-relaxed">
                   ドローン空撮による迫力あるビジュアル制作。
                 </p>
               </motion.div>
@@ -143,10 +143,10 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center"
               >
-                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   Shooting
                 </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-lg text-text-secondary leading-relaxed">
                   広告・SNS・YouTubeなどの高品質撮影サービス。
                 </p>
               </motion.div>
@@ -201,10 +201,10 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center lg:col-span-2"
               >
-                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   Editing
                 </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-lg text-text-secondary leading-relaxed">
                   ボカロMV、通常動画の高品質編集。
                 </p>
               </motion.div>
@@ -219,13 +219,13 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center"
               >
-                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">
                   YORIMITI graphic
                 </h3>
                 <p className="text-lg text-accent-cyan font-semibold mb-6">
                   映像,MIX
                 </p>
-                <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+                <div className="space-y-4 text-lg text-text-secondary leading-relaxed">
                   <p>
                     ボカロMV、リリックビデオからオリジナルMVまで、多様な作品を制作。
                   </p>
@@ -298,10 +298,10 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center lg:col-span-2"
               >
-                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   Drone Operation
                 </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-lg text-text-secondary leading-relaxed">
                   ドローン空撮による迫力あるビジュアル制作。
                 </p>
               </motion.div>
@@ -318,10 +318,10 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center"
               >
-                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   Shooting
                 </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-lg text-text-secondary leading-relaxed">
                   広告・SNS・YouTubeなどの高品質撮影サービス。
                 </p>
               </motion.div>
@@ -374,10 +374,10 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center lg:col-span-2"
               >
-                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   Editing
                 </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-lg text-text-secondary leading-relaxed">
                   ボカロMV、通常動画の高品質編集。
                 </p>
               </motion.div>
@@ -396,13 +396,13 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center"
               >
-                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">
                   YORIMITI graphic
                 </h3>
                 <p className="text-lg text-accent-cyan font-semibold mb-6">
                   映像,MIX
                 </p>
-                <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+                <div className="space-y-4 text-lg text-text-secondary leading-relaxed">
                   <p>
                     ボカロMV、リリックビデオからオリジナルMVまで、多様な作品を制作。
                   </p>
@@ -482,10 +482,10 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center"
               >
-                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   Drone Operation
                 </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-lg text-text-secondary leading-relaxed">
                   ドローン空撮による迫力あるビジュアル制作。
                 </p>
               </motion.div>
@@ -500,10 +500,10 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center lg:order-2"
               >
-                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   Shooting
                 </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-lg text-text-secondary leading-relaxed">
                   広告・SNS・YouTubeなどの高品質撮影サービス。
                 </p>
               </motion.div>
@@ -556,10 +556,10 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center"
               >
-                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   Editing
                 </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-lg text-text-secondary leading-relaxed">
                   ボカロMV、通常動画の高品質編集。
                 </p>
               </motion.div>
@@ -574,13 +574,13 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center lg:order-2"
               >
-                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">
                   YORIMITI graphic
                 </h3>
                 <p className="text-lg text-accent-cyan font-semibold mb-6">
                   映像,MIX
                 </p>
-                <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+                <div className="space-y-4 text-lg text-text-secondary leading-relaxed">
                   <p>
                     ボカロMV、リリックビデオからオリジナルMVまで、多様な作品を制作。
                   </p>
@@ -652,10 +652,10 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center"
               >
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                   Drone Operation
                 </h3>
-                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                <p className="text-sm md:text-base text-text-secondary leading-relaxed">
                   ドローン空撮による迫力あるビジュアル制作。
                 </p>
               </motion.div>
@@ -670,10 +670,10 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-center"
               >
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                   Shooting
                 </h3>
-                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                <p className="text-sm md:text-base text-text-secondary leading-relaxed">
                   広告・SNS・YouTubeなどの高品質撮影サービス。
                 </p>
               </motion.div>
@@ -748,10 +748,10 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-start lg:col-span-2"
               >
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   Editing
                 </h3>
-                <p className="text-base text-gray-700 leading-relaxed">
+                <p className="text-base text-text-secondary leading-relaxed">
                   ボカロMV、通常動画の高品質編集。
                 </p>
               </motion.div>
@@ -763,13 +763,13 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="flex flex-col justify-start lg:col-span-2"
               >
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-1">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-1">
                   YORIMITI graphic
                 </h3>
                 <p className="text-base text-accent-cyan font-semibold mb-4">
                   映像,MIX
                 </p>
-                <div className="space-y-3 text-base text-gray-700 leading-relaxed">
+                <div className="space-y-3 text-base text-text-secondary leading-relaxed">
                   <p>
                     ボカロMV、リリックビデオからオリジナルMVまで、多様な作品を制作。
                   </p>

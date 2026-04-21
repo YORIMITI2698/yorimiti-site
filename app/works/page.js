@@ -2,43 +2,216 @@
 
 import { motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
-import Portfolio from '@/components/Portfolio'
 import Footer from '@/components/Footer'
+import { useState } from 'react'
 
 export default function Works() {
+  const [selectedVideo, setSelectedVideo] = useState(null)
+
+  const works = [
+    {
+      id: 1,
+      title: 'Motion Graphics Project',
+      type: 'Motion Graphic',
+      youtubeId: 'dQw4w9WgXcQ',
+      thumbnail: '/0008.jpg',
+      description: 'High-quality motion graphics production'
+    },
+    {
+      id: 2,
+      title: 'Drone Footage',
+      type: 'Drone Operation',
+      youtubeId: 'dQw4w9WgXcQ',
+      thumbnail: '/0007.jpeg',
+      description: 'Professional drone cinematography'
+    },
+    {
+      id: 3,
+      title: 'Commercial Shoot',
+      type: 'Shooting',
+      youtubeId: 'dQw4w9WgXcQ',
+      thumbnail: '/0009.jpeg',
+      description: 'Advertisement production'
+    },
+    {
+      id: 4,
+      title: 'Video Editing',
+      type: 'Editing',
+      youtubeId: 'dQw4w9WgXcQ',
+      thumbnail: '/0010.jpg',
+      description: 'Professional video editing'
+    }
+  ]
+
+  const types = ['All', 'Motion Graphic', 'Drone Operation', 'Shooting', 'Editing']
+  const [selectedType, setSelectedType] = useState('All')
+
+  const filteredWorks = selectedType === 'All'
+    ? works
+    : works.filter(work => work.type === selectedType)
+
   return (
-    <motion.main
-      className="bg-white"
-      initial={{ scale: 0.7, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      style={{ originX: 0.5, originY: 0 }}
-    >
+    <main className="bg-black min-h-screen">
       <Navbar />
 
       {/* Works Hero */}
-      <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden pt-20">
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-b from-dark-bg via-dark-bg to-dark-highlight">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <motion.div
             className="text-center"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight text-black mb-6">
+            <motion.h1
+              className="text-6xl md:text-7xl lg:text-8xl font-light leading-tight text-white mb-8"
+              style={{ fontFamily: 'Georgia, serif' }}
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               Works
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">
-              実績・ポートフォリオ
-            </p>
+            </motion.h1>
+            <motion.p
+              className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              実績 / ポートフォリオ
+            </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* Portfolio Section */}
-      <Portfolio />
+      {/* Filter Tags */}
+      <section className="py-16 px-4 bg-dark-bg border-y border-dark-highlight">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="flex flex-wrap gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            {types.map((type) => (
+              <motion.button
+                key={type}
+                onClick={() => setSelectedType(type)}
+                className={`text-xs font-light tracking-widest px-4 py-2 rounded-full transition-all border ${
+                  selectedType === type
+                    ? 'bg-white text-black border-white'
+                    : 'border-dark-highlight text-text-secondary hover:border-white hover:text-white'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {type}
+              </motion.button>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Works Grid */}
+      <section className="py-32 px-4 bg-dark-bg">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            {filteredWorks.map((work, index) => (
+              <motion.button
+                key={work.id}
+                onClick={() => setSelectedVideo(work)}
+                className="group relative aspect-video rounded-lg overflow-hidden border border-dark-highlight hover:border-white cursor-pointer transition-all"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+              >
+                {/* Thumbnail */}
+                <div className="absolute inset-0 bg-dark-highlight">
+                  <img
+                    src={work.thumbnail}
+                    alt={work.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all" />
+                </div>
+
+                {/* Play Button */}
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileHover={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="w-16 h-16 border-2 border-white rounded-full flex items-center justify-center">
+                    <div className="w-0 h-0 border-l-8 border-l-white border-t-5 border-t-transparent border-b-5 border-b-transparent ml-1" />
+                  </div>
+                </motion.div>
+
+                {/* Info */}
+                <motion.div
+                  className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileHover={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3 className="text-white font-light text-sm" style={{ fontFamily: 'Georgia, serif' }}>
+                    {work.title}
+                  </h3>
+                  <p className="text-xs text-text-secondary">{work.type}</p>
+                </motion.div>
+              </motion.button>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Video Modal */}
+      {selectedVideo && (
+        <motion.div
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setSelectedVideo(null)}
+        >
+          <motion.div
+            className="relative w-full max-w-4xl aspect-video rounded-lg overflow-hidden"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <iframe
+              width="100%"
+              height="100%"
+              src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1`}
+              title={selectedVideo.title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+            <motion.button
+              onClick={() => setSelectedVideo(null)}
+              className="absolute top-4 right-4 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full flex items-center justify-center text-white text-2xl"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              ✕
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      )}
 
       <Footer />
-    </motion.main>
+    </main>
   )
 }
