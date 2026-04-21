@@ -381,4 +381,81 @@ export default function Contact() {
                   <div>
                     <h4 className="text-sm font-light text-white mb-4 tracking-widest">料金/納期(修正込み目安)</h4>
                     <div className="space-y-2 text-xs text-text-secondary font-light">
-                      <p>• Fu
+                      <p>• Full ￥6,600- / 10~14日</p>
+                      <p>• 1Cho ￥4,400- / 10~14日</p>
+                      <p>• Short ￥2,200- / 5~7日</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">ボーカル追加</h4>
+                    <div className="space-y-2 text-xs text-text-secondary font-light">
+                      <p>• Full：+￥3,000- / 1名</p>
+                      <p>• 1Cho：+￥2,200- / 1名</p>
+                      <p>• Short：+￥1,100- / 1名</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">納品形式</h4>
+                    <p className="text-xs text-text-secondary font-light">WAV 24bit/48kHz</p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">送っていただくデータ</h4>
+                    <div className="space-y-2 text-xs text-text-secondary font-light">
+                      <p>• Vocal：WAV 24bit/48kHz 推奨、モノラル、頭出し</p>
+                      <p>• Inst：本家配布のまま(原キー)</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">オプション</h4>
+                    <div className="space-y-2 text-xs text-text-secondary font-light">
+                      <p>• 短納期：3日以内 +50%</p>
+                      <p>• ハモリガイド：+￥1,000～(※尺により変動)</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">注意</h4>
+                    <p className="text-xs text-text-secondary font-light">ハモリ生成、ガイド制作はオリジナルの完全再現ではありません</p>
+                  </div>
+                </motion.div>
+              )}
+            </motion.div>
+          )}
+
+          {/* Message */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <label className="block text-xs text-text-tertiary mb-2 tracking-widest">
+              お問い合わせ内容
+            </label>
+            <textarea
+              name="message"
+              placeholder=""
+              rows="6"
+              className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white placeholder-text-tertiary focus:border-white focus:outline-none transition-colors text-sm"
+            />
+          </motion.div>
+
+          {/* Submit */}
+          <motion.button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full py-4 border border-white text-white font-light text-sm tracking-widest hover:bg-white hover:text-black transition-all disabled:opacity-50"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {isSubmitting ? '送信中...' : 'SUBMIT'}
+          </motion.button>
+        </motion.form>
+      </div>
+    </section>
+  )
+}

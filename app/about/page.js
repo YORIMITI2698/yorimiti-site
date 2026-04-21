@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
+import { Instagram, Twitter, Youtube } from 'lucide-react'
 
 export default function About() {
   const teamMembers = [
@@ -16,7 +17,7 @@ export default function About() {
       bio: 'ドローン空撮とアニメーション制作を中心に活動。独自の視点で、各プロジェクトの世界観を構築。',
       image: '/0006.png',
       socials: [
-        { name: 'Instagram', url: 'https://www.instagram.com/kota12698/', icon: '📷' }
+        { name: 'Instagram', url: 'https://www.instagram.com/kota12698/', icon: 'instagram' }
       ]
     },
     {
@@ -27,11 +28,24 @@ export default function About() {
       bio: '2025年4月4日 デビュー',
       image: '/0005.png',
       socials: [
-        { name: 'Twitter', url: 'https://twitter.com/xisz_', icon: '𝕏' },
-        { name: 'YouTube', url: 'https://youtube.com/@xisz_', icon: '▶️' }
+        { name: 'Twitter', url: 'https://twitter.com/xisz_', icon: 'twitter' },
+        { name: 'YouTube', url: 'https://youtube.com/@xisz_', icon: 'youtube' }
       ]
     }
   ]
+
+  const getIconComponent = (iconType) => {
+    switch (iconType) {
+      case 'instagram':
+        return <Instagram size={20} />
+      case 'twitter':
+        return <Twitter size={20} />
+      case 'youtube':
+        return <Youtube size={20} />
+      default:
+        return null
+    }
+  }
 
   return (
     <main className="bg-black min-h-screen">
@@ -206,7 +220,7 @@ export default function About() {
                           className="w-10 h-10 flex items-center justify-center border border-dark-highlight rounded-full text-text-secondary hover:text-white hover:border-white transition-all"
                           whileHover={{ scale: 1.1, backgroundColor: '#1a1a1a' }}
                         >
-                          {social.icon}
+                          {getIconComponent(social.icon)}
                         </motion.a>
                       ))}
                     </div>
@@ -222,4 +236,3 @@ export default function About() {
     </main>
   )
 }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
