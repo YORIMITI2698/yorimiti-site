@@ -357,6 +357,72 @@ export default function Contact() {
                 <span className="text-sm text-text-secondary">Mixも同時に依頼する</span>
               </label>
               <input type="hidden" name="mv_includeVocalMix" value={bocaroMVData.includeVocalMix} />
+
+              {/* MIX Information Section */}
+              {bocaroMVData.includeVocalMix && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-6 pt-6 border-t border-dark-highlight"
+                >
+                  <div>
+                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">MIX師からの内容</h4>
+                    <div className="space-y-3 text-xs text-text-secondary font-light">
+                      <p>• エディット(ピッチ、タイミング補正)</p>
+                      <p>• ミキシング</p>
+                      <p>• エフェクト演出</p>
+                      <p>• 空間演出</p>
+                      <p>• ハモリ生成</p>
+                      <p>• マスタリング(YouTube向け)</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">料金/納期(修正込み目安)</h4>
+                    <div className="space-y-2 text-xs text-text-secondary font-light">
+                      <p>• Full ￥6,600- / 10~14日</p>
+                      <p>• 1Cho ￥4,400- / 10~14日</p>
+                      <p>• Short ￥2,200- / 5~7日</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">ボーカル追加</h4>
+                    <div className="space-y-2 text-xs text-text-secondary font-light">
+                      <p>• Full：+￥3,000- / 1名</p>
+                      <p>• 1Cho：+￥2,200- / 1名</p>
+                      <p>• Short：+￥1,100- / 1名</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">納品形式</h4>
+                    <p className="text-xs text-text-secondary font-light">WAV 24bit/48kHz</p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">送っていただくデータ</h4>
+                    <div className="space-y-2 text-xs text-text-secondary font-light">
+                      <p>• Vocal：WAV 24bit/48kHz 推奨、モノラル、頭出し</p>
+                      <p>• Inst：本家配布のまま(原キー)</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">オプション</h4>
+                    <div className="space-y-2 text-xs text-text-secondary font-light">
+                      <p>• 短納期：3日以内 +50%</p>
+                      <p>• ハモリガイド：+￥1,000～(※尺により変動)</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">注意</h4>
+                    <p className="text-xs text-text-secondary font-light">ハモリ生成、ガイド制作はオリジナルの完全再現ではありません</p>
+                  </div>
+                </motion.div>
+              )}
             </motion.div>
           )}
 

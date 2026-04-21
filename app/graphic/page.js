@@ -111,15 +111,16 @@ export default function Graphic() {
               >
                 A selection of graphic design shaped through process and ideas.
               </motion.p>
-              <motion.button
-                className="border border-white text-white px-6 py-2 text-sm hover:bg-white hover:text-black transition-all duration-300"
+              <motion.a
+                href="/graphic-service"
+                className="inline-block border border-white text-white px-6 py-2 text-sm hover:bg-white hover:text-black transition-all duration-300"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 whileHover={{ scale: 1.05 }}
               >
-                View Graphic →
-              </motion.button>
+                View inside →
+              </motion.a>
             </motion.div>
 
             {/* Right - Visual Element */}
@@ -147,48 +148,6 @@ export default function Graphic() {
                 </svg>
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Graphic Services Section - Dark Theme */}
-      <section className="py-32 px-4 bg-dark-bg">
-        <div className="max-w-7xl mx-auto">
-          <motion.h2
-            className="text-5xl md:text-6xl font-light text-center mb-20 text-white"
-            style={{ fontFamily: 'Georgia, Garamond, serif' }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            Services
-          </motion.h2>
-
-          <div className="grid md:grid-cols-3 gap-12">
-            {graphicServices.map((service, index) => (
-              <motion.div
-                key={index}
-                className="border border-dark-highlight rounded-lg p-8 hover:border-white transition-all duration-300 group"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
-              >
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
-                <h3 className="text-2xl font-light text-white mb-4" style={{ fontFamily: 'Georgia, Garamond, serif' }}>{service.title}</h3>
-                <p className="text-text-secondary mb-6">{service.description}</p>
-                <ul className="space-y-3">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="text-text-secondary text-sm flex items-start">
-                      <span className="text-white mr-3">→</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

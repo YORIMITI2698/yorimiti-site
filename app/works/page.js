@@ -11,35 +11,99 @@ export default function Works() {
   const works = [
     {
       id: 1,
-      title: 'Motion Graphics Project',
+      title: 'ボカロMV作品 01',
       type: 'Motion Graphic',
-      youtubeId: 'dQw4w9WgXcQ',
+      youtubeId: '_Nso5VFZh20',
       thumbnail: '/0008.jpg',
-      description: 'High-quality motion graphics production'
+      description: 'ボカロMV制作'
     },
     {
       id: 2,
-      title: 'Drone Footage',
-      type: 'Drone Operation',
-      youtubeId: 'dQw4w9WgXcQ',
-      thumbnail: '/0007.jpeg',
-      description: 'Professional drone cinematography'
+      title: 'ボカロMV作品 02',
+      type: 'Motion Graphic',
+      youtubeId: 'n5LqGOk_WBA',
+      thumbnail: '/0008.jpg',
+      description: 'ボカロMV制作'
     },
     {
       id: 3,
-      title: 'Commercial Shoot',
-      type: 'Shooting',
-      youtubeId: 'dQw4w9WgXcQ',
-      thumbnail: '/0009.jpeg',
-      description: 'Advertisement production'
+      title: 'ボカロMV作品 03',
+      type: 'Motion Graphic',
+      youtubeId: 'Qu_fs__Kd9M',
+      thumbnail: '/0008.jpg',
+      description: 'ボカロMV制作'
     },
     {
       id: 4,
-      title: 'Video Editing',
-      type: 'Editing',
-      youtubeId: 'dQw4w9WgXcQ',
-      thumbnail: '/0010.jpg',
-      description: 'Professional video editing'
+      title: 'ボカロMV作品 04',
+      type: 'Motion Graphic',
+      youtubeId: 'ief1wDn1Hvw',
+      thumbnail: '/0008.jpg',
+      description: 'ボカロMV制作'
+    },
+    {
+      id: 5,
+      title: 'ボカロMV作品 05',
+      type: 'Motion Graphic',
+      youtubeId: 'b5YqyYZHuIg',
+      thumbnail: '/0008.jpg',
+      description: 'ボカロMV制作'
+    },
+    {
+      id: 6,
+      title: 'ボカロMV作品 06',
+      type: 'Motion Graphic',
+      youtubeId: 'wITTxektnLI',
+      thumbnail: '/0008.jpg',
+      description: 'ボカロMV制作'
+    },
+    {
+      id: 7,
+      title: 'ボカロMV作品 07',
+      type: 'Motion Graphic',
+      youtubeId: 'otS8ARQdRjg',
+      thumbnail: '/0008.jpg',
+      description: 'ボカロMV制作'
+    },
+    {
+      id: 8,
+      title: 'ボカロMV作品 08',
+      type: 'Motion Graphic',
+      youtubeId: 'vwfPjrwr8oQ',
+      thumbnail: '/0008.jpg',
+      description: 'ボカロMV制作'
+    },
+    {
+      id: 9,
+      title: 'ボカロMV作品 09',
+      type: 'Motion Graphic',
+      youtubeId: 'i6gfndh_t0o',
+      thumbnail: '/0008.jpg',
+      description: 'ボカロMV制作'
+    },
+    {
+      id: 10,
+      title: 'ボカロMV作品 10',
+      type: 'Motion Graphic',
+      youtubeId: 'WVUyDkCgreY',
+      thumbnail: '/0008.jpg',
+      description: 'ボカロMV制作'
+    },
+    {
+      id: 11,
+      title: 'ボカロMV作品 11',
+      type: 'Motion Graphic',
+      youtubeId: '0wWg1sQ-Odw',
+      thumbnail: '/0008.jpg',
+      description: 'ボカロMV制作'
+    },
+    {
+      id: 12,
+      title: 'ボカロMV作品 12',
+      type: 'Motion Graphic',
+      youtubeId: 'WgApJT4Grhs',
+      thumbnail: '/0008.jpg',
+      description: 'ボカロMV制作'
     }
   ]
 

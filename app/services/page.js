@@ -7,23 +7,23 @@ import Footer from '@/components/Footer'
 export default function Services() {
   const services = [
     {
-      icon: '📹',
-      title: 'Shooting',
-      description: '広告・SNS・YouTubeなどの高品質撮影サービス。',
+      icon: '🚁',
+      title: 'Drone Operation',
+      description: 'ドローン空撮による映像撮影。安定型ドローンとFPVドローンでの撮影が可能',
       details: [
         'ドローン4K空撮',
-        '複数角度からの撮影',
-        'ロケーション撮影対応'
+        '安定型ドローン撮影',
+        'FPVドローン撮影'
       ]
     },
     {
-      icon: '✂️',
-      title: 'Editing',
-      description: 'ボカロMV、通常動画の高品質編集。',
+      icon: '📹',
+      title: 'Shooting / Editing',
+      description: '広告・SNS・YouTubeなどの高品質撮影・編集サービス。',
       details: [
-        'ボカロMV編集',
-        '通常動画編集',
-        'カラーグレーディング'
+        '高品質撮影',
+        '動画編集・カラーグレーディング',
+        'ロケーション撮影対応'
       ]
     },
     {
@@ -44,7 +44,8 @@ export default function Services() {
         'ロゴデザイン',
         'サムネイル制作',
         'バナー・UI デザイン'
-      ]
+      ],
+      hasButton: true
     }
   ]
 
@@ -116,7 +117,7 @@ export default function Services() {
                 <div className="text-5xl mb-6">{service.icon}</div>
                 <h3 className="text-3xl font-light text-white mb-4" style={{ fontFamily: 'Georgia, serif' }}>{service.title}</h3>
                 <p className="text-text-secondary mb-8 font-light">{service.description}</p>
-                <ul className="space-y-3">
+                <ul className="space-y-3 mb-8">
                   {service.details.map((detail, i) => (
                     <li key={i} className="text-text-secondary text-sm flex items-start font-light">
                       <span className="text-white mr-3 font-light">→</span>
@@ -124,6 +125,11 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
+                {service.hasButton && (
+                  <a href="/graphic" className="inline-block text-white text-xs font-light tracking-widest border border-white px-6 py-2 hover:bg-white hover:text-black transition-all">
+                    詳細を見る
+                  </a>
+                )}
               </motion.div>
             ))}
           </div>

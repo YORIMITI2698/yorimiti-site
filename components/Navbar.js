@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 
 export default function Navbar() {
@@ -11,8 +12,15 @@ export default function Navbar() {
       <div className="w-full px-4 sm:px-6 lg:px-12">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-light text-white pt-0 hover:text-text-secondary transition-colors" style={{ fontFamily: 'Georgia, serif' }}>
-            🦉 YORIMITI
+          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <Image
+              src="/yorimiti-logo.png"
+              alt="YORIMITI Logo"
+              width={40}
+              height={40}
+              priority
+              className="w-10 h-10"
+            />
           </Link>
 
           {/* Desktop Menu - Right Top */}
