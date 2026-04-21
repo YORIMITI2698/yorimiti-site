@@ -236,46 +236,4 @@ export default function Works() {
             ))}
           </motion.div>
         </div>
-      </section>
-
-      {/* Video Modal */}
-      {selectedVideo && (
-        <motion.div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => setSelectedVideo(null)}
-        >
-          <motion.div
-            className="relative w-full max-w-4xl aspect-video rounded-lg overflow-hidden"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <iframe
-              width="100%"
-              height="100%"
-              src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1`}
-              title={selectedVideo.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-            <motion.button
-              onClick={() => setSelectedVideo(null)}
-              className="absolute top-4 right-4 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full flex items-center justify-center text-white text-2xl"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              ✕
-            </motion.button>
-          </motion.div>
-        </motion.div>
-      )}
-
-      <Footer />
-    </main>
-  )
-}
+      </se

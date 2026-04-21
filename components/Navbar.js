@@ -70,14 +70,4 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 className="block px-4 py-2 text-xs font-light text-text-secondary hover:text-white transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
-    </nav>
-  )
-}
+                onClick={() 
