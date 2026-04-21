@@ -43,7 +43,7 @@ export default function Graphic() {
       <Navbar />
 
       {/* Graphic Hero - Dark Theme */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20" style={{ backgroundColor: '#0a0a0a' }}>
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-20" style={{ backgroundColor: '#0a0a0a' }}>
         {/* Geometric Background Animation */}
         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -67,57 +67,88 @@ export default function Graphic() {
           <motion.circle cx="500" cy="150" r="3" fill="rgba(255, 255, 255, 0.3)" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 5, repeat: Infinity, delay: 1 }} />
         </svg>
 
-        {/* Content */}
-        <motion.div
-          className="relative z-10 text-center"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h1
-            className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-6"
-            style={{ fontFamily: 'Georgia, Garamond, serif' }}
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            YORIMITI
-          </motion.h1>
-          <motion.h2
-            className="text-4xl md:text-5xl font-light text-white mb-8"
-            style={{ fontFamily: 'Georgia, Garamond, serif' }}
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Graphic
-          </motion.h2>
-          <motion.p
-            className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            Visual & Graphic Design Studio
-          </motion.p>
-          <motion.p
-            className="text-sm md:text-base text-gray-400 max-w-xl mx-auto mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            ブランドアイデンティティを表現する高品質なグラフィックデザイン。<br/>ロゴからUI/UXまで、創造性をもって実現します。
-          </motion.p>
-          <motion.button
-            className="border border-white text-white px-8 py-3 hover:bg-white hover:text-black transition-all duration-300"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            whileHover={{ scale: 1.05 }}
-          >
-            explore →
-          </motion.button>
-        </motion.div>
+        {/* Content Grid */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <motion.p
+                className="text-sm text-gray-400 mb-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                (Studio)
+              </motion.p>
+              <motion.h1
+                className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6"
+                style={{ fontFamily: 'Georgia, Garamond, serif' }}
+                initial={{ opacity: 0, y: -30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                YORIMITI Graphic
+              </motion.h1>
+              <motion.p
+                className="text-base md:text-lg text-gray-300 leading-relaxed mb-8 max-w-md"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                ロゴ、サムネイル、UI/UXデザイン。<br/>
+                プロセスとアイデアから形になった<br/>
+                グラフィックデザインをまとめています。
+              </motion.p>
+              <motion.p
+                className="text-sm md:text-base text-gray-400 leading-relaxed mb-8 max-w-md"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
+                A selection of graphic design shaped through process and ideas.
+              </motion.p>
+              <motion.button
+                className="border border-white text-white px-6 py-2 text-sm hover:bg-white hover:text-black transition-all duration-300"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                View Graphic →
+              </motion.button>
+            </motion.div>
+
+            {/* Right - Visual Element */}
+            <motion.div
+              className="hidden lg:block"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <div className="relative aspect-square bg-gradient-to-br from-gray-900 to-black rounded-xl overflow-hidden border border-gray-800">
+                <svg className="w-full h-full" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                  {/* Abstract Design Elements */}
+                  <motion.circle cx="200" cy="200" r="150" fill="none" stroke="rgba(255, 255, 255, 0.1)" strokeWidth="2" animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} />
+                  <motion.circle cx="200" cy="200" r="100" fill="none" stroke="rgba(100, 200, 255, 0.2)" strokeWidth="2" animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }} />
+                  <motion.rect x="100" y="100" width="200" height="200" fill="none" stroke="rgba(255, 255, 255, 0.1)" strokeWidth="2" animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} />
+
+                  {/* Floating Elements */}
+                  <motion.circle cx="150" cy="150" r="8" fill="rgba(100, 200, 255, 0.6)" animate={{ y: [-20, 20, -20] }} transition={{ duration: 4, repeat: Infinity }} />
+                  <motion.circle cx="250" cy="150" r="8" fill="rgba(100, 200, 255, 0.6)" animate={{ y: [20, -20, 20] }} transition={{ duration: 5, repeat: Infinity }} />
+                  <motion.circle cx="200" cy="250" r="8" fill="rgba(100, 200, 255, 0.6)" animate={{ y: [-15, 15, -15] }} transition={{ duration: 4.5, repeat: Infinity }} />
+
+                  {/* Decorative Lines */}
+                  <line x1="100" y1="200" x2="300" y2="200" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" />
+                  <line x1="200" y1="100" x2="200" y2="300" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" />
+                </svg>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Graphic Services Section - Dark Theme */}
