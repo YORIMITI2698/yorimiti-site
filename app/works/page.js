@@ -107,7 +107,7 @@ export default function Works() {
     }
   ]
 
-  const types = ['All', 'Motion Graphic', 'Drone Operation', 'Shooting', 'Editing']
+  const types = ['All', 'Motion Graphic', 'Drone Operation', 'Shooting', 'Editing', 'MIX']
   const [selectedType, setSelectedType] = useState('All')
 
   const filteredWorks = selectedType === 'All'
@@ -118,38 +118,8 @@ export default function Works() {
     <main className="bg-black min-h-screen">
       <Navbar />
 
-      {/* Works Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-b from-dark-bg via-dark-bg to-dark-highlight">
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-          <motion.div
-            className="text-center"
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.h1
-              className="text-6xl md:text-7xl lg:text-8xl font-light leading-tight text-white mb-8"
-              style={{ fontFamily: 'Georgia, serif' }}
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Works
-            </motion.h1>
-            <motion.p
-              className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              実績 / ポートフォリオ
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Filter Tags */}
-      <section className="py-16 px-4 bg-dark-bg border-y border-dark-highlight">
+      <section className="pt-20 py-16 px-4 bg-dark-bg border-y border-dark-highlight">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="flex flex-wrap gap-4 justify-center"

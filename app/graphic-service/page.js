@@ -9,7 +9,8 @@ export default function GraphicService() {
     {
       title: 'GRAPHIC',
       icon: '🎨',
-      description: 'ロゴ、サムネイル、UI/UXデザイン',
+      description: 'ロゴ、サムネイル、UI/UXデザイン。\nプロセスとアイデアから形になった\nグラフィックデザインをまとめています。',
+      englishDesc: 'A selection of graphic design shaped through process and ideas.',
       details: [
         'ロゴマーク制作',
         'YouTubeサムネイル',
@@ -84,7 +85,10 @@ export default function GraphicService() {
                 <h3 className="text-3xl font-light text-white mb-4" style={{ fontFamily: 'Georgia, serif' }}>
                   {service.title}
                 </h3>
-                <p className="text-text-secondary mb-8 font-light">{service.description}</p>
+                <p className="text-text-secondary mb-3 font-light whitespace-pre-line">{service.description}</p>
+                {service.englishDesc && (
+                  <p className="text-text-tertiary text-xs mb-8 font-light italic">{service.englishDesc}</p>
+                )}
                 <ul className="space-y-3">
                   {service.details.map((detail, i) => (
                     <li key={i} className="text-text-secondary text-sm flex items-start font-light">

@@ -29,24 +29,6 @@ export default function Hero() {
         animate={{ y: [0, 30, 0] }}
         transition={{ duration: 6, repeat: Infinity }}
       />
-      <motion.div
-        className="absolute w-80 h-80 bg-gradient-to-r from-cyan-600/3 to-transparent rounded-full bottom-10 right-5 blur-3xl"
-        animate={{ y: [0, -30, 0] }}
-        transition={{ duration: 8, repeat: Infinity, reverse: true }}
-      />
-
-      {/* Bottom Left - Title Only */}
-      <div className="absolute bottom-8 left-8 z-10">
-        {/* Title */}
-        <motion.h1
-          className="text-8xl md:text-9xl font-bold text-white leading-none"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-        >
-          YORIMITI
-        </motion.h1>
-      </div>
     </section>
   )
 }
