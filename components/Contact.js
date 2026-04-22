@@ -643,7 +643,7 @@ export default function Contact() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            {isSubmitting ? '送信中...' : 'SUBMIT'}
+            {isSubmitting ? '送信中...' : 'フォームを送信'}
           </motion.button>
         </motion.form>
       </div>

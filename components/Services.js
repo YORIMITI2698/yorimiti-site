@@ -13,13 +13,8 @@ const services = [
   },
   {
     icon: '📹',
-    title: 'Shooting',
-    description: '広告・SNS・YouTubeなどの高品質撮影サービス。'
-  },
-  {
-    icon: '✂️',
-    title: 'Editing',
-    description: '高品質な動画編集サービス。'
+    title: 'Shooting & Editing',
+    description: '広告・SNS・YouTubeなどの高品質撮影と、ボカロMV・通常動画の高品質編集サービス。'
   }
 ]
 
@@ -294,8 +289,8 @@ export default function Services() {
 
             <div className="mb-40"></div>
 
-            {/* Row 2: Shooting */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-40 items-start">
+            {/* Row 2: Shooting & Editing */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-48 items-start">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -304,10 +299,13 @@ export default function Services() {
                 className="flex flex-col justify-center"
               >
                 <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                  Shooting
+                  Shooting & Editing
                 </h3>
                 <p className="text-lg text-text-secondary leading-relaxed">
                   広告・SNS・YouTubeなどの高品質撮影サービス。
+                </p>
+                <p className="text-lg text-text-secondary leading-relaxed mt-4">
+                  ボカロMV、通常動画の高品質編集。
                 </p>
               </motion.div>
 
@@ -328,43 +326,6 @@ export default function Services() {
                     priority
                   />
                 </div>
-              </motion.div>
-            </div>
-
-            {/* Row 3: Editing */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-48 items-start">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="hidden lg:block"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
-                  <Image
-                    src="/0009.jpeg"
-                    alt="Editing Service"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="flex flex-col justify-center lg:col-span-2"
-              >
-                <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                  Editing
-                </h3>
-                <p className="text-lg text-text-secondary leading-relaxed">
-                  ボカロMV、通常動画の高品質編集。
-                </p>
               </motion.div>
             </div>
 

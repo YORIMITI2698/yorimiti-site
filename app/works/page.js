@@ -118,8 +118,23 @@ export default function Works() {
     <main className="bg-black min-h-screen">
       <Navbar />
 
+      {/* Works Title */}
+      <section className="pt-20 px-4 bg-dark-bg">
+        <div className="max-w-7xl mx-auto">
+          <motion.h1
+            className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-8"
+            style={{ fontFamily: 'Georgia, serif' }}
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            WORKS
+          </motion.h1>
+        </div>
+      </section>
+
       {/* Filter Tags */}
-      <section className="pt-20 py-16 px-4 bg-dark-bg border-y border-dark-highlight">
+      <section className="py-16 px-4 bg-dark-bg border-y border-dark-highlight">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="flex flex-wrap gap-4 justify-center"
