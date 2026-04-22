@@ -24,7 +24,20 @@ export default function Contact() {
 
   const serviceOptions = ['通常のご相談', 'Vocal Mix', 'ボカロMV']
   const menuOptions = ['Full', '1Chorus', 'Short']
-  const optionChoices = ['短納期', 'ハモリガイド作成', 'アカペラ書き出し', 'Inst+ハモリ書き出し']
+  const optionChoices = [
+    { label: '短納期：3日以内', price: '+50%' },
+    { label: 'ハモリガイド', price: '+￥1,000～(※尺により変動)' }
+  ]
+
+  const pricingData = [
+    { menu: 'Full', price: '￥6,600-', deadline: '10~14日', vocal: '+￥3,000- / 1名' },
+    { menu: '1Chorus', price: '￥4,400-', deadline: '10~14日', vocal: '+￥2,200- / 1名' },
+    { menu: 'Short', price: '￥2,200-', deadline: '5~7日', vocal: '+￥1,100- / 1名' }
+  ]
+
+  const handleBocaroMVChange = (field, value) => {
+    setBocaroMVData({ ...bocaroMVData, [field]: value })
+  }
 
   const handleVocalMixChange = (field, value) => {
     setVocalMixData({ ...vocalMixData, [field]: value })
@@ -39,28 +52,34 @@ export default function Contact() {
     })
   }
 
-  const handleBocaroMVChange = (field, value) => {
-    setBocaroMVData({ ...bocaroMVData, [field]: value })
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
   }
 
   return (
-    <section id="contact" className="py-20 bg-dark-bg">
-      <div className="max-w-3xl mx-auto px-4 lg:px-8">
+    <section id="contact" className="py-24 bg-dark-bg">
+      <div className="max-w-4xl mx-auto px-4 lg:px-8">
+        {/* Title */}
         <motion.h2
-          className="text-5xl md:text-6xl font-light text-white mb-16 text-center"
+          className="text-5xl md:text-6xl font-light text-white mb-6 text-center"
           style={{ fontFamily: 'Georgia, serif' }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          お問い合わせ
+          Contact
         </motion.h2>
+        <motion.p
+          className="text-center text-text-secondary mb-16 text-sm"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
+          お気軽にお問い合わせください
+        </motion.p>
 
         <motion.form
           action="https://formspree.io/f/maqaoblg"
@@ -71,99 +90,68 @@ export default function Contact() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          {/* Service Selection */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <label className="block text-sm font-light text-text-secondary mb-4 tracking-widest">
-              ご希望のサービス / SERVICE
+          {/* Service Selection - Dropdown */}
+          <div>
+            <label className="block text-xs font-light text-text-secondary mb-3 tracking-widest uppercase">
+              サービス選択 *
             </label>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <select
+              value={selectedService}
+              onChange={(e) => setSelectedService(e.target.value)}
+              className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white focus:border-white focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'right 12px center',
+                paddingRight: '40px'
+              }}
+            >
               {serviceOptions.map((option) => (
-                <motion.button
-                  key={option}
-                  type="button"
-                  onClick={() => setSelectedService(option)}
-                  className={`px-6 py-3 rounded-lg font-light text-sm transition-all border ${
-                    selectedService === option
-                      ? 'bg-white text-black border-white'
-                      : 'bg-dark-highlight border-dark-highlight text-text-secondary hover:border-white hover:text-white'
-                  }`}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
+                <option key={option} value={option}>
                   {option}
-                </motion.button>
+                </option>
               ))}
-            </div>
+            </select>
             <input type="hidden" name="service" value={selectedService} />
-          </motion.div>
+          </div>
 
           {/* Common Fields */}
-          <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            {/* Name */}
+          <div className="space-y-6 pt-4 border-t border-dark-highlight">
             <div>
-              <label className="block text-xs text-text-tertiary mb-2 tracking-widest">
+              <label className="block text-xs font-light text-text-secondary mb-2 tracking-widest uppercase">
                 お名前 *
               </label>
               <input
                 type="text"
                 name="name"
-                placeholder=""
                 required
-                className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white placeholder-text-tertiary focus:border-white focus:outline-none transition-colors text-sm"
+                className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white focus:border-white focus:outline-none transition-colors text-sm"
               />
             </div>
 
-            {/* Company */}
             <div>
-              <label className="block text-xs text-text-tertiary mb-2 tracking-widest">
-                会社名
-              </label>
-              <input
-                type="text"
-                name="company"
-                placeholder=""
-                className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white placeholder-text-tertiary focus:border-white focus:outline-none transition-colors text-sm"
-              />
-            </div>
-
-            {/* Email */}
-            <div>
-              <label className="block text-xs text-text-tertiary mb-2 tracking-widest">
+              <label className="block text-xs font-light text-text-secondary mb-2 tracking-widest uppercase">
                 メールアドレス *
               </label>
               <input
                 type="email"
                 name="email"
-                placeholder=""
                 required
-                className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white placeholder-text-tertiary focus:border-white focus:outline-none transition-colors text-sm"
+                className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white focus:border-white focus:outline-none transition-colors text-sm"
               />
             </div>
 
-            {/* Phone */}
             <div>
-              <label className="block text-xs text-text-tertiary mb-2 tracking-widest">
+              <label className="block text-xs font-light text-text-secondary mb-2 tracking-widest uppercase">
                 電話番号
               </label>
               <input
                 type="tel"
                 name="phone"
-                placeholder=""
-                className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white placeholder-text-tertiary focus:border-white focus:outline-none transition-colors text-sm"
+                className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white focus:border-white focus:outline-none transition-colors text-sm"
               />
             </div>
-          </motion.div>
+          </div>
 
           {/* Vocal Mix Fields */}
           {selectedService === 'Vocal Mix' && (
@@ -171,52 +159,51 @@ export default function Contact() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className="space-y-6 pt-6 border-t border-dark-highlight"
+              className="space-y-8 pt-8 border-t border-dark-highlight"
             >
               {/* Menu Selection */}
               <div>
-                <label className="block text-xs text-text-tertiary mb-3 tracking-widest">
-                  メニュー
+                <label className="block text-xs font-light text-text-secondary mb-3 tracking-widest uppercase">
+                  メニュー *
                 </label>
-                <div className="grid grid-cols-3 gap-2">
+                <select
+                  value={vocalMixData.menu}
+                  onChange={(e) => handleVocalMixChange('menu', e.target.value)}
+                  className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white focus:border-white focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right 12px center',
+                    paddingRight: '40px'
+                  }}
+                >
                   {menuOptions.map((menu) => (
-                    <motion.button
-                      key={menu}
-                      type="button"
-                      onClick={() => handleVocalMixChange('menu', menu)}
-                      className={`px-3 py-2 rounded text-xs font-light transition-all border ${
-                        vocalMixData.menu === menu
-                          ? 'bg-white text-black border-white'
-                          : 'bg-dark-highlight border-dark-highlight text-text-secondary hover:border-white'
-                      }`}
-                      whileHover={{ scale: 1.02 }}
-                    >
+                    <option key={menu} value={menu}>
                       {menu}
-                    </motion.button>
+                    </option>
                   ))}
-                </div>
+                </select>
                 <input type="hidden" name="vocal_menu" value={vocalMixData.menu} />
               </div>
 
               {/* Song Name */}
               <div>
-                <label className="block text-xs text-text-tertiary mb-2 tracking-widest">
+                <label className="block text-xs font-light text-text-secondary mb-2 tracking-widest uppercase">
                   曲名 *
                 </label>
                 <input
                   type="text"
-                  placeholder=""
                   value={vocalMixData.songName}
                   onChange={(e) => handleVocalMixChange('songName', e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white placeholder-text-tertiary focus:border-white focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white focus:border-white focus:outline-none transition-colors text-sm"
                 />
                 <input type="hidden" name="vocal_songName" value={vocalMixData.songName} />
               </div>
 
               {/* Key Change */}
               <div>
-                <label className="block text-xs text-text-tertiary mb-2 tracking-widest">
+                <label className="block text-xs font-light text-text-secondary mb-2 tracking-widest uppercase">
                   キー変更
                 </label>
                 <input
@@ -231,7 +218,7 @@ export default function Contact() {
 
               {/* Deadline */}
               <div>
-                <label className="block text-xs text-text-tertiary mb-2 tracking-widest">
+                <label className="block text-xs font-light text-text-secondary mb-2 tracking-widest uppercase">
                   納品希望日 *
                 </label>
                 <input
@@ -246,7 +233,7 @@ export default function Contact() {
 
               {/* Recording Data */}
               <div>
-                <label className="block text-xs text-text-tertiary mb-2 tracking-widest">
+                <label className="block text-xs font-light text-text-secondary mb-2 tracking-widest uppercase">
                   録音データ *
                 </label>
                 <input
@@ -260,25 +247,87 @@ export default function Contact() {
                 <input type="hidden" name="vocal_recordingData" value={vocalMixData.recordingData} />
               </div>
 
-              {/* Options */}
-              <div>
-                <label className="block text-xs text-text-tertiary mb-3 tracking-widest">
-                  オプション
-                </label>
-                <div className="space-y-2">
-                  {optionChoices.map((option) => (
-                    <label key={option} className="flex items-center gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={vocalMixData.options.includes(option)}
-                        onChange={() => handleOptionToggle(option)}
-                        className="w-4 h-4 accent-white rounded"
-                      />
-                      <span className="text-sm text-text-secondary">{option}</span>
-                    </label>
-                  ))}
+              {/* Pricing Table */}
+              <div className="bg-dark-highlight p-6 border border-dark-highlight">
+                <h4 className="text-sm font-light text-white mb-6 tracking-widest uppercase">Pricing</h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs text-text-secondary">
+                    <thead>
+                      <tr className="border-b border-dark-highlight">
+                        <th className="text-left py-3 px-2 font-light">メニュー</th>
+                        <th className="text-left py-3 px-2 font-light">料金</th>
+                        <th className="text-left py-3 px-2 font-light">納期</th>
+                        <th className="text-left py-3 px-2 font-light">ボーカル追加</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {pricingData.map((row, idx) => (
+                        <tr key={idx} className="border-b border-dark-highlight/50">
+                          <td className="py-3 px-2">{row.menu}</td>
+                          <td className="py-3 px-2">{row.price}</td>
+                          <td className="py-3 px-2">{row.deadline}</td>
+                          <td className="py-3 px-2">{row.vocal}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
-                <input type="hidden" name="vocal_options" value={vocalMixData.options.join(', ')} />
+              </div>
+
+              {/* Info Sections */}
+              <div className="space-y-6 pt-4 border-t border-dark-highlight">
+                <div>
+                  <h4 className="text-sm font-light text-white mb-3 tracking-widest">MIX師からの内容</h4>
+                  <ul className="space-y-2 text-xs text-text-secondary font-light">
+                    <li>• エディット(ピッチ、タイミング補正)</li>
+                    <li>• ミキシング</li>
+                    <li>• エフェクト演出</li>
+                    <li>• 空間演出</li>
+                    <li>• ハモリ生成</li>
+                    <li>• マスタリング(YouTube向け)</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-light text-white mb-3 tracking-widest">納品形式</h4>
+                  <p className="text-xs text-text-secondary font-light">WAV 24bit/48kHz</p>
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-light text-white mb-3 tracking-widest">送っていただくデータ</h4>
+                  <ul className="space-y-2 text-xs text-text-secondary font-light">
+                    <li>• Vocal：WAV 24bit/48kHz 推奨、モノラル、頭出し</li>
+                    <li>• Inst：本家配布のまま(原キー)</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-light text-white mb-3 tracking-widest">オプション</h4>
+                  <div className="space-y-2">
+                    {optionChoices.map((option) => (
+                      <label key={option.label} className="flex items-center gap-3 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={vocalMixData.options.includes(option.label)}
+                          onChange={() => {
+                            const opts = vocalMixData.options.includes(option.label)
+                              ? vocalMixData.options.filter(o => o !== option.label)
+                              : [...vocalMixData.options, option.label]
+                            handleVocalMixChange('options', opts)
+                          }}
+                          className="w-4 h-4 accent-white rounded"
+                        />
+                        <span className="text-xs text-text-secondary font-light">{option.label} <span className="text-accent-cyan">{option.price}</span></span>
+                      </label>
+                    ))}
+                  </div>
+                  <input type="hidden" name="vocal_options" value={vocalMixData.options.join(', ')} />
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-light text-white mb-2 tracking-widest">注意</h4>
+                  <p className="text-xs text-text-secondary font-light">ハモリ生成、ガイド制作はオリジナルの完全再現ではありません</p>
+                </div>
               </div>
             </motion.div>
           )}
@@ -289,25 +338,26 @@ export default function Contact() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className="space-y-6 pt-6 border-t border-dark-highlight"
+              className="space-y-8 pt-8 border-t border-dark-highlight"
             >
+              {/* Song Name */}
               <div>
-                <label className="block text-xs text-text-tertiary mb-2 tracking-widest">
+                <label className="block text-xs font-light text-text-secondary mb-2 tracking-widest uppercase">
                   曲名 *
                 </label>
                 <input
                   type="text"
-                  placeholder=""
                   value={bocaroMVData.songName}
                   onChange={(e) => handleBocaroMVChange('songName', e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white placeholder-text-tertiary focus:border-white focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white focus:border-white focus:outline-none transition-colors text-sm"
                 />
                 <input type="hidden" name="mv_songName" value={bocaroMVData.songName} />
               </div>
 
+              {/* Deadline */}
               <div>
-                <label className="block text-xs text-text-tertiary mb-2 tracking-widest">
+                <label className="block text-xs font-light text-text-secondary mb-2 tracking-widest uppercase">
                   納品希望日 *
                 </label>
                 <input
@@ -320,8 +370,9 @@ export default function Contact() {
                 <input type="hidden" name="mv_deadline" value={bocaroMVData.deadline} />
               </div>
 
+              {/* Reference Video */}
               <div>
-                <label className="block text-xs text-text-tertiary mb-2 tracking-widest">
+                <label className="block text-xs font-light text-text-secondary mb-2 tracking-widest uppercase">
                   参考動画
                 </label>
                 <input
@@ -334,8 +385,9 @@ export default function Contact() {
                 <input type="hidden" name="mv_referenceVideo" value={bocaroMVData.referenceVideo} />
               </div>
 
+              {/* Shared Data */}
               <div>
-                <label className="block text-xs text-text-tertiary mb-2 tracking-widest">
+                <label className="block text-xs font-light text-text-secondary mb-2 tracking-widest uppercase">
                   共有データ
                 </label>
                 <textarea
@@ -347,79 +399,92 @@ export default function Contact() {
                 <input type="hidden" name="mv_sharedData" value={bocaroMVData.sharedData} />
               </div>
 
-              <label className="flex items-center gap-3 cursor-pointer">
+              {/* Include Vocal Mix */}
+              <label className="flex items-center gap-3 cursor-pointer pt-4 border-t border-dark-highlight">
                 <input
                   type="checkbox"
                   checked={bocaroMVData.includeVocalMix}
                   onChange={(e) => handleBocaroMVChange('includeVocalMix', e.target.checked)}
                   className="w-4 h-4 accent-white rounded"
                 />
-                <span className="text-sm text-text-secondary">Mixも同時に依頼する</span>
+                <span className="text-sm font-light text-text-secondary">Mixも同時に依頼する</span>
               </label>
               <input type="hidden" name="mv_includeVocalMix" value={bocaroMVData.includeVocalMix} />
 
-              {/* MIX Information Section */}
+              {/* MIX Information - Only show when checked */}
               {bocaroMVData.includeVocalMix && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="space-y-6 pt-6 border-t border-dark-highlight"
+                  className="space-y-8 pt-8 border-t border-dark-highlight"
                 >
-                  <div>
-                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">MIX師からの内容</h4>
-                    <div className="space-y-3 text-xs text-text-secondary font-light">
-                      <p>• エディット(ピッチ、タイミング補正)</p>
-                      <p>• ミキシング</p>
-                      <p>• エフェクト演出</p>
-                      <p>• 空間演出</p>
-                      <p>• ハモリ生成</p>
-                      <p>• マスタリング(YouTube向け)</p>
+                  {/* Pricing Table */}
+                  <div className="bg-dark-highlight p-6 border border-dark-highlight">
+                    <h4 className="text-sm font-light text-white mb-6 tracking-widest uppercase">Pricing</h4>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-xs text-text-secondary">
+                        <thead>
+                          <tr className="border-b border-dark-highlight">
+                            <th className="text-left py-3 px-2 font-light">メニュー</th>
+                            <th className="text-left py-3 px-2 font-light">料金</th>
+                            <th className="text-left py-3 px-2 font-light">納期</th>
+                            <th className="text-left py-3 px-2 font-light">ボーカル追加</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {pricingData.map((row, idx) => (
+                            <tr key={idx} className="border-b border-dark-highlight/50">
+                              <td className="py-3 px-2">{row.menu}</td>
+                              <td className="py-3 px-2">{row.price}</td>
+                              <td className="py-3 px-2">{row.deadline}</td>
+                              <td className="py-3 px-2">{row.vocal}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
                     </div>
                   </div>
 
-                  <div>
-                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">料金/納期(修正込み目安)</h4>
-                    <div className="space-y-2 text-xs text-text-secondary font-light">
-                      <p>• Full ￥6,600- / 10~14日</p>
-                      <p>• 1Cho ￥4,400- / 10~14日</p>
-                      <p>• Short ￥2,200- / 5~7日</p>
+                  {/* Info Sections */}
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="text-sm font-light text-white mb-3 tracking-widest">MIX師からの内容</h4>
+                      <ul className="space-y-2 text-xs text-text-secondary font-light">
+                        <li>• エディット(ピッチ、タイミング補正)</li>
+                        <li>• ミキシング</li>
+                        <li>• エフェクト演出</li>
+                        <li>• 空間演出</li>
+                        <li>• ハモリ生成</li>
+                        <li>• マスタリング(YouTube向け)</li>
+                      </ul>
                     </div>
-                  </div>
 
-                  <div>
-                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">ボーカル追加</h4>
-                    <div className="space-y-2 text-xs text-text-secondary font-light">
-                      <p>• Full：+￥3,000- / 1名</p>
-                      <p>• 1Cho：+￥2,200- / 1名</p>
-                      <p>• Short：+￥1,100- / 1名</p>
+                    <div>
+                      <h4 className="text-sm font-light text-white mb-3 tracking-widest">納品形式</h4>
+                      <p className="text-xs text-text-secondary font-light">WAV 24bit/48kHz</p>
                     </div>
-                  </div>
 
-                  <div>
-                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">納品形式</h4>
-                    <p className="text-xs text-text-secondary font-light">WAV 24bit/48kHz</p>
-                  </div>
-
-                  <div>
-                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">送っていただくデータ</h4>
-                    <div className="space-y-2 text-xs text-text-secondary font-light">
-                      <p>• Vocal：WAV 24bit/48kHz 推奨、モノラル、頭出し</p>
-                      <p>• Inst：本家配布のまま(原キー)</p>
+                    <div>
+                      <h4 className="text-sm font-light text-white mb-3 tracking-widest">送っていただくデータ</h4>
+                      <ul className="space-y-2 text-xs text-text-secondary font-light">
+                        <li>• Vocal：WAV 24bit/48kHz 推奨、モノラル、頭出し</li>
+                        <li>• Inst：本家配布のまま(原キー)</li>
+                      </ul>
                     </div>
-                  </div>
 
-                  <div>
-                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">オプション</h4>
-                    <div className="space-y-2 text-xs text-text-secondary font-light">
-                      <p>• 短納期：3日以内 +50%</p>
-                      <p>• ハモリガイド：+￥1,000～(※尺により変動)</p>
+                    <div>
+                      <h4 className="text-sm font-light text-white mb-3 tracking-widest">オプション</h4>
+                      <ul className="space-y-2 text-xs text-text-secondary font-light">
+                        <li>• 短納期：3日以内 +50%</li>
+                        <li>• ハモリガイド：+￥1,000～(※尺により変動)</li>
+                      </ul>
                     </div>
-                  </div>
 
-                  <div>
-                    <h4 className="text-sm font-light text-white mb-4 tracking-widest">注意</h4>
-                    <p className="text-xs text-text-secondary font-light">ハモリ生成、ガイド制作はオリジナルの完全再現ではありません</p>
+                    <div>
+                      <h4 className="text-sm font-light text-white mb-2 tracking-widest">注意</h4>
+                      <p className="text-xs text-text-secondary font-light">ハモリ生成、ガイド制作はオリジナルの完全再現ではありません</p>
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -427,22 +492,16 @@ export default function Contact() {
           )}
 
           {/* Message */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <label className="block text-xs text-text-tertiary mb-2 tracking-widest">
+          <div className="pt-8 border-t border-dark-highlight">
+            <label className="block text-xs font-light text-text-secondary mb-3 tracking-widest uppercase">
               お問い合わせ内容
             </label>
             <textarea
               name="message"
-              placeholder=""
               rows="6"
               className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white placeholder-text-tertiary focus:border-white focus:outline-none transition-colors text-sm"
             />
-          </motion.div>
+          </div>
 
           {/* Submit */}
           <motion.button
