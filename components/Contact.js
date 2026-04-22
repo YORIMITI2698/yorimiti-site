@@ -19,20 +19,70 @@ export default function Contact() {
     deadline: '',
     referenceVideo: '',
     sharedData: '',
-    includeVocalMix: false
+    includeVocalMix: false,
+    mixMenu: 'Full',
+    mixOptions: []
   })
 
   const serviceOptions = ['通常のご相談', 'Vocal Mix', 'ボカロMV']
   const menuOptions = ['Full', '1Chorus', 'Short']
+
+  const detailedPricingData = {
+    'Full': {
+      price: '¥6,600',
+      deadline: '10～14日（修正込み目安）',
+      vocalAdd: '+¥3,000 / 1名',
+      delivery: 'WAV 24bit/48kHz 納品',
+      included: [
+        'エディット（ピッチ・タイミング補正）',
+        'ミキシング',
+        'エフェクト演出',
+        '空間演出',
+        'ハモリ生成',
+        'マスタリング（YouTube向け）'
+      ]
+    },
+    '1Chorus': {
+      price: '¥4,400',
+      deadline: '10～14日（修正込み目安）',
+      vocalAdd: '+¥2,200 / 1名',
+      delivery: 'WAV 24bit/48kHz 納品',
+      included: [
+        'エディット（ピッチ・タイミング補正）',
+        'ミキシング',
+        'エフェクト演出',
+        '空間演出',
+        'ハモリ生成',
+        'マスタリング（YouTube向け）'
+      ]
+    },
+    'Short': {
+      price: '¥2,200',
+      deadline: '5～7日（修正込み目安）',
+      vocalAdd: '+¥1,100 / 1名',
+      delivery: 'WAV 24bit/48kHz 納品',
+      included: [
+        'エディット（ピッチ・タイミング補正）',
+        'ミキシング',
+        'エフェクト演出',
+        '空間演出',
+        'ハモリ生成',
+        'マスタリング（YouTube向け）'
+      ]
+    }
+  }
+
   const optionChoices = [
-    { label: '短納期：3日以内', price: '+50%' },
-    { label: 'ハモリガイド', price: '+￥1,000～(※尺により変動)' }
+    { label: '短納期', price: '+50%', description: '3日以内の納品' },
+    { label: 'ハモリガイド作成', price: '+¥1,000～', description: '尺により変動' },
+    { label: 'アカペラ書き出し', price: '要相談', description: 'ボーカルのみのデータ' },
+    { label: 'Inst+ハモリ書き出し', price: '要相談', description: '別ファイルでの書き出し' }
   ]
 
   const pricingData = [
-    { menu: 'Full', price: '￥6,600-', deadline: '10~14日', vocal: '+￥3,000- / 1名' },
-    { menu: '1Chorus', price: '￥4,400-', deadline: '10~14日', vocal: '+￥2,200- / 1名' },
-    { menu: 'Short', price: '￥2,200-', deadline: '5~7日', vocal: '+￥1,100- / 1名' }
+    { menu: 'Full', price: '¥6,600', deadline: '10～14日', vocal: '+¥3,000 / 1名' },
+    { menu: '1Chorus', price: '¥4,400', deadline: '10～14日', vocal: '+¥2,200 / 1名' },
+    { menu: 'Short', price: '¥2,200', deadline: '5～7日', vocal: '+¥1,100 / 1名' }
   ]
 
   const handleBocaroMVChange = (field, value) => {
@@ -186,6 +236,47 @@ export default function Contact() {
                 <input type="hidden" name="vocal_menu" value={vocalMixData.menu} />
               </div>
 
+              {/* Selected Menu Detail Card */}
+              {detailedPricingData[vocalMixData.menu] && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-dark-highlight border border-dark-highlight p-6 space-y-4"
+                >
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div>
+                      <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">料金</p>
+                      <p className="text-base text-white font-light">{detailedPricingData[vocalMixData.menu].price}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">納期</p>
+                      <p className="text-xs text-text-secondary font-light">{detailedPricingData[vocalMixData.menu].deadline}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">ボーカル追加</p>
+                      <p className="text-xs text-text-secondary font-light">{detailedPricingData[vocalMixData.menu].vocalAdd}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">納品形式</p>
+                      <p className="text-xs text-text-secondary font-light">{detailedPricingData[vocalMixData.menu].delivery}</p>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-dark-highlight pt-4">
+                    <p className="text-xs text-text-tertiary mb-3 tracking-widest uppercase">含まれる内容</p>
+                    <ul className="space-y-2">
+                      {detailedPricingData[vocalMixData.menu].included.map((item, idx) => (
+                        <li key={idx} className="text-xs text-text-secondary font-light flex items-start">
+                          <span className="text-white mr-2">→</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              )}
+
               {/* Song Name */}
               <div>
                 <label className="block text-xs font-light text-text-secondary mb-2 tracking-widest uppercase">
@@ -302,10 +393,10 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-light text-white mb-3 tracking-widest">オプション</h4>
-                  <div className="space-y-2">
+                  <h4 className="text-sm font-light text-white mb-4 tracking-widest">オプション</h4>
+                  <div className="space-y-3">
                     {optionChoices.map((option) => (
-                      <label key={option.label} className="flex items-center gap-3 cursor-pointer">
+                      <label key={option.label} className="flex items-start gap-3 cursor-pointer p-3 bg-dark-bg hover:bg-dark-highlight/50 transition-colors rounded">
                         <input
                           type="checkbox"
                           checked={vocalMixData.options.includes(option.label)}
@@ -315,9 +406,15 @@ export default function Contact() {
                               : [...vocalMixData.options, option.label]
                             handleVocalMixChange('options', opts)
                           }}
-                          className="w-4 h-4 accent-white rounded"
+                          className="w-4 h-4 accent-white rounded mt-0.5 flex-shrink-0"
                         />
-                        <span className="text-xs text-text-secondary font-light">{option.label} <span className="text-accent-cyan">{option.price}</span></span>
+                        <div className="flex-1">
+                          <p className="text-xs text-text-secondary font-light flex items-center justify-between">
+                            <span>{option.label}</span>
+                            <span className="text-white">{option.price}</span>
+                          </p>
+                          <p className="text-xs text-text-tertiary font-light mt-1">{option.description}</p>
+                        </div>
                       </label>
                     ))}
                   </div>
@@ -419,9 +516,75 @@ export default function Contact() {
                   transition={{ duration: 0.3 }}
                   className="space-y-8 pt-8 border-t border-dark-highlight"
                 >
+                  {/* Menu Selection for MIX */}
+                  <div>
+                    <label className="block text-xs font-light text-text-secondary mb-3 tracking-widest uppercase">
+                      MIXメニュー *
+                    </label>
+                    <select
+                      value={bocaroMVData.mixMenu}
+                      onChange={(e) => handleBocaroMVChange('mixMenu', e.target.value)}
+                      className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white focus:border-white focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'right 12px center',
+                        paddingRight: '40px'
+                      }}
+                    >
+                      {menuOptions.map((menu) => (
+                        <option key={menu} value={menu}>
+                          {menu}
+                        </option>
+                      ))}
+                    </select>
+                    <input type="hidden" name="mv_mixMenu" value={bocaroMVData.mixMenu} />
+                  </div>
+
+                  {/* Selected Menu Detail Card */}
+                  {detailedPricingData[bocaroMVData.mixMenu] && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="bg-dark-highlight border border-dark-highlight p-6 space-y-4"
+                    >
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div>
+                          <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">料金</p>
+                          <p className="text-base text-white font-light">{detailedPricingData[bocaroMVData.mixMenu].price}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">納期</p>
+                          <p className="text-xs text-text-secondary font-light">{detailedPricingData[bocaroMVData.mixMenu].deadline}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">ボーカル追加</p>
+                          <p className="text-xs text-text-secondary font-light">{detailedPricingData[bocaroMVData.mixMenu].vocalAdd}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">納品形式</p>
+                          <p className="text-xs text-text-secondary font-light">{detailedPricingData[bocaroMVData.mixMenu].delivery}</p>
+                        </div>
+                      </div>
+
+                      <div className="border-t border-dark-highlight pt-4">
+                        <p className="text-xs text-text-tertiary mb-3 tracking-widest uppercase">含まれる内容</p>
+                        <ul className="space-y-2">
+                          {detailedPricingData[bocaroMVData.mixMenu].included.map((item, idx) => (
+                            <li key={idx} className="text-xs text-text-secondary font-light flex items-start">
+                              <span className="text-white mr-2">→</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+
                   {/* Pricing Table */}
                   <div className="bg-dark-highlight p-6 border border-dark-highlight">
-                    <h4 className="text-sm font-light text-white mb-6 tracking-widest uppercase">Pricing</h4>
+                    <h4 className="text-sm font-light text-white mb-6 tracking-widest uppercase">料金表</h4>
                     <div className="overflow-x-auto">
                       <table className="w-full text-xs text-text-secondary">
                         <thead>
@@ -474,11 +637,32 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <h4 className="text-sm font-light text-white mb-3 tracking-widest">オプション</h4>
-                      <ul className="space-y-2 text-xs text-text-secondary font-light">
-                        <li>• 短納期：3日以内 +50%</li>
-                        <li>• ハモリガイド：+￥1,000～(※尺により変動)</li>
-                      </ul>
+                      <h4 className="text-sm font-light text-white mb-4 tracking-widest">オプション</h4>
+                      <div className="space-y-3">
+                        {optionChoices.map((option) => (
+                          <label key={option.label} className="flex items-start gap-3 cursor-pointer p-3 bg-dark-bg/50 hover:bg-dark-highlight/30 transition-colors rounded">
+                            <input
+                              type="checkbox"
+                              checked={bocaroMVData.mixOptions.includes(option.label)}
+                              onChange={() => {
+                                const opts = bocaroMVData.mixOptions.includes(option.label)
+                                  ? bocaroMVData.mixOptions.filter(o => o !== option.label)
+                                  : [...bocaroMVData.mixOptions, option.label]
+                                handleBocaroMVChange('mixOptions', opts)
+                              }}
+                              className="w-4 h-4 accent-white rounded mt-0.5 flex-shrink-0"
+                            />
+                            <div className="flex-1">
+                              <p className="text-xs text-text-secondary font-light flex items-center justify-between">
+                                <span>{option.label}</span>
+                                <span className="text-white">{option.price}</span>
+                              </p>
+                              <p className="text-xs text-text-tertiary font-light mt-1">{option.description}</p>
+                            </div>
+                          </label>
+                        ))}
+                      </div>
+                      <input type="hidden" name="mv_mixOptions" value={bocaroMVData.mixOptions.join(', ')} />
                     </div>
 
                     <div>
