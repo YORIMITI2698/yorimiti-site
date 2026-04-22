@@ -24,11 +24,12 @@ export default function About() {
       nameEn: 'LiESE',
       nickname: 'xisz',
       roles: ['Vsinger', 'Vocal Mix Engineer'],
-      bio: '2025年4月4日 デビュー',
+      bio: '2025年4月4日 デビュー\nVOIDLAB.代表',
       image: '/0005.png',
       socials: [
         { name: 'Twitter', url: 'https://twitter.com/xisz_', icon: '𝕏' },
-        { name: 'YouTube', url: 'https://youtube.com/@xisz_', icon: '▶️' }
+        { name: 'YouTube', url: 'https://youtube.com/@xisz_', icon: '▶️' },
+        { name: 'VOIDLAB', url: 'https://void-lab.netlify.app/', icon: '🌐' }
       ]
     }
   ]
@@ -102,7 +103,7 @@ export default function About() {
                 whileHover={{ borderColor: '#ffffff' }}
               >
                 <Image
-                  src="/0001.jpg"
+                  src="/0002.jpg"
                   alt="YORIMITI Studio"
                   fill
                   className="object-cover"
@@ -214,3 +215,4 @@ export default function About() {
     </main>
   )
 }
+                                                                                                                                                                                                                                                                                                                                                                                       
