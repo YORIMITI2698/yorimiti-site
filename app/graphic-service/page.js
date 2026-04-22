@@ -37,7 +37,7 @@ export default function GraphicService() {
     <main className="bg-black min-h-screen">
       <Navbar />
 
-      {/* Graphic Service Hero */}
+      {/* Graphic & Mix Hero - 前のページのデザイン使用 */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-b from-dark-bg via-dark-bg to-dark-highlight">
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <motion.div

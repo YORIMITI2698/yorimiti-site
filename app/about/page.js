@@ -37,19 +37,35 @@ export default function About() {
     <main className="bg-black min-h-screen">
       <Navbar />
 
-      {/* Story Section */}
-      <section className="pt-20 py-32 px-4 bg-dark-bg border-y border-dark-highlight">
+      {/* ABOUT Title */}
+      <section className="pt-20 px-4 bg-dark-bg">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <motion.h1
+            className="text-5xl md:text-6xl font-light text-white mb-12"
+            style={{ fontFamily: 'Georgia, serif' }}
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            About YORIMITI
+          </motion.h1>
+        </div>
+      </section>
+
+      {/* Story Section */}
+      <section className="py-24 px-4 bg-dark-bg border-y border-dark-highlight">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start">
             {/* Left - Text */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="lg:col-span-2"
             >
               <motion.h2
-                className="text-5xl md:text-6xl font-light mb-12 text-white"
+                className="text-4xl md:text-5xl font-light mb-8 text-white"
                 style={{ fontFamily: 'Georgia, serif' }}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -57,19 +73,17 @@ export default function About() {
               >
                 Story
               </motion.h2>
-              <div className="space-y-6 text-text-secondary leading-relaxed text-sm md:text-base">
+              <div className="space-y-4 text-text-secondary leading-relaxed text-sm md:text-base max-w-xl">
                 <p>
                   YORIMITIは、誰もが立ち寄れる温かな居場所を目指します。
                 </p>
                 <p>
-                  フクロウが「福を囲む鳥」と呼ばれるように、<br className="hidden md:block" />
-                  私たちも依頼者とともに福を広げていきたい。
+                  フクロウが「福を囲む鳥」と呼ばれるように、私たちも依頼者とともに福を広げていきたい。
                 </p>
                 <p>
-                  ロゴの黒は確固たる存在を、明るい背景は<br className="hidden md:block" />
-                  支えてくださる方々への感謝を象徴しています。
+                  ロゴの黒は確固たる存在を、明るい背景は支えてくださる方々への感謝を象徴しています。
                 </p>
-                <p className="pt-4">
+                <p className="pt-2">
                   私たちは、どんな時も頼れる存在でありたい。
                 </p>
               </div>
@@ -81,11 +95,11 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="hidden lg:block"
+              className="hidden lg:flex items-start justify-end"
             >
               <motion.div
-                className="relative h-96 rounded-xl overflow-hidden border border-dark-highlight"
-                whileHover={{ borderColor: '#1a1a1a' }}
+                className="relative w-64 h-64 rounded-xl overflow-hidden border border-dark-highlight flex-shrink-0"
+                whileHover={{ borderColor: '#ffffff' }}
               >
                 <Image
                   src="/0001.jpg"
@@ -101,10 +115,10 @@ export default function About() {
       </section>
 
       {/* Member Section */}
-      <section className="py-32 px-4 bg-dark-bg">
+      <section className="py-24 px-4 bg-dark-bg">
         <div className="max-w-7xl mx-auto">
           <motion.h2
-            className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-24"
+            className="text-5xl md:text-6xl font-light text-white mb-16"
             style={{ fontFamily: 'Georgia, serif' }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -114,11 +128,11 @@ export default function About() {
             Member
           </motion.h2>
 
-          <div className="space-y-32">
+          <div className="space-y-20">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+                className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -126,11 +140,11 @@ export default function About() {
               >
                 {/* Image */}
                 <motion.div
-                  className={index % 2 === 1 ? 'order-2' : 'order-1'}
+                  className={index % 2 === 1 ? 'lg:order-3' : 'lg:order-1'}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="relative w-full aspect-square rounded-xl overflow-hidden border border-dark-highlight bg-dark-highlight">
+                  <div className="relative w-56 h-56 rounded-xl overflow-hidden border border-dark-highlight bg-dark-highlight">
                     <Image
                       src={member.image}
                       alt={member.name}
@@ -142,7 +156,7 @@ export default function About() {
                 </motion.div>
 
                 {/* Text */}
-                <motion.div className={index % 2 === 1 ? 'order-1' : 'order-2'}>
+                <motion.div className={index % 2 === 1 ? 'lg:order-1 lg:col-span-2' : 'lg:order-2 lg:col-span-2'}>
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}

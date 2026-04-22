@@ -120,10 +120,9 @@ export default function Works() {
 
       {/* Works Title */}
       <section className="pt-20 px-4 bg-dark-bg">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto text-center">
           <motion.h1
-            className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-8"
-            style={{ fontFamily: 'Georgia, serif' }}
+            className="text-3xl md:text-4xl font-bold text-white mb-8 tracking-wider"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}

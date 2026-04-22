@@ -14,7 +14,7 @@ const services = [
   {
     icon: '📹',
     title: 'Shooting & Editing',
-    description: '広告・SNS・YouTubeなどの高品質撮影と、ボカロMV・通常動画の高品質編集サービス。'
+    description: '広告・SNS・YouTubeなどの高品質撮影と、通常動画の高品質編集サービス。'
   }
 ]
 
