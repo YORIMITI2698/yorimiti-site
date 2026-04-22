@@ -21,6 +21,7 @@ export default function Navbar() {
               priority
               className="w-10 h-10"
             />
+            <span className="text-sm font-light text-white hidden sm:inline">YORIMITI</span>
           </Link>
 
           {/* Desktop Menu - Right Top */}

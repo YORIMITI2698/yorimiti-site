@@ -7,6 +7,11 @@ import { useState, useRef } from 'react'
 
 const services = [
   {
+    icon: '🚁',
+    title: 'Drone Operation',
+    description: 'ドローン空撮による迫力あるビジュアル制作。'
+  },
+  {
     icon: '📹',
     title: 'Shooting',
     description: '広告・SNS・YouTubeなどの高品質撮影サービス。'
@@ -15,16 +20,6 @@ const services = [
     icon: '✂️',
     title: 'Editing',
     description: '高品質な動画編集サービス。'
-  },
-  {
-    icon: '🎨',
-    title: 'Animation MV',
-    description: 'リリックビデオからオリジナルMVまで、多様なモーショングラフィック制作。'
-  },
-  {
-    icon: '🖼️',
-    title: 'YORIMITI graphic',
-    description: 'ロゴ、サムネイル、バナーなどのグラフィックデザイン。'
   }
 ]
 
@@ -37,7 +32,7 @@ const SELECTED_LAYOUT = 'B'
 // ========================================
 
 export default function Services() {
-  const [backgroundColor, setBackgroundColor] = useState('white')
+  const [backgroundColor, setBackgroundColor] = useState('#0a0a0a')
 
   // YORIMITI graphic image hover effect
   const yorimitiImageRef = useRef(null)
@@ -73,16 +68,6 @@ export default function Services() {
       style={{ backgroundColor }}
     >
       <div className="max-w-full mx-auto px-4 lg:px-12">
-        <motion.h2
-          className="text-7xl md:text-8xl font-light text-white mb-20"
-          style={{ fontFamily: 'Georgia, Garamond, serif' }}
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          Our Services
-        </motion.h2>
 
         {/*
           ========================================
@@ -384,64 +369,51 @@ export default function Services() {
             </div>
 
             {/* Row 4: YORIMITI graphic */}
-            <div
-              className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start"
-              onMouseEnter={() => handleYORIMITIHover(true)}
-              onMouseLeave={() => handleYORIMITIHover(false)}
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="flex flex-col justify-center"
-              >
-                <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  YORIMITI graphic
-                </h3>
-                <p className="text-lg text-accent-cyan font-semibold mb-6">
-                  映像,MIX
-                </p>
-                <div className="space-y-4 text-lg text-text-secondary leading-relaxed">
-                  <p>
-                    ボカロMV、リリックビデオからオリジナルMVまで、多様な作品を制作。
+            <Link href="/graphic-service" className="block">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start cursor-pointer">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col justify-center"
+                >
+                  <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">
+                    YORIMITI graphic
+                  </h3>
+                  <p className="text-lg text-accent-cyan font-semibold mb-6">
+                    映像,MIX
                   </p>
-                  <p>
-                    実写＋イラストの合成など幅広い楽曲のMVに対応します。
-                  </p>
-                </div>
-              </motion.div>
+                  <div className="space-y-4 text-lg text-text-secondary leading-relaxed">
+                    <p>
+                      ボカロMV、リリックビデオからオリジナルMVまで、多様な作品を制作。
+                    </p>
+                    <p>
+                      実写＋イラストの合成など幅広い楽曲のMVに対応します。
+                    </p>
+                  </div>
+                </motion.div>
 
-              <motion.div
-                ref={yorimitiImageRef}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                animate={yorimitiIsHovering ? { scale: 1.05 } : { scale: 1 }}
-                className="hidden lg:block lg:col-span-2 rounded-lg"
-                onMouseMove={handleYORIMITIImageMouseMove}
-                onMouseEnter={handleYORIMITIImageEnter}
-                onMouseLeave={handleYORIMITIImageLeave}
-                style={{
-                  rotateX: yorimitiIsHovering ? yorimitiMousePosition.y : 0,
-                  rotateY: yorimitiIsHovering ? -yorimitiMousePosition.x : 0,
-                  transformStyle: 'preserve-3d',
-                  backgroundColor: backgroundColor,
-                  transition: 'background-color 0.3s ease-out',
-                }}
-              >
-                <div className="relative aspect-[3/2] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow rounded-lg">
-                  <Image
-                    src="/0008.jpg"
-                    alt="YORIMITI graphic Service"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-              </motion.div>
-            </div>
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.03 }}
+                  className="hidden lg:block lg:col-span-2 rounded-lg"
+                >
+                  <div className="relative aspect-[3/2] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow rounded-lg">
+                    <Image
+                      src="/0008.jpg"
+                      alt="YORIMITI graphic Service"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+                </motion.div>
+              </div>
+            </Link>
           </>
         )}
 

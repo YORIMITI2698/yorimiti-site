@@ -201,9 +201,12 @@ export default function Works() {
                 {/* Thumbnail */}
                 <div className="absolute inset-0 bg-dark-highlight">
                   <img
-                    src={work.thumbnail}
+                    src={`https://img.youtube.com/vi/${work.youtubeId}/maxresdefault.jpg`}
                     alt={work.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    onError={(e) => {
+                      e.target.src = `https://img.youtube.com/vi/${work.youtubeId}/hqdefault.jpg`
+                    }}
                   />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all" />
                 </div>

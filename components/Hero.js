@@ -11,7 +11,7 @@ export default function Hero() {
     >
       {/* Background Video */}
       <video
-        className="absolute inset-0 w-full h-full object-cover opacity-30"
+        className="absolute inset-0 w-full h-full object-cover opacity-80"
         autoPlay
         loop
         muted
@@ -20,8 +20,8 @@ export default function Hero() {
         <source src="/hero-bg.mp4" type="video/mp4" />
       </video>
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60" />
+      {/* Dark Overlay - Lighter */}
+      <div className="absolute inset-0 bg-black/20" />
 
       {/* Animated Background - Updated for dark theme */}
       <motion.div
@@ -35,24 +35,8 @@ export default function Hero() {
         transition={{ duration: 8, repeat: Infinity, reverse: true }}
       />
 
-      {/* Bottom Left - Logo and Title */}
-      <div className="absolute bottom-8 left-8 z-10 flex items-center gap-4">
-        {/* Logo */}
-        <motion.div
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 3, repeat: Infinity }}
-        >
-          <Image
-            src="/yorimiti-logo.png"
-            alt="YORIMITI Logo"
-            width={160}
-            height={160}
-            priority
-            unoptimized
-            className="w-40 h-40"
-          />
-        </motion.div>
-
+      {/* Bottom Left - Title Only */}
+      <div className="absolute bottom-8 left-8 z-10">
         {/* Title */}
         <motion.h1
           className="text-8xl md:text-9xl font-bold text-white leading-none"
