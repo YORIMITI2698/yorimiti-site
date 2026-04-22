@@ -318,6 +318,7 @@ export default function Contact() {
                   onChange={(e) => handleVocalMixChange('deadline', e.target.value)}
                   required
                   className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white focus:border-white focus:outline-none transition-colors text-sm"
+                  style={{ accentColor: 'white' }}
                 />
                 <input type="hidden" name="vocal_deadline" value={vocalMixData.deadline} />
               </div>
@@ -336,33 +337,6 @@ export default function Contact() {
                   className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white placeholder-text-tertiary focus:border-white focus:outline-none transition-colors text-sm"
                 />
                 <input type="hidden" name="vocal_recordingData" value={vocalMixData.recordingData} />
-              </div>
-
-              {/* Pricing Table */}
-              <div className="bg-dark-highlight p-6 border border-dark-highlight">
-                <h4 className="text-sm font-light text-white mb-6 tracking-widest uppercase">Pricing</h4>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-xs text-text-secondary">
-                    <thead>
-                      <tr className="border-b border-dark-highlight">
-                        <th className="text-left py-3 px-2 font-light">メニュー</th>
-                        <th className="text-left py-3 px-2 font-light">料金</th>
-                        <th className="text-left py-3 px-2 font-light">納期</th>
-                        <th className="text-left py-3 px-2 font-light">ボーカル追加</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {pricingData.map((row, idx) => (
-                        <tr key={idx} className="border-b border-dark-highlight/50">
-                          <td className="py-3 px-2">{row.menu}</td>
-                          <td className="py-3 px-2">{row.price}</td>
-                          <td className="py-3 px-2">{row.deadline}</td>
-                          <td className="py-3 px-2">{row.vocal}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
               </div>
 
               {/* Info Sections */}
@@ -463,6 +437,7 @@ export default function Contact() {
                   onChange={(e) => handleBocaroMVChange('deadline', e.target.value)}
                   required
                   className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white focus:border-white focus:outline-none transition-colors text-sm"
+                  style={{ accentColor: 'white' }}
                 />
                 <input type="hidden" name="mv_deadline" value={bocaroMVData.deadline} />
               </div>
@@ -581,33 +556,6 @@ export default function Contact() {
                       </div>
                     </motion.div>
                   )}
-
-                  {/* Pricing Table */}
-                  <div className="bg-dark-highlight p-6 border border-dark-highlight">
-                    <h4 className="text-sm font-light text-white mb-6 tracking-widest uppercase">料金表</h4>
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-xs text-text-secondary">
-                        <thead>
-                          <tr className="border-b border-dark-highlight">
-                            <th className="text-left py-3 px-2 font-light">メニュー</th>
-                            <th className="text-left py-3 px-2 font-light">料金</th>
-                            <th className="text-left py-3 px-2 font-light">納期</th>
-                            <th className="text-left py-3 px-2 font-light">ボーカル追加</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {pricingData.map((row, idx) => (
-                            <tr key={idx} className="border-b border-dark-highlight/50">
-                              <td className="py-3 px-2">{row.menu}</td>
-                              <td className="py-3 px-2">{row.price}</td>
-                              <td className="py-3 px-2">{row.deadline}</td>
-                              <td className="py-3 px-2">{row.vocal}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
 
                   {/* Info Sections */}
                   <div className="space-y-6">
