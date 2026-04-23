@@ -42,22 +42,9 @@ export default function About() {
       <Navbar />
 
       {/* ABOUT Title */}
-      <section className="relative min-h-screen pt-20 px-4 bg-dark-bg flex items-center overflow-hidden">
-        {/* Background Video */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src="/グランジVer1.mp4" type="video/mp4" />
-        </video>
-
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/30" />
-
-        <div className="max-w-7xl mx-auto relative z-10 w-full">
+      <section className="relative py-12 px-4 flex items-center justify-center overflow-hidden bg-dark-bg min-h-[300px]">
+        {/* Content */}
+        <div className="max-w-7xl mx-auto w-full">
           <motion.h1
             className="text-5xl md:text-6xl font-light text-white mb-12"
             style={{ fontFamily: 'Georgia, serif' }}
@@ -71,7 +58,7 @@ export default function About() {
       </section>
 
       {/* Story Section */}
-      <section className="py-24 px-4 bg-dark-bg border-y border-dark-highlight">
+      <section className="relative py-24 px-4 border-y border-dark-highlight overflow-hidden bg-dark-bg">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start">
             {/* Left - Text */}
@@ -133,8 +120,22 @@ export default function About() {
       </section>
 
       {/* Member Section */}
-      <section className="py-24 px-4 bg-dark-bg">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-24 px-4 overflow-hidden">
+        {/* Background Video */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-100"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/grunge-v1.mp4" type="video/mp4" />
+        </video>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/30" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.h2
             className="text-5xl md:text-6xl font-light text-white mb-16"
             style={{ fontFamily: 'Georgia, serif' }}
