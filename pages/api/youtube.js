@@ -8,37 +8,71 @@ const playlists = {
   'MIX': 'PLSRpMUngmR9AjMTxFFeGBgu7_EVKGksar'
 }
 
-export default async function handler(req, res) {
-  const { playlist } = req.query
+async function fetchPlaylistVideos(playlistId, maxResults = 50) {
+  let allVideos = []
+  let pageToken = null
 
-  if (!playlist || !playlists[playlist]) {
-    return res.status(400).json({ error: 'Invalid playlist' })
+  try {
+    do {
+      const url = new URL('https://www.googleapis.com/youtube/v3/playlistItems')
+      url.searchParams.append('part', 'snippet')
+      url.searchParams.append('playlistId', playlistId)
+      url.searchParams.append('maxResults', Math.min(maxResults, 50))
+      url.searchParams.append('key', API_KEY)
+      if (pageToken) {
+        url.searchParams.append('pageToken', pageToken)
+      }
+
+      const response = await fetch(url.toString())
+      const data = await response.json()
+
+      if (!data.items) break
+
+      const videos = data.items.map(item => ({
+        id: item.snippet.resourceId.videoId,
+        title: item.snippet.title,
+        thumbnail: item.snippet.thumbnails.maxres?.url || item.snippet.thumbnails.high.url,
+        type: Object.keys(playlists).find(key => playlists[key] === playlistId) || 'Unknown'
+      }))
+
+      allVideos = [...allVideos, ...videos]
+      pageToken = data.nextPageToken
+      maxResults -= videos.length
+
+      if (maxResults <= 0) break
+    } while (pageToken)
+
+    return allVideos
+  } catch (error) {
+    console.error('Error fetching playlist videos:', error)
+    return []
+  }
+}
+
+export default async function handler(req, res) {
+  const { playlist, limit = 50 } = req.query
+
+  if (!playlist) {
+    return res.status(400).json({ error: 'Playlist parameter required' })
   }
 
   try {
-    const playlistId = playlists[playlist]
+    let videos = []
 
-    // Get playlist items
-    const itemsResponse = await fetch(
-      `https://www.googleapis.com/youtube/v3/playlistItems?` +
-      `part=snippet&` +
-      `playlistId=${playlistId}&` +
-      `maxResults=6&` +
-      `key=${API_KEY}`
-    )
-
-    const itemsData = await itemsResponse.json()
-
-    if (!itemsData.items) {
-      return res.status(500).json({ error: 'Failed to fetch playlist items' })
+    if (playlist === 'All') {
+      // Fetch videos from all playlists
+      const allPlaylistsVideos = await Promise.all(
+        Object.values(playlists).map(playlistId => fetchPlaylistVideos(playlistId, 50))
+      )
+      videos = allPlaylistsVideos.flat()
+      // Shuffle and limit to requested amount
+      videos = videos.sort(() => Math.random() - 0.5).slice(0, parseInt(limit))
+    } else if (playlists[playlist]) {
+      // Fetch from specific playlist
+      videos = await fetchPlaylistVideos(playlists[playlist], parseInt(limit))
+    } else {
+      return res.status(400).json({ error: 'Invalid playlist' })
     }
-
-    // Extract video IDs
-    const videos = itemsData.items.map(item => ({
-      id: item.snippet.resourceId.videoId,
-      title: item.snippet.title,
-      thumbnail: item.snippet.thumbnails.maxres?.url || item.snippet.thumbnails.high.url
-    }))
 
     res.status(200).json({ videos })
   } catch (error) {
