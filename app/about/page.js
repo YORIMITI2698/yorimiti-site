@@ -16,7 +16,7 @@ export default function About() {
       bio: 'ドローン空撮とアニメーション制作を中心に活動。独自の視点で、各プロジェクトの世界観を構築。',
       image: '/0006.png',
       socials: [
-        { name: 'Instagram', url: 'https://www.instagram.com/kota12698/', icon: '📷' }
+        { name: 'Instagram', url: 'https://www.instagram.com/kota12698/', icon: '📷', label: 'Instagram' }
       ]
     },
     {
@@ -27,9 +27,9 @@ export default function About() {
       bio: '2025年4月4日 デビュー\nVOIDLAB.代表',
       image: '/0005.png',
       socials: [
-        { name: 'Twitter', url: 'https://twitter.com/xisz_', icon: '𝕏' },
-        { name: 'YouTube', url: 'https://youtube.com/@xisz_', icon: '▶️' },
-        { name: 'VOIDLAB', url: 'https://void-lab.netlify.app/', icon: '🌐' }
+        { name: 'Twitter', url: 'https://twitter.com/xisz_', icon: '𝕏', label: '@xisz_' },
+        { name: 'YouTube', url: 'https://youtube.com/@xisz_', icon: '▶️', label: 'YouTube' },
+        { name: 'VOIDLAB', url: 'https://void-lab.netlify.app/', icon: '🌐', label: 'VOIDLAB' }
       ]
     }
   ]
@@ -189,17 +189,18 @@ export default function About() {
                     </p>
 
                     {/* Social Links */}
-                    <div className="flex gap-4">
+                    <div className="flex flex-wrap gap-3">
                       {member.socials.map((social, idx) => (
                         <motion.a
                           key={idx}
                           href={social.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-10 h-10 flex items-center justify-center border border-dark-highlight rounded-full text-text-secondary hover:text-white hover:border-white transition-all"
-                          whileHover={{ scale: 1.1, backgroundColor: '#1a1a1a' }}
+                          className="flex items-center gap-2 px-4 py-2 border border-dark-highlight rounded text-xs text-text-secondary hover:text-white hover:border-white transition-all font-light"
+                          whileHover={{ backgroundColor: '#1a1a1a' }}
                         >
-                          {social.icon}
+                          <span>{social.icon}</span>
+                          <span>{social.label}</span>
                         </motion.a>
                       ))}
                     </div>
@@ -215,3 +216,4 @@ export default function About() {
     </main>
   )
 }
+                                                                                                                                                                                                                                        
