@@ -32,7 +32,8 @@ async function fetchPlaylistVideos(playlistId, maxResults = 50) {
         id: item.snippet.resourceId.videoId,
         title: item.snippet.title,
         thumbnail: item.snippet.thumbnails.maxres?.url || item.snippet.thumbnails.high.url,
-        type: Object.keys(playlists).find(key => playlists[key] === playlistId) || 'Unknown'
+        type: Object.keys(playlists).find(key => playlists[key] === playlistId) || 'Unknown',
+        publishedAt: item.snippet.publishedAt
       }))
 
       allVideos = [...allVideos, ...videos]
@@ -65,8 +66,8 @@ export default async function handler(req, res) {
         Object.values(playlists).map(playlistId => fetchPlaylistVideos(playlistId, 50))
       )
       videos = allPlaylistsVideos.flat()
-      // Limit to requested amount (maintains newest first order from API)
-      videos = videos.slice(0, parseInt(limit))
+      // Sort by published date (newest first) and limit to requested amount
+      videos = videos.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)).slice(0, parseInt(limit))
     } else if (playlists[playlist]) {
       // Fetch from specific playlist
       videos = await fetchPlaylistVideos(playlists[playlist], parseInt(limit))
