@@ -89,4 +89,25 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Playlist parameter required' })
   }
 
- 
+  try {
+    let videos = []
+
+    if (playlist === 'All') {
+      const allPlaylistsVideos = await Promise.all(
+        Object.values(playlists).map(playlistId => fetchPlaylistVideos(playlistId, 999))
+      )
+      videos = allPlaylistsVideos.flat()
+      videos = await enrichWithRealPublishDates(videos)
+      videos = videos.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)).slice(0, parseInt(limit))
+    } else if (playlists[playlist]) {
+      videos = await fetchPlaylistVideos(playlists[playlist], parseInt(limit))
+    } else {
+      return res.status(400).json({ error: 'Invalid playlist' })
+    }
+
+    res.status(200).json({ videos })
+  } catch (error) {
+    console.error('YouTube API error:', error)
+    res.status(500).json({ error: 'Failed to fetch videos' })
+  }
+}
