@@ -1,4 +1,27 @@
-const API_KEY = 'AIzaSyD44waCdnWRSoLuwnNIz3UiqP39wut2VgU'
+const API_KEY = process.env.YOUTUBE_API_KEY
+
+// キャッシュ設定
+const CACHE_DURATION = 3600 * 1000; // 1時間
+let videoCache = {
+  'All': { data: null, time: 0 },
+  'Motion Graphic': { data: null, time: 0 },
+  'Drone Operation': { data: null, time: 0 },
+  'Shooting': { data: null, time: 0 },
+  'Editing': { data: null, time: 0 },
+  'MIX': { data: null, time: 0 }
+}
+
+function isCacheValid(playlist) {
+  return videoCache[playlist]?.data && (Date.now() - videoCache[playlist].time) < CACHE_DURATION
+}
+
+function getFromCache(playlist) {
+  return videoCache[playlist]?.data || null
+}
+
+function setCache(playlist, data) {
+  videoCache[playlist] = { data, time: Date.now() }
+}
 
 const playlists = {
   'Motion Graphic': 'PLSRpMUngmR9DDgpa7BvcxvVXljYVW6KaB',
@@ -27,6 +50,14 @@ async function fetchPlaylistVideos(playlistId, maxResults = 50) {
       const response = await fetch(url.toString())
       const data = await response.json()
 
+      // Debug logging
+      if (process.env.NODE_ENV === 'development') {
+        console.log(`[API Debug] Playlist: ${playlistId}, Status: ${response.status}, Items: ${data.items ? data.items.length : 'none'}`);
+        if (!data.items) {
+          console.log(`[API Debug] Response data:`, JSON.stringify(data).substring(0, 500));
+        }
+      }
+
       if (!data.items) break
 
       const videos = data.items.map(item => ({
@@ -46,7 +77,8 @@ async function fetchPlaylistVideos(playlistId, maxResults = 50) {
 
     return allVideos
   } catch (error) {
-    console.error('Error fetching playlist videos:', error)
+    console.error('Error fetching playlist videos for', playlistId + ':', error.message)
+    console.error('Full error:', error)
     return []
   }
 }
@@ -92,17 +124,28 @@ export default async function handler(req, res) {
   try {
     let videos = []
 
-    if (playlist === 'All') {
-      const allPlaylistsVideos = await Promise.all(
-        Object.values(playlists).map(playlistId => fetchPlaylistVideos(playlistId, 999))
-      )
-      videos = allPlaylistsVideos.flat()
-      videos = await enrichWithRealPublishDates(videos)
-      videos = videos.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)).slice(0, parseInt(limit))
-    } else if (playlists[playlist]) {
-      videos = await fetchPlaylistVideos(playlists[playlist], parseInt(limit))
+    // キャッシュをチェック
+    if (isCacheValid(playlist)) {
+      console.log(`[Cache HIT] ${playlist}`)
+      videos = getFromCache(playlist)
     } else {
-      return res.status(400).json({ error: 'Invalid playlist' })
+      console.log(`[Cache MISS] ${playlist} - Fetching from YouTube API`)
+
+      if (playlist === 'All') {
+        const allPlaylistsVideos = await Promise.all(
+          Object.values(playlists).map(playlistId => fetchPlaylistVideos(playlistId, 999))
+        )
+        videos = allPlaylistsVideos.flat()
+        videos = await enrichWithRealPublishDates(videos)
+        videos = videos.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)).slice(0, parseInt(limit))
+      } else if (playlists[playlist]) {
+        videos = await fetchPlaylistVideos(playlists[playlist], parseInt(limit))
+      } else {
+        return res.status(400).json({ error: 'Invalid playlist' })
+      }
+
+      // キャッシュに保存
+      setCache(playlist, videos)
     }
 
     res.status(200).json({ videos })
