@@ -42,8 +42,22 @@ export default function About() {
       <Navbar />
 
       {/* ABOUT Title */}
-      <section className="pt-20 px-4 bg-dark-bg">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative min-h-screen pt-20 px-4 bg-dark-bg flex items-center overflow-hidden">
+        {/* Background Video */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/グランジVer1.mp4" type="video/mp4" />
+        </video>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/30" />
+
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
           <motion.h1
             className="text-5xl md:text-6xl font-light text-white mb-12"
             style={{ fontFamily: 'Georgia, serif' }}
