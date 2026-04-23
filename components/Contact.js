@@ -525,4 +525,128 @@ export default function Contact() {
                       className="bg-dark-highlight border border-dark-highlight p-6 space-y-4"
                     >
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        
+                        <div>
+                          <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">料金</p>
+                          <p className="text-base text-white font-light">{detailedPricingData[bocaroMVData.mixMenu].price}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">納期</p>
+                          <p className="text-xs text-text-secondary font-light">{detailedPricingData[bocaroMVData.mixMenu].deadline}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">ボーカル追加</p>
+                          <p className="text-xs text-text-secondary font-light">{detailedPricingData[bocaroMVData.mixMenu].vocalAdd}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">納品形式</p>
+                          <p className="text-xs text-text-secondary font-light">{detailedPricingData[bocaroMVData.mixMenu].delivery}</p>
+                        </div>
+                      </div>
+
+                      <div className="border-t border-dark-highlight pt-4">
+                        <p className="text-xs text-text-tertiary mb-3 tracking-widest uppercase">含まれる内容</p>
+                        <ul className="space-y-2">
+                          {detailedPricingData[bocaroMVData.mixMenu].included.map((item, idx) => (
+                            <li key={idx} className="text-xs text-text-secondary font-light flex items-start">
+                              <span className="text-white mr-2">→</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* Info Sections */}
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="text-sm font-light text-white mb-3 tracking-widest">MIX師からの内容</h4>
+                      <ul className="space-y-2 text-xs text-text-secondary font-light">
+                        <li>• エディット(ピッチ、タイミング補正)</li>
+                        <li>• ミキシング</li>
+                        <li>• エフェクト演出</li>
+                        <li>• 空間演出</li>
+                        <li>• ハモリ生成</li>
+                        <li>• マスタリング(YouTube向け)</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-light text-white mb-3 tracking-widest">納品形式</h4>
+                      <p className="text-xs text-text-secondary font-light">WAV 24bit/48kHz</p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-light text-white mb-3 tracking-widest">送っていただくデータ</h4>
+                      <ul className="space-y-2 text-xs text-text-secondary font-light">
+                        <li>• Vocal：WAV 24bit/48kHz 推奨、モノラル、頭出し</li>
+                        <li>• Inst：本家配布のまま(原キー)</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-light text-white mb-4 tracking-widest">オプション</h4>
+                      <div className="space-y-3">
+                        {optionChoices.map((option) => (
+                          <label key={option.label} className="flex items-start gap-3 cursor-pointer p-3 bg-dark-bg/50 hover:bg-dark-highlight/30 transition-colors rounded">
+                            <input
+                              type="checkbox"
+                              checked={bocaroMVData.mixOptions.includes(option.label)}
+                              onChange={() => {
+                                const opts = bocaroMVData.mixOptions.includes(option.label)
+                                  ? bocaroMVData.mixOptions.filter(o => o !== option.label)
+                                  : [...bocaroMVData.mixOptions, option.label]
+                                handleBocaroMVChange('mixOptions', opts)
+                              }}
+                              className="w-4 h-4 accent-white rounded mt-0.5 flex-shrink-0"
+                            />
+                            <div className="flex-1">
+                              <p className="text-xs text-text-secondary font-light flex items-center justify-between">
+                                <span>{option.label}</span>
+                                <span className="text-white">{option.price}</span>
+                              </p>
+                              <p className="text-xs text-text-tertiary font-light mt-1">{option.description}</p>
+                            </div>
+                          </label>
+                        ))}
+                      </div>
+                      <input type="hidden" name="mv_mixOptions" value={bocaroMVData.mixOptions.join(', ')} />
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-light text-white mb-2 tracking-widest">注意</h4>
+                      <p className="text-xs text-text-secondary font-light">ハモリ生成、ガイド制作はオリジナルの完全再現ではありません</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </motion.div>
+          )}
+
+          {/* Message */}
+          <div className="pt-8 border-t border-dark-highlight">
+            <label className="block text-xs font-light text-text-secondary mb-3 tracking-widest uppercase">
+              お問い合わせ内容
+            </label>
+            <textarea
+              name="message"
+              rows="6"
+              className="w-full px-4 py-3 bg-dark-highlight border border-dark-highlight text-white placeholder-text-tertiary focus:border-white focus:outline-none transition-colors text-sm"
+            />
+          </div>
+
+          {/* Submit */}
+          <motion.button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full py-4 border border-white text-white font-light text-sm tracking-widest hover:bg-white hover:text-black transition-all disabled:opacity-50"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {isSubmitting ? '送信中...' : 'フォームを送信'}
+          </motion.button>
+        </motion.form>
+      </div>
+    </section>
+  )
+}

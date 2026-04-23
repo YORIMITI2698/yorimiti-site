@@ -90,4 +90,20 @@ export default function GraphicService() {
                   <p className="text-text-tertiary text-xs mb-8 font-light italic">{service.englishDesc}</p>
                 )}
                 <ul className="space-y-3">
-                  {service.details.map((detail, i) =>
+                  {service.details.map((detail, i) => (
+                    <li key={i} className="text-text-secondary text-sm flex items-start font-light">
+                      <span className="text-white mr-3 font-light">→</span>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  )
+}
