@@ -189,4 +189,17 @@ export default function Works() {
             />
             <motion.button
               onClick={() => setSelectedVideo(null)}
-              className="absolu
+              className="absolute top-4 right-4 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full flex items-center justify-center text-white text-2xl"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              ✕
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      )}
+
+      <Footer />
+    </main>
+  )
+}
