@@ -47,7 +47,6 @@ export default function About() {
         <div className="max-w-7xl mx-auto w-full">
           <motion.h1
             className="text-5xl md:text-6xl font-light text-white mb-12"
-            style={{ fontFamily: 'Georgia, serif' }}
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -71,7 +70,6 @@ export default function About() {
             >
               <motion.h2
                 className="text-4xl md:text-5xl font-light mb-8 text-white"
-                style={{ fontFamily: 'Georgia, serif' }}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
@@ -138,7 +136,6 @@ export default function About() {
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.h2
             className="text-5xl md:text-6xl font-light text-white mb-16"
-            style={{ fontFamily: 'Georgia, serif' }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -182,7 +179,7 @@ export default function About() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                   >
-                    <h3 className="text-3xl md:text-4xl font-light text-white mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+                    <h3 className="text-3xl md:text-4xl font-light text-white mb-2">
                       {member.name}
                     </h3>
                     <p className="text-sm text-text-tertiary mb-4">
@@ -226,4 +223,12 @@ export default function About() {
                 </motion.div>
               </motion.div>
             ))}
-          </
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  )
+}
+                                                                                                                                   

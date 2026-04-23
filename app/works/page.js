@@ -151,7 +151,7 @@ export default function Works() {
                     whileHover={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="text-white font-light text-sm line-clamp-2" style={{ fontFamily: 'Georgia, serif' }}>
+                    <h3 className="text-white font-light text-sm line-clamp-2">
                       {video.title}
                     </h3>
                   </motion.div>
@@ -188,4 +188,5 @@ export default function Works() {
               allowFullScreen
             />
             <motion.button
-              onClick={() => setSelectedVid
+              onClick={() => setSelectedVideo(null)}
+              className="absolu

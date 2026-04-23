@@ -113,7 +113,6 @@ export default function Contact() {
         {/* Title */}
         <motion.h2
           className="text-5xl md:text-6xl font-light text-white mb-6 text-center"
-          style={{ fontFamily: 'Georgia, serif' }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -650,3 +649,4 @@ export default function Contact() {
     </section>
   )
 }
+                                                   
