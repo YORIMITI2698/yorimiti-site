@@ -65,8 +65,8 @@ export default async function handler(req, res) {
         Object.values(playlists).map(playlistId => fetchPlaylistVideos(playlistId, 50))
       )
       videos = allPlaylistsVideos.flat()
-      // Shuffle and limit to requested amount
-      videos = videos.sort(() => Math.random() - 0.5).slice(0, parseInt(limit))
+      // Limit to requested amount (maintains newest first order from API)
+      videos = videos.slice(0, parseInt(limit))
     } else if (playlists[playlist]) {
       // Fetch from specific playlist
       videos = await fetchPlaylistVideos(playlists[playlist], parseInt(limit))
