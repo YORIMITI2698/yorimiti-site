@@ -106,7 +106,7 @@ export default function About() {
                 whileHover={{ borderColor: '#ffffff' }}
               >
                 <Image
-                  src="/0002.jpg"
+                  src="/0002.JPG"
                   alt="YORIMITI Studio"
                   fill
                   className="object-cover"
