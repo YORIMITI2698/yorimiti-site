@@ -15,11 +15,11 @@ export default function WorksSection() {
     const fetchVideos = async () => {
       setLoading(true)
       try {
-        const limit = selectedPlaylist === 'All' ? 6 : 50
+        const limit = selectedPlaylist === 'All' ? 9 : 50
         const response = await fetch(`/api/youtube?playlist=${encodeURIComponent(selectedPlaylist)}&limit=${limit}`)
         const data = await response.json()
         if (data.videos) {
-          const displayLimit = selectedPlaylist === 'All' ? 6 : 50
+          const displayLimit = selectedPlaylist === 'All' ? 9 : 50
           setVideos(data.videos.slice(0, displayLimit))
         }
       } catch (error) {

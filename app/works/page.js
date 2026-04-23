@@ -7,17 +7,17 @@ import { useState, useEffect } from 'react'
 
 export default function Works() {
   const [selectedVideo, setSelectedVideo] = useState(null)
-  const [selectedType, setSelectedType] = useState('Motion Graphic')
+  const [selectedType, setSelectedType] = useState('All')
   const [videos, setVideos] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const types = ['Motion Graphic', 'Drone Operation', 'Shooting', 'Editing', 'MIX']
+  const types = ['All', 'Motion Graphic', 'Drone Operation', 'Shooting', 'Editing', 'MIX']
 
   useEffect(() => {
     const fetchVideos = async () => {
       setLoading(true)
       try {
-        const response = await fetch(`/api/youtube?playlist=${encodeURIComponent(selectedType)}&limit=50`)
+        const response = await fetch(`/api/youtube?playlist=${encodeURIComponent(selectedType)}&limit=999`)
         const data = await response.json()
         if (data.videos) {
           setVideos(data.videos)
