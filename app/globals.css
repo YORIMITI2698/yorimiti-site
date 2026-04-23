@@ -152,6 +152,12 @@ p, a, span, button {
   display: inline-block;
 }
 
+
+.glitch-effect {
+  position: relative;
+  display: inline-block;
+}
+
 .glitch-effect::before,
 .glitch-effect::after {
   content: attr(data-text);
@@ -171,4 +177,8 @@ p, a, span, button {
 }
 
 .glitch-effect::after {
-  animation: glit
+  animation: glitch 0.3s ease-in-out infinite;
+  color: rgba(0, 0, 255, 0.3);
+  z-index: -2;
+  text-shadow: 2px 0 #ff00ff;
+}
