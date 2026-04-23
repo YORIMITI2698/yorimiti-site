@@ -37,4 +37,47 @@ async function fetchPlaylistVideos(playlistId, maxResults = 50) {
       }))
 
       allVideos = [...allVideos, ...videos]
-      pageToken = d
+      pageToken = data.nextPageToken
+      maxResults -= videos.length
+
+      if (maxResults <= 0) break
+    } while (pageToken)
+
+    return allVideos
+  } catch (error) {
+    console.error('Error fetching playlist videos:', error)
+    return []
+  }
+}
+
+export default async function handler(req, res) {
+  const { playlist, limit = 50 } = req.query
+
+  if (!playlist) {
+    return res.status(400).json({ error: 'Playlist parameter required' })
+  }
+
+  try {
+    let videos = []
+
+    if (playlist === 'All') {
+      // Fetch videos from all playlists
+      const allPlaylistsVideos = await Promise.all(
+        Object.values(playlists).map(playlistId => fetchPlaylistVideos(playlistId, 999))
+      )
+      videos = allPlaylistsVideos.flat()
+      // Sort by published date (newest first) and limit to requested amount
+      videos = videos.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)).slice(0, parseInt(limit))
+    } else if (playlists[playlist]) {
+      // Fetch from specific playlist
+      videos = await fetchPlaylistVideos(playlists[playlist], parseInt(limit))
+    } else {
+      return res.status(400).json({ error: 'Invalid playlist' })
+    }
+
+    res.status(200).json({ videos })
+  } catch (error) {
+    console.error('YouTube API error:', error)
+    res.status(500).json({ error: 'Failed to fetch videos' })
+  }
+}
