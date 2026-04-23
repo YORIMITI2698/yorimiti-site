@@ -11,6 +11,7 @@ const playlists = {
 async function fetchPlaylistVideos(playlistId, maxResults = 50) {
   let allVideos = []
   let pageToken = null
+  const playlistType = Object.keys(playlists).find(key => playlists[key] === playlistId) || 'Unknown'
 
   try {
     do {
@@ -32,11 +33,11 @@ async function fetchPlaylistVideos(playlistId, maxResults = 50) {
         id: item.snippet.resourceId.videoId,
         title: item.snippet.title,
         thumbnail: item.snippet.thumbnails.maxres?.url || item.snippet.thumbnails.high.url,
-        type: Object.keys(playlists).find(key => playlists[key] === playlistId) || 'Unknown',
+        type: playlistType,
         publishedAt: item.snippet.publishedAt
       }))
 
-      allVideos = [...allVideos, ...videos]
+      allVideos.push(...videos)
       pageToken = data.nextPageToken
       maxResults -= videos.length
 
@@ -50,6 +51,37 @@ async function fetchPlaylistVideos(playlistId, maxResults = 50) {
   }
 }
 
+async function enrichWithRealPublishDates(videos) {
+  const videoIds = videos.map(v => v.id)
+  const enriched = {}
+
+  try {
+    for (let i = 0; i < videoIds.length; i += 50) {
+      const batch = videoIds.slice(i, i + 50)
+      const url = new URL('https://www.googleapis.com/youtube/v3/videos')
+      url.searchParams.append('part', 'snippet')
+      url.searchParams.append('id', batch.join(','))
+      url.searchParams.append('key', API_KEY)
+
+      const response = await fetch(url.toString())
+      const data = await response.json()
+
+      if (data.items) {
+        data.items.forEach(item => {
+          enriched[item.id] = item.snippet.publishedAt
+        })
+      }
+    }
+  } catch (error) {
+    console.error('Error enriching videos:', error)
+  }
+
+  return videos.map(video => ({
+    ...video,
+    publishedAt: enriched[video.id] || video.publishedAt
+  }))
+}
+
 export default async function handler(req, res) {
   const { playlist, limit = 50 } = req.query
 
@@ -61,15 +93,13 @@ export default async function handler(req, res) {
     let videos = []
 
     if (playlist === 'All') {
-      // Fetch videos from all playlists
       const allPlaylistsVideos = await Promise.all(
         Object.values(playlists).map(playlistId => fetchPlaylistVideos(playlistId, 999))
       )
       videos = allPlaylistsVideos.flat()
-      // Sort by published date (newest first) and limit to requested amount
+      videos = await enrichWithRealPublishDates(videos)
       videos = videos.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)).slice(0, parseInt(limit))
     } else if (playlists[playlist]) {
-      // Fetch from specific playlist
       videos = await fetchPlaylistVideos(playlists[playlist], parseInt(limit))
     } else {
       return res.status(400).json({ error: 'Invalid playlist' })
