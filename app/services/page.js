@@ -62,14 +62,23 @@ export default function Services() {
       name: 'RE::Locus',
       displayName: 'RE::Locus / Motion | MIX',
       image: '/icon2.png',
-      description: `私たちRE::LocusはYORIMITIのGraphic特化型チームです。
+      sections: [
+        {
+          title: '',
+          content: `私たちRE::LocusはYORIMITIのGraphic特化型チームです。
+
 チーム名は物事の再試行を行い軌跡を作りご依頼者様と私たちの点と点が線になることをイメージした名前です。
 
-RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご依頼を受け付けております。`,
-      details: [
-        'アニメーションMV制作',
-        '楽曲MIX・マスタリング',
-        'フル企画制作対応'
+RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご依頼を受け付けております。`
+        },
+        {
+          title: 'アニメーションMVの制作',
+          content: `歌ってみたやボカロP向けのサービスとしてリリックMotionMV、本家再現MV、オリジナルMV等の制作を行っております。`
+        },
+        {
+          title: '楽曲MIX・マスタリング',
+          content: `提携のVOiD-LAB.によってMVと同時にMIXもご依頼いただけます。`
+        }
       ]
     }
   ]
