@@ -59,13 +59,14 @@ export default function Services() {
       ]
     },
     {
-      name: 'YORIMITI graphic',
+      name: 'RE::Locus',
+      displayName: 'RE::Locus / Motion | MIX',
       image: '/icon2.png',
-      description: 'ロゴ、サムネイル、バナーなどのグラフィックデザイン、リリックビデオからオリジナルMVまでのアニメーション制作。',
+      description: `私たちRE::LocusはYORIMITIのGraphic特化型チームです。
+チーム名は物事の再試行を行い軌跡を作りご依頼者様と私たちの点と点が線になることをイメージした名前です。
+
+RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご依頼を受け付けております。`,
       details: [
-        'ロゴデザイン',
-        'サムネイル制作',
-        'バナー・UI デザイン',
         'アニメーションMV制作',
         '楽曲MIX・マスタリング',
         'フル企画制作対応'
@@ -115,7 +116,7 @@ export default function Services() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {service.name}
+                {service.displayName || service.name}
               </motion.button>
             ))}
           </motion.div>
@@ -192,7 +193,7 @@ export default function Services() {
               ) : (
                 <>
                   {/* Description */}
-                  <p className="text-text-secondary mb-12 font-light text-base md:text-lg max-w-2xl">
+                  <p className="text-text-secondary mb-12 font-light text-base md:text-lg max-w-2xl whitespace-pre-line leading-relaxed">
                     {selectedService.description}
                   </p>
 
