@@ -64,12 +64,4 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-dark-highlight py-8">
           <div className="text-center">
-            <p className="text-xs text-[#333333] font-light tracking-widest">
-              &copy; 2026 YORIMITI. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-  )
-}
+            <p className="tex
