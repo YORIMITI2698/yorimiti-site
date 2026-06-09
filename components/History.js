@@ -27,7 +27,7 @@ export default function History() {
   ]
 
   return (
-    <section className="relative py-32 px-4 bg-white">
+    <section className="relative py-32 px-4 bg-[#333333]">
       <div className="max-w-5xl mx-auto">
         {/* Section Number */}
         <motion.div
@@ -38,7 +38,7 @@ export default function History() {
           className="mb-16"
         >
           <span className="text-sm font-light text-gray-500 tracking-widest">04 HISTORY</span>
-          <h2 className="text-5xl md:text-6xl font-light text-black mt-4">
+          <h2 className="text-5xl md:text-6xl font-light text-white mt-4">
             これまでの歩み
           </h2>
         </motion.div>
@@ -60,9 +60,9 @@ export default function History() {
               </div>
 
               {/* Content */}
-              <div className="flex-grow pb-8 border-b border-gray-200">
-                <h3 className="text-xl font-light text-black mb-2">{milestone.title}</h3>
-                <p className="text-gray-600 font-light text-sm">{milestone.description}</p>
+              <div className="flex-grow pb-8 border-b border-gray-700">
+                <h3 className="text-xl font-light text-white mb-2">{milestone.title}</h3>
+                <p className="text-gray-400 font-light text-sm">{milestone.description}</p>
               </div>
             </motion.div>
           ))}

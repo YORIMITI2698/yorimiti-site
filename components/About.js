@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function About() {
   return (
-    <section id="about" className="relative py-32 px-4 bg-white">
+    <section id="about" className="relative py-32 px-4 bg-[#333333]">
       <div className="max-w-5xl mx-auto">
         {/* Section Number */}
         <motion.div
@@ -26,11 +26,11 @@ export default function About() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl md:text-6xl font-light text-black mb-8 leading-tight">
+            <h2 className="text-5xl md:text-6xl font-light text-white mb-8 leading-tight">
               視点が変われば、<br />価値が変わる。
             </h2>
 
-            <div className="space-y-6 text-gray-700 font-light text-base leading-relaxed">
+            <div className="space-y-6 text-gray-300 font-light text-base leading-relaxed">
               <p>
                 YORIMITIは、映像制作・グラフィックデザイン・音声制作を統合するクリエイティブスタジオです。
               </p>

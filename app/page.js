@@ -1,20 +1,22 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
+import About from '@/components/About'
+import Values from '@/components/Values'
+import History from '@/components/History'
 import ServicesOverview from '@/components/ServicesOverview'
-import AboutSection from '@/components/AboutSection'
 import WorksSection from '@/components/WorksSection'
-import CTASection from '@/components/CTASection'
 import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <main className="bg-black min-h-screen">
+    <main className="bg-[#333333] min-h-screen">
       <Navbar />
       <Hero />
+      <About />
+      <Values />
+      <History />
       <ServicesOverview />
-      <AboutSection />
       <WorksSection />
-      <CTASection />
       <Footer />
     </main>
   )

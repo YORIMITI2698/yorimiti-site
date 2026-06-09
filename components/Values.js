@@ -23,7 +23,7 @@ export default function Values() {
   ]
 
   return (
-    <section className="relative py-32 px-4 bg-gray-50">
+    <section className="relative py-32 px-4 bg-[#2a2a2a]">
       <div className="max-w-5xl mx-auto">
         {/* Section Number */}
         <motion.div
@@ -34,7 +34,7 @@ export default function Values() {
           className="mb-16"
         >
           <span className="text-sm font-light text-gray-500 tracking-widest">03 VALUES</span>
-          <h2 className="text-5xl md:text-6xl font-light text-black mt-4">
+          <h2 className="text-5xl md:text-6xl font-light text-white mt-4">
             私たちが大切にすること
           </h2>
         </motion.div>
@@ -48,10 +48,10 @@ export default function Values() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="pb-8 border-b border-gray-300"
+              className="pb-8 border-b border-gray-700"
             >
-              <h3 className="text-2xl font-light text-black mb-4">{value.title}</h3>
-              <p className="text-gray-600 font-light text-base leading-relaxed">
+              <h3 className="text-2xl font-light text-white mb-4">{value.title}</h3>
+              <p className="text-gray-400 font-light text-base leading-relaxed">
                 {value.description}
               </p>
             </motion.div>
