@@ -36,16 +36,24 @@ export default function Works() {
       <Navbar />
 
       {/* Works Title */}
-      <section className="pt-20 px-4 bg-dark-bg">
+      <section className="pt-20 px-4 bg-dark-bg pb-8">
         <div className="max-w-7xl mx-auto text-center">
           <motion.h1
-            className="text-3xl md:text-4xl font-bold text-white mb-8 tracking-wider"
+            className="text-5xl md:text-6xl font-light text-white mb-6 tracking-wider"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             WORKS
           </motion.h1>
+          <motion.p
+            className="text-text-secondary font-light text-base max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            YORIMITIが手掛けた映像・グラフィックデザインのポートフォリオ
+          </motion.p>
         </div>
       </section>
 
