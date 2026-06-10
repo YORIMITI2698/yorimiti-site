@@ -108,7 +108,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-dark-bg">
+    <section id="contact" className="py-24 bg-[#393f4c]">
       <div className="max-w-4xl mx-auto px-4 lg:px-8">
         {/* Title */}
         <motion.h2
@@ -118,7 +118,7 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          Contact
+          CONTACT
         </motion.h2>
         <motion.p
           className="text-center text-text-secondary mb-16 text-sm"
