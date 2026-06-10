@@ -7,13 +7,16 @@ import { useState, useEffect } from 'react'
 export default function HomeWorks() {
   const [videos, setVideos] = useState([])
   const [selectedVideo, setSelectedVideo] = useState(null)
+  const [selectedType, setSelectedType] = useState('All')
   const [loading, setLoading] = useState(true)
+
+  const types = ['All', 'Motion Graphic', 'Drone Operation', 'MIX']
 
   useEffect(() => {
     const fetchVideos = async () => {
       setLoading(true)
       try {
-        const response = await fetch(`/api/youtube?playlist=All&limit=9`)
+        const response = await fetch(`/api/youtube?playlist=${encodeURIComponent(selectedType)}&limit=9`)
         const data = await response.json()
         if (data.videos) {
           setVideos(data.videos.slice(0, 9))
@@ -25,7 +28,7 @@ export default function HomeWorks() {
     }
 
     fetchVideos()
-  }, [])
+  }, [selectedType])
 
   return (
     <section className="relative py-32 px-4 bg-[#333333]">
@@ -41,6 +44,31 @@ export default function HomeWorks() {
           <h2 className="text-4xl md:text-5xl font-light text-white mb-4 tracking-wider">
             WORKS
           </h2>
+        </motion.div>
+
+        {/* Filter Buttons */}
+        <motion.div
+          className="flex flex-wrap gap-3 justify-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          {types.map((type) => (
+            <motion.button
+              key={type}
+              onClick={() => setSelectedType(type)}
+              className={`text-xs font-light tracking-widest px-4 py-2 rounded-full transition-all border ${
+                selectedType === type
+                  ? 'bg-white text-black border-white'
+                  : 'border-gray-600 text-gray-400 hover:border-white hover:text-white'
+              }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {type}
+            </motion.button>
+          ))}
         </motion.div>
 
         {/* Works Grid */}
