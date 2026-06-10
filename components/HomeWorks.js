@@ -10,7 +10,7 @@ export default function HomeWorks() {
   const [selectedType, setSelectedType] = useState('All')
   const [loading, setLoading] = useState(true)
 
-  const types = ['All', 'Motion Graphic', 'Drone Operation', 'MIX']
+  const types = ['All', 'Motion Graphic', 'Drone Operation', 'MIX', 'Other']
 
   useEffect(() => {
     const fetchVideos = async () => {
