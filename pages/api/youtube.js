@@ -19,9 +19,8 @@ function setCache(cacheKey, data) {
 const playlists = {
   'Motion Graphic': 'PLSRpMUngmR9DDgpa7BvcxvVXljYVW6KaB',
   'Drone Operation': 'PLSRpMUngmR9DKqMXpiMm4gXKmaRQ1BoEX',
-  'Shooting': 'PLSRpMUngmR9AGOnPd9AaUZg_9MGE0MaT4',
-  'Editing': 'PLSRpMUngmR9CQa_yoYImxWwOaTa0GwURp',
-  'MIX': 'PLmDG2bhYs8qOqOKUAUrYD4eeRfl65gtao'
+  'MIX': 'PLmDG2bhYs8qOqOKUAUrYD4eeRfl65gtao',
+  'Other': 'PLSRpMUngmR9AGOnPd9AaUZg_9MGE0MaT4'
 }
 
 async function fetchPlaylistVideos(playlistId, maxResults = 50) {
