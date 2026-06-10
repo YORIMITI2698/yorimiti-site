@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 w-full bg-[#333333]/95 backdrop-blur-md z-50 border-b border-gray-700">
+    <nav className="fixed top-0 w-full bg-[#ffffff]/95 backdrop-blur-md z-50 border-b border-gray-300">
       <div className="w-full px-4 sm:px-6 lg:px-12">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -21,7 +21,7 @@ export default function Navbar() {
               priority
               className="w-10 h-10"
             />
-            <span className="text-sm font-light text-white hidden sm:inline">YORIMITI</span>
+            <span className="text-sm font-light text-[#333333] hidden sm:inline">YORIMITI</span>
           </Link>
 
           {/* Desktop Menu - Right Top */}
@@ -35,10 +35,10 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-xs font-light tracking-widest text-gray-400 hover:text-white transition-colors relative group"
+                className="text-xs font-light tracking-widest text-[#333333] hover:text-gray-600 transition-colors relative group"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-[#333333] group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
           </div>
@@ -46,7 +46,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-text-primary"
+            className="md:hidden text-[#333333]"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -56,7 +56,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2 border-t border-dark-highlight">
+          <div className="md:hidden pb-4 space-y-2 border-t border-gray-300">
             {[
               { name: 'HOME', href: '/' },
               { name: 'SERVICES', href: '/services' },
@@ -66,7 +66,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="block px-4 py-2 text-xs font-light text-text-secondary hover:text-white transition-colors"
+                className="block px-4 py-2 text-xs font-light text-[#333333] hover:text-gray-600 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
