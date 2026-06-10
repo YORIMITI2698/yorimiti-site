@@ -29,7 +29,7 @@ export default function Services() {
   ]
 
   return (
-    <section className="relative py-32 px-4 bg-dark-bg border-y border-dark-highlight">
+    <section className="relative py-32 px-4 bg-[#333333] border-y border-dark-highlight">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <motion.div

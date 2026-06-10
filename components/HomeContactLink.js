@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function HomeContactLink() {
   return (
-    <section className="relative py-16 px-4 bg-[#333333]">
+    <section className="relative py-16 px-4 bg-[#393f4c]">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-light text-white mb-6">
           CONTACT
