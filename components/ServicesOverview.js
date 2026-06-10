@@ -12,12 +12,6 @@ export default function Services() {
       link: '/services'
     },
     {
-      icon: '📹',
-      title: 'Shooting / Editing',
-      description: '高品質撮影から動画編集・カラーグレーディング。ロケーション撮影にも対応します。',
-      link: '/services'
-    },
-    {
       icon: '🎨',
       title: 'RE::Locus / Motion | MIX',
       description: 'ボカロMVをはじめとしたMotionGraphic制作と、楽曲のMIX・マスタリングを提供。',
@@ -46,7 +40,7 @@ export default function Services() {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {services.map((service, index) => (
             <motion.div
               key={index}

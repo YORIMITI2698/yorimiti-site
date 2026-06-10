@@ -12,9 +12,9 @@ const services = [
     description: 'ドローン空撮による迫力あるビジュアル制作。'
   },
   {
-    icon: '📹',
-    title: 'Shooting & Editing',
-    description: '広告・SNS・YouTubeなどの高品質撮影と、動画の高品質編集サービス。'
+    icon: '🎨',
+    title: 'RE::Locus / Motion | MIX',
+    description: 'ボカロMVをはじめとしたMotionGraphic制作と、楽曲のMIX・マスタリングを提供。'
   }
 ]
 
@@ -715,6 +715,4 @@ export default function Services() {
           </>
         )}
       </div>
-    </section>
-  )
-}
+    

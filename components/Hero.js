@@ -26,20 +26,6 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-12 bg-[#333333]">
-      {/* Background Video - Subtle */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover opacity-20"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source src="/hero-bg.mp4" type="video/mp4" />
-      </video>
-
-      {/* Overlay - Dark Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#333333] via-[#333333]/98 to-[#333333]/95" />
-
       {/* Content */}
       <motion.div
         className="relative z-10 max-w-5xl mx-auto px-4 w-full"
@@ -47,16 +33,6 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
       >
-        {/* Eyebrow */}
-        <motion.div
-          variants={itemVariants}
-          className="text-center mb-8"
-        >
-          <span className="text-sm font-light text-gray-400 tracking-widest uppercase">
-            Creative Studio
-          </span>
-        </motion.div>
-
         {/* Main Heading */}
         <motion.h1
           variants={itemVariants}
@@ -80,35 +56,20 @@ export default function Hero() {
         {/* CTA Buttons */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          className="flex justify-center gap-6"
         >
           <Link
-            href="#services"
-            className="group relative px-10 py-4 bg-white text-[#333333] text-sm font-light tracking-widest overflow-hidden hover:bg-gray-200 transition-all"
+            href="/services"
+            className="px-8 py-3 bg-white text-[#333333] font-light tracking-widest hover:bg-gray-200 transition-all"
           >
-            VIEW SERVICES
+            View Services
           </Link>
           <Link
-            href="#contact"
-            className="px-10 py-4 border-2 border-white text-white text-sm font-light tracking-widest hover:bg-white hover:text-[#333333] transition-all"
+            href="/#contact"
+            className="px-8 py-3 border-2 border-white text-white font-light tracking-widest hover:bg-white hover:text-[#333333] transition-all"
           >
-            GET IN TOUCH
+            Get In Touch
           </Link>
-        </motion.div>
-
-        {/* Scroll Hint */}
-        <motion.div
-          variants={itemVariants}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </motion.div>
         </motion.div>
       </motion.div>
     </section>
