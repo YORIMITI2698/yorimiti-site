@@ -29,8 +29,8 @@ export default function Services() {
   ]
 
   return (
-    <section className="relative py-32 px-4 bg-[#333333] border-y border-dark-highlight">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-32 bg-[#333333] border-y border-dark-highlight">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Section Title */}
         <motion.div
           className="text-center mb-16"
@@ -45,7 +45,7 @@ export default function Services() {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -56,9 +56,9 @@ export default function Services() {
               className="group"
             >
               <Link href={service.link}>
-                <div className="h-full p-8 border border-dark-highlight rounded-lg hover:border-white transition-all bg-dark-highlight/20 backdrop-blur hover:bg-dark-highlight/40 cursor-pointer">
-                  <div className="text-white mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-light text-white mb-3 group-hover:text-white transition-colors">
+                <div className="h-full p-12 border border-[#6db36d] rounded-lg hover:border-[#6db36d] transition-all bg-[#6db36d]/15 backdrop-blur hover:bg-[#6db36d]/25 cursor-pointer">
+                  <div className="text-white mb-4 transition-colors">{service.icon}</div>
+                  <h3 className="text-xl font-light text-white mb-3 transition-colors">
                     {service.title}
                   </h3>
                   <span className="text-white font-light text-xs tracking-widest inline-block group-hover:translate-x-2 transition-transform">
