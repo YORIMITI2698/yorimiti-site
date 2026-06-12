@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import Seekbar from '@/components/mv/Seekbar'
 
 export default function GraphicService() {
   const services = [
@@ -34,7 +35,7 @@ export default function GraphicService() {
   ]
 
   return (
-    <main className="bg-black min-h-screen">
+    <main className="bg-ink min-h-screen">
       <Navbar />
 
       {/* Graphic & Mix Hero - 前のページのデザイン使用 */}
@@ -47,7 +48,7 @@ export default function GraphicService() {
             transition={{ duration: 0.8 }}
           >
             <motion.h1
-              className="text-6xl md:text-7xl lg:text-8xl font-light leading-tight text-white mb-8"
+              className="font-disp font-extrabold text-6xl md:text-7xl lg:text-8xl tracking-tight leading-tight text-fog mb-8"
               style={{ fontFamily: 'Georgia, serif' }}
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -68,7 +69,7 @@ export default function GraphicService() {
       </section>
 
       {/* Services Section */}
-      <section className="py-32 px-4 bg-dark-bg">
+      <section className="py-32 px-4 bg-ink">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12">
             {services.map((service, index) => (
@@ -104,6 +105,8 @@ export default function GraphicService() {
       </section>
 
       <Footer />
+
+      <Seekbar />
     </main>
   )
 }

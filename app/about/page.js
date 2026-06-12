@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import Seekbar from '@/components/mv/Seekbar'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faXTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
@@ -38,15 +39,15 @@ export default function About() {
   ]
 
   return (
-    <main className="bg-black min-h-screen">
+    <main className="bg-ink min-h-screen">
       <Navbar />
 
       {/* ABOUT Title */}
-      <section className="relative py-12 px-4 flex items-center justify-center overflow-hidden bg-dark-bg min-h-[300px]">
+      <section className="relative py-12 px-4 flex items-center justify-center overflow-hidden bg-ink min-h-[300px]">
         {/* Content */}
         <div className="max-w-7xl mx-auto w-full">
           <motion.h1
-            className="text-5xl md:text-6xl font-light text-white mb-12"
+            className="font-disp font-extrabold text-5xl md:text-7xl tracking-tight text-fog mb-12"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -57,7 +58,7 @@ export default function About() {
       </section>
 
       {/* Story Section */}
-      <section className="relative py-24 px-4 border-y border-dark-highlight overflow-hidden bg-dark-bg">
+      <section className="relative py-24 px-4 border-y border-dark-highlight overflow-hidden bg-ink">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start">
             {/* Left - Text */}
@@ -135,7 +136,7 @@ export default function About() {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.h2
-            className="text-5xl md:text-6xl font-light text-white mb-16"
+            className="font-disp font-extrabold text-5xl md:text-7xl tracking-tight text-fog mb-16"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -228,6 +229,8 @@ export default function About() {
       </section>
 
       <Footer />
+
+      <Seekbar />
     </main>
   )
 }

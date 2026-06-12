@@ -108,14 +108,23 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-[#393f4c]">
+    <section id="contact" className="py-24 bg-[#14171c] border-t border-line">
       <div className="max-w-4xl mx-auto px-4 lg:px-8">
         {/* Title */}
+        <motion.p
+          className="tc text-[10px] sm:text-xs text-acid tracking-[0.35em] text-center mb-3"
+          initial={{ opacity: 0, x: -12 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          ▶ CHAPTER 03
+        </motion.p>
         <motion.h2
-          className="text-5xl md:text-6xl font-light text-white mb-6 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          className="font-disp font-extrabold text-5xl md:text-7xl tracking-tight text-fog mb-6 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true }}
         >
           CONTACT
@@ -147,7 +156,7 @@ export default function Contact() {
             <select
               value={selectedService}
               onChange={(e) => setSelectedService(e.target.value)}
-              className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#333333] focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
+              className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
               style={{
                 backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333333' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
                 backgroundRepeat: 'no-repeat',
@@ -174,7 +183,7 @@ export default function Contact() {
                 type="text"
                 name="name"
                 required
-                className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#333333] focus:outline-none transition-colors text-sm"
+                className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
               />
             </div>
 
@@ -186,7 +195,7 @@ export default function Contact() {
                 type="email"
                 name="email"
                 required
-                className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#333333] focus:outline-none transition-colors text-sm"
+                className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
               />
             </div>
 
@@ -197,7 +206,7 @@ export default function Contact() {
               <input
                 type="tel"
                 name="phone"
-                className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#333333] focus:outline-none transition-colors text-sm"
+                className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
               />
             </div>
           </div>
@@ -218,7 +227,7 @@ export default function Contact() {
                 <select
                   value={vocalMixData.menu}
                   onChange={(e) => handleVocalMixChange('menu', e.target.value)}
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#333333] focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
                   style={{
                     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333333' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
                     backgroundRepeat: 'no-repeat',
@@ -286,7 +295,7 @@ export default function Contact() {
                   value={vocalMixData.songName}
                   onChange={(e) => handleVocalMixChange('songName', e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#333333] focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
                 />
                 <input type="hidden" name="vocal_songName" value={vocalMixData.songName} />
               </div>
@@ -301,7 +310,7 @@ export default function Contact() {
                   placeholder="例：-3, +2"
                   value={vocalMixData.keyChange}
                   onChange={(e) => handleVocalMixChange('keyChange', e.target.value)}
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#333333] focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
                 />
                 <input type="hidden" name="vocal_keyChange" value={vocalMixData.keyChange} />
               </div>
@@ -316,7 +325,7 @@ export default function Contact() {
                   value={vocalMixData.deadline}
                   onChange={(e) => handleVocalMixChange('deadline', e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#333333] focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
                   style={{ accentColor: 'white' }}
                 />
                 <input type="hidden" name="vocal_deadline" value={vocalMixData.deadline} />
@@ -333,7 +342,7 @@ export default function Contact() {
                   value={vocalMixData.recordingData}
                   onChange={(e) => handleVocalMixChange('recordingData', e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#333333] focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
                 />
                 <input type="hidden" name="vocal_recordingData" value={vocalMixData.recordingData} />
               </div>
@@ -420,7 +429,7 @@ export default function Contact() {
                   value={bocaroMVData.songName}
                   onChange={(e) => handleBocaroMVChange('songName', e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#333333] focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
                 />
                 <input type="hidden" name="mv_songName" value={bocaroMVData.songName} />
               </div>
@@ -435,7 +444,7 @@ export default function Contact() {
                   value={bocaroMVData.deadline}
                   onChange={(e) => handleBocaroMVChange('deadline', e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#333333] focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
                   style={{ accentColor: 'white' }}
                 />
                 <input type="hidden" name="mv_deadline" value={bocaroMVData.deadline} />
@@ -451,7 +460,7 @@ export default function Contact() {
                   placeholder="YouTube URL など"
                   value={bocaroMVData.referenceVideo}
                   onChange={(e) => handleBocaroMVChange('referenceVideo', e.target.value)}
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#333333] focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
                 />
                 <input type="hidden" name="mv_referenceVideo" value={bocaroMVData.referenceVideo} />
               </div>
@@ -465,7 +474,7 @@ export default function Contact() {
                   placeholder="イラスト、楽曲等の素材がすでにあれば入れてください。"
                   value={bocaroMVData.sharedData}
                   onChange={(e) => handleBocaroMVChange('sharedData', e.target.value)}
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#333333] focus:outline-none transition-colors text-sm h-24"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#a7d321] focus:outline-none transition-colors text-sm h-24"
                 />
                 <input type="hidden" name="mv_sharedData" value={bocaroMVData.sharedData} />
               </div>
@@ -498,7 +507,7 @@ export default function Contact() {
                     <select
                       value={bocaroMVData.mixMenu}
                       onChange={(e) => handleBocaroMVChange('mixMenu', e.target.value)}
-                      className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#333333] focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
+                      className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
                       style={{
                         backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333333' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
                         backgroundRepeat: 'no-repeat',
@@ -630,7 +639,7 @@ export default function Contact() {
             <textarea
               name="message"
               rows="6"
-              className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#333333] focus:outline-none transition-colors text-sm"
+              className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
             />
           </div>
 
@@ -638,7 +647,7 @@ export default function Contact() {
           <motion.button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-4 border border-white text-white font-light text-sm tracking-widest hover:bg-white hover:text-black transition-all disabled:opacity-50"
+            className="w-full py-4 border border-acid text-acid font-light text-sm tracking-widest hover:bg-acid hover:text-ink transition-all disabled:opacity-50"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import Seekbar from '@/components/mv/Seekbar'
 
 export default function Pricing() {
   const pricingPlans = [
@@ -43,7 +44,7 @@ export default function Pricing() {
 
   return (
     <motion.main
-      className="bg-white"
+      className="bg-ink"
       initial={{ scale: 0.7, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -52,7 +53,7 @@ export default function Pricing() {
       <Navbar />
 
       {/* Pricing Hero */}
-      <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden pt-20">
+      <section className="relative min-h-screen flex items-center justify-center bg-ink overflow-hidden pt-20">
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center"
@@ -60,10 +61,10 @@ export default function Pricing() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight text-black mb-6 italic" style={{ fontFamily: 'Georgia, Garamond, serif' }}>
+            <h1 className="font-disp font-extrabold text-5xl md:text-6xl lg:text-7xl tracking-tight leading-tight text-fog mb-6">
               Pricing
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-mute max-w-2xl mx-auto">
               各サービスの料金一覧
             </p>
           </motion.div>
@@ -71,10 +72,10 @@ export default function Pricing() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-ink">
         <div className="max-w-7xl mx-auto">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-blue-green bg-clip-text text-transparent"
+            className="font-disp text-4xl md:text-5xl font-extrabold text-center mb-16 text-fog"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -88,23 +89,23 @@ export default function Pricing() {
                 key={index}
                 className={`rounded-2xl p-8 transition-all ${
                   plan.featured
-                    ? 'bg-white border-2 border-accent-cyan shadow-2xl shadow-cyan-500/20 md:scale-105'
-                    : 'bg-white border border-purple-500/20 hover:border-accent-cyan'
+                    ? 'bg-panel border-2 border-acid shadow-2xl shadow-[#a7d321]/10 md:scale-105'
+                    : 'bg-panel border border-line hover:border-acid'
                 }`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <h3 className="text-2xl font-bold text-accent-cyan mb-2">{plan.name}</h3>
-                <div className="text-4xl font-bold bg-gradient-purple-blue bg-clip-text text-transparent mb-1">
+                <h3 className="font-disp text-2xl font-bold text-acid mb-2">{plan.name}</h3>
+                <div className="tc text-4xl font-bold text-fog mb-1">
                   {plan.price}
                 </div>
-                <p className="text-gray-600 text-sm mb-6">{plan.note}</p>
+                <p className="text-mute text-sm mb-6">{plan.note}</p>
 
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="text-gray-700 text-sm flex items-start">
-                      <span className="text-accent-cyan mr-3">→</span>
+                    <li key={i} className="text-fog/80 text-sm flex items-start">
+                      <span className="text-acid mr-3">→</span>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -112,8 +113,8 @@ export default function Pricing() {
 
                 <button className={`w-full py-3 rounded-lg font-semibold transition-all ${
                   plan.featured
-                    ? 'bg-gradient-purple-blue text-white hover:shadow-lg hover:-translate-y-1'
-                    : 'bg-gray-100 text-gray-900 border border-purple-500/30 hover:border-accent-cyan'
+                    ? 'bg-acid text-ink hover:shadow-lg hover:-translate-y-1'
+                    : 'bg-ink text-fog border border-line hover:border-acid'
                 }`}>
                   詳細を見る
                 </button>
@@ -124,6 +125,8 @@ export default function Pricing() {
       </section>
 
       <Footer />
+
+      <Seekbar />
     </motion.main>
   )
 }

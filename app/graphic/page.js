@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import Seekbar from '@/components/mv/Seekbar'
 
 export default function Graphic() {
   const graphicServices = [
@@ -39,7 +40,7 @@ export default function Graphic() {
   ]
 
   return (
-    <main className="bg-black">
+    <main className="bg-ink">
       <Navbar />
 
       {/* Graphic Hero - Dark Theme */}
@@ -113,7 +114,7 @@ export default function Graphic() {
               </motion.p>
               <motion.a
                 href="/graphic-service"
-                className="inline-block border border-white text-white px-6 py-2 text-sm hover:bg-white hover:text-black transition-all duration-300"
+                className="inline-block border border-acid text-acid px-6 py-2 text-sm hover:bg-acid hover:text-ink transition-all duration-300"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
@@ -153,6 +154,8 @@ export default function Graphic() {
       </section>
 
       <Footer />
+
+      <Seekbar />
     </main>
   )
 }

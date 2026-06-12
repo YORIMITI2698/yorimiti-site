@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import Seekbar from '@/components/mv/Seekbar'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeadset, faVideo } from '@fortawesome/free-solid-svg-icons'
@@ -86,14 +87,14 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
   const selectedService = services.find(s => s.name === selectedType)
 
   return (
-    <main className="bg-black min-h-screen">
+    <main className="bg-ink min-h-screen">
       <Navbar />
 
       {/* Service Title */}
-      <section className="pt-20 px-4 bg-dark-bg pb-12">
+      <section className="pt-20 px-4 bg-ink pb-12">
         <div className="max-w-7xl mx-auto text-center">
           <motion.h1
-            className="text-5xl md:text-6xl font-light text-white mb-6"
+            className="font-disp font-extrabold text-5xl md:text-7xl tracking-tight text-fog mb-6"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -113,7 +114,7 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
       </section>
 
       {/* Filter Tabs */}
-      <section className="py-16 px-4 bg-dark-bg border-y border-dark-highlight">
+      <section className="py-16 px-4 bg-ink border-y border-dark-highlight">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="flex flex-wrap gap-4 justify-center"
@@ -128,7 +129,7 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                 onClick={() => setSelectedType(service.name)}
                 className={`text-xs font-light tracking-widest px-4 py-2 rounded-full transition-all border ${
                   selectedType === service.name
-                    ? 'bg-white text-black border-white'
+                    ? 'bg-acid text-ink border-acid'
                     : 'border-dark-highlight text-text-secondary hover:border-white hover:text-white'
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -237,6 +238,8 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
       </section>
 
       <Footer />
+
+      <Seekbar />
     </main>
   )
 }

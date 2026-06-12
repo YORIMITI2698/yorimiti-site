@@ -5,10 +5,11 @@ import HomeWorks from '@/components/HomeWorks'
 import ServicesOverview from '@/components/ServicesOverview'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import Seekbar from '@/components/mv/Seekbar'
 
 export default function Home() {
   return (
-    <main className="bg-[#333333] min-h-screen">
+    <main className="bg-ink min-h-screen">
       <Navbar />
       <Hero />
       <HomeContactLink />
@@ -16,6 +17,7 @@ export default function Home() {
       <ServicesOverview />
       <Contact />
       <Footer />
+      <Seekbar />
     </main>
   )
 }
