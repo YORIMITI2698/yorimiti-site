@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Seekbar from '@/components/mv/Seekbar'
+import WashiBackground from '@/components/mv/WashiBackground'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faXTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
@@ -121,18 +122,8 @@ export default function About() {
       {/* Member Section */}
       <section className="relative py-24 px-4 overflow-hidden">
         {/* Background Video */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover opacity-100"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src="/grunge-v1.mp4" type="video/mp4" />
-        </video>
-
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/30" />
+        {/* Watercolor washi background */}
+        <WashiBackground />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.h2
