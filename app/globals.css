@@ -171,6 +171,6 @@ body::before {
   from { transform: rotate(-60deg); }
   to { transform: rotate(150deg); }
 }
-@media (prefers-reduced-motion: reduce) {
-  .washi-blob, .leaf-fall, .leaf-spin { animation: none !important; }
-}
+/* Note: decorative animations intentionally run regardless of
+   prefers-reduced-motion — the OS-level "animation off" setting
+   (common default on some Windows machines) was hiding them entirely. */
