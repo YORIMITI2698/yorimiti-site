@@ -250,3 +250,12 @@ html.dark ::-webkit-scrollbar-thumb:hover { background: #e3c567; }
   0%, 100% { opacity: 0.15; }
   50% { opacity: 0.9; }
 }
+
+/* ===== Footprints (hidden link, day home) ===== */
+.footstep {
+  animation: footstep 3.5s ease-in-out infinite;
+}
+@keyframes footstep {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}

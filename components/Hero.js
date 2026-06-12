@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Footprints from '@/components/mv/Footprints'
 
 // v2: the journey begins. Video untouched, framed as a picture postcard on paper.
 export default function Hero() {
@@ -65,6 +66,9 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
+
+      {/* hidden: someone's footprints (day only) */}
+      <Footprints />
 
       {/* scroll cue */}
       <motion.div
