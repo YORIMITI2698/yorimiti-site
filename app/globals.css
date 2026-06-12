@@ -132,17 +132,45 @@ body::before {
   will-change: transform;
 }
 @keyframes washi1 {
-  from { transform: translate(0, 0) scale(1) rotate(0deg); }
-  to { transform: translate(4vw, -3vw) scale(1.18) rotate(14deg); }
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(5vw, -2vw) scale(1.14) rotate(9deg); }
+  100% { transform: translate(8vw, -5vw) scale(1.24) rotate(18deg); }
 }
 @keyframes washi2 {
-  from { transform: translate(0, 0) scale(1.1) rotate(0deg); }
-  to { transform: translate(-5vw, 3vw) scale(0.92) rotate(-10deg); }
+  0% { transform: translate(0, 0) scale(1.12) rotate(0deg); }
+  50% { transform: translate(-4vw, 4vw) scale(0.96) rotate(-7deg); }
+  100% { transform: translate(-8vw, 6vw) scale(0.88) rotate(-14deg); }
 }
 @keyframes washi3 {
-  from { transform: translate(0, 0) scale(0.95) rotate(0deg); }
-  to { transform: translate(3vw, 4vw) scale(1.12) rotate(8deg); }
+  0% { transform: translate(0, 0) scale(0.94) rotate(0deg); }
+  50% { transform: translate(4vw, 3vw) scale(1.08) rotate(6deg); }
+  100% { transform: translate(7vw, 7vw) scale(1.18) rotate(12deg); }
+}
+
+/* ===== Drifting leaves ===== */
+.leaf-fall {
+  position: absolute;
+  top: -6%;
+  animation-name: leafFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+.leaf-spin {
+  display: inline-block;
+  animation: leafSpin ease-in-out infinite alternate;
+}
+@keyframes leafFall {
+  0% { transform: translate(0, 0); opacity: 0; }
+  6% { opacity: 0.85; }
+  45% { transform: translate(calc(var(--sway) * 0.6), 50vh); }
+  80% { opacity: 0.85; }
+  100% { transform: translate(var(--sway), 108vh); opacity: 0; }
+}
+@keyframes leafSpin {
+  from { transform: rotate(-60deg); }
+  to { transform: rotate(150deg); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .washi-blob { animation: none !important; }
+  .washi-blob, .leaf-fall, .leaf-spin { animation: none !important; }
 }
