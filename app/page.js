@@ -19,7 +19,7 @@ export default function Home() {
       <ServicesOverview />
       <Contact />
       <Footer />
-      <EndOfRoad href="/works" label="WORKS" />
+      <EndOfRoad />
       <NightScene />
       <Seekbar />
     </main>

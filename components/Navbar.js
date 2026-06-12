@@ -14,25 +14,21 @@ const items = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [night, setNight] = useState(false)
   const pathname = usePathname()
   const isHome = pathname === '/'
 
-  // 夜のよりみち (crow theme) is a HOME-only experience.
+  // 夜のよりみち (crow theme) is a hidden, HOME-only experience.
+  // It is entered by walking the day road to its end (see EndOfRoad).
   useEffect(() => {
-    const saved = localStorage.getItem('yorimichi-night') === '1'
-    setNight(saved)
-  }, [])
-
-  useEffect(() => {
+    localStorage.removeItem('yorimichi-night') // clean up old persisted key
+    const night = sessionStorage.getItem('yorimichi-night') === '1'
     document.documentElement.classList.toggle('dark', night && isHome)
-  }, [night, isHome])
+  }, [isHome])
 
-  const toggleNight = () => {
-    setNight((n) => {
-      localStorage.setItem('yorimichi-night', !n ? '1' : '0')
-      return !n
-    })
+  // Clicking the YORIMITI logo brings the morning back.
+  const resetToDay = () => {
+    sessionStorage.removeItem('yorimichi-night')
+    document.documentElement.classList.remove('dark')
   }
 
   return (
@@ -40,7 +36,7 @@ export default function Navbar() {
       <div className="w-full px-4 sm:px-6 lg:px-12">
         <div className="flex justify-between items-center h-16">
           {/* Logo (owl by day) */}
-          <Link href="/" className="flex items-center gap-3 hover:opacity-75 transition-opacity">
+          <Link href="/" onClick={resetToDay} className="flex items-center gap-3 hover:opacity-75 transition-opacity">
             <span className="dark:bg-white dark:rounded-md dark:p-0.5 inline-flex">
               <Image
                 src="/yorimiti-logo.png"
@@ -69,28 +65,6 @@ export default function Navbar() {
                 </Link>
               ))}
             </div>
-
-            {/* Day / Night toggle (HOME only): owl walks by day, crow by night */}
-            {isHome && (
-              <button
-                onClick={toggleNight}
-                aria-label={night ? '昼のよりみちへ' : '夜のよりみちへ'}
-                title={night ? '昼のよりみちへ' : '夜のよりみちへ'}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-line dark:border-[#343a4d] text-fog/70 dark:text-[#e3c567] hover:border-beni hover:text-beni dark:hover:border-[#e3c567] transition-colors"
-              >
-                {night ? (
-                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="4" />
-                    <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" strokeLinecap="round" />
-                  </svg>
-                ) : (
-                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
-                  </svg>
-                )}
-                <span className="tc text-[10px] tracking-[0.2em]">{night ? '昼' : '夜'}</span>
-              </button>
-            )}
 
             {/* Mobile Menu Button */}
             <button
