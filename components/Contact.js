@@ -108,20 +108,20 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-[#14171c] border-t border-line">
+    <section id="contact" className="py-24 bg-panel/60 border-t border-line">
       <div className="max-w-4xl mx-auto px-4 lg:px-8">
         {/* Title */}
         <motion.p
-          className="tc text-[10px] sm:text-xs text-acid tracking-[0.35em] text-center mb-3"
+          className="tc text-[11px] sm:text-xs text-beni tracking-[0.4em] text-center mb-4"
           initial={{ opacity: 0, x: -12 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          ▶ CHAPTER 03
+          − 寄り道 其の三 −
         </motion.p>
         <motion.h2
-          className="font-disp font-extrabold text-5xl md:text-7xl tracking-tight text-fog mb-6 text-center"
+          className="font-disp font-light text-5xl md:text-7xl tracking-[0.12em] text-fog mb-6 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -156,7 +156,7 @@ export default function Contact() {
             <select
               value={selectedService}
               onChange={(e) => setSelectedService(e.target.value)}
-              className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
+              className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
               style={{
                 backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333333' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
                 backgroundRepeat: 'no-repeat',
@@ -183,7 +183,7 @@ export default function Contact() {
                 type="text"
                 name="name"
                 required
-                className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
+                className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm"
               />
             </div>
 
@@ -195,7 +195,7 @@ export default function Contact() {
                 type="email"
                 name="email"
                 required
-                className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
+                className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm"
               />
             </div>
 
@@ -206,7 +206,7 @@ export default function Contact() {
               <input
                 type="tel"
                 name="phone"
-                className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
+                className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm"
               />
             </div>
           </div>
@@ -227,7 +227,7 @@ export default function Contact() {
                 <select
                   value={vocalMixData.menu}
                   onChange={(e) => handleVocalMixChange('menu', e.target.value)}
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
                   style={{
                     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333333' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
                     backgroundRepeat: 'no-repeat',
@@ -255,7 +255,7 @@ export default function Contact() {
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div>
                       <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">料金</p>
-                      <p className="text-base text-white font-light">{detailedPricingData[vocalMixData.menu].price}</p>
+                      <p className="text-base text-fog font-light">{detailedPricingData[vocalMixData.menu].price}</p>
                     </div>
                     <div>
                       <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">納期</p>
@@ -276,7 +276,7 @@ export default function Contact() {
                     <ul className="space-y-2">
                       {detailedPricingData[vocalMixData.menu].included.map((item, idx) => (
                         <li key={idx} className="text-xs text-text-secondary font-light flex items-start">
-                          <span className="text-white mr-2">→</span>
+                          <span className="text-fog mr-2">→</span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -295,7 +295,7 @@ export default function Contact() {
                   value={vocalMixData.songName}
                   onChange={(e) => handleVocalMixChange('songName', e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm"
                 />
                 <input type="hidden" name="vocal_songName" value={vocalMixData.songName} />
               </div>
@@ -310,7 +310,7 @@ export default function Contact() {
                   placeholder="例：-3, +2"
                   value={vocalMixData.keyChange}
                   onChange={(e) => handleVocalMixChange('keyChange', e.target.value)}
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm"
                 />
                 <input type="hidden" name="vocal_keyChange" value={vocalMixData.keyChange} />
               </div>
@@ -325,7 +325,7 @@ export default function Contact() {
                   value={vocalMixData.deadline}
                   onChange={(e) => handleVocalMixChange('deadline', e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm"
                   style={{ accentColor: 'white' }}
                 />
                 <input type="hidden" name="vocal_deadline" value={vocalMixData.deadline} />
@@ -342,7 +342,7 @@ export default function Contact() {
                   value={vocalMixData.recordingData}
                   onChange={(e) => handleVocalMixChange('recordingData', e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm"
                 />
                 <input type="hidden" name="vocal_recordingData" value={vocalMixData.recordingData} />
               </div>
@@ -350,7 +350,7 @@ export default function Contact() {
               {/* Info Sections */}
               <div className="space-y-6 pt-4 border-t border-gray-300">
                 <div>
-                  <h4 className="text-sm font-light text-white mb-3 tracking-widest">MIX師からの内容</h4>
+                  <h4 className="text-sm font-light text-fog mb-3 tracking-widest">MIX師からの内容</h4>
                   <ul className="space-y-2 text-xs text-text-secondary font-light">
                     <li>• エディット(ピッチ、タイミング補正)</li>
                     <li>• ミキシング</li>
@@ -362,12 +362,12 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-light text-white mb-3 tracking-widest">納品形式</h4>
+                  <h4 className="text-sm font-light text-fog mb-3 tracking-widest">納品形式</h4>
                   <p className="text-xs text-text-secondary font-light">WAV 24bit/48kHz</p>
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-light text-white mb-3 tracking-widest">送っていただくデータ</h4>
+                  <h4 className="text-sm font-light text-fog mb-3 tracking-widest">送っていただくデータ</h4>
                   <ul className="space-y-2 text-xs text-text-secondary font-light">
                     <li>• Vocal：WAV 24bit/48kHz 推奨、モノラル、頭出し</li>
                     <li>• Inst：本家配布のまま(原キー)</li>
@@ -375,7 +375,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-light text-white mb-4 tracking-widest">オプション</h4>
+                  <h4 className="text-sm font-light text-fog mb-4 tracking-widest">オプション</h4>
                   <div className="space-y-3">
                     {optionChoices.map((option) => (
                       <label key={option.label} className="flex items-start gap-3 cursor-pointer p-3 bg-gray-50 hover:bg-gray-100 transition-colors rounded">
@@ -393,7 +393,7 @@ export default function Contact() {
                         <div className="flex-1">
                           <p className="text-xs text-text-secondary font-light flex items-center justify-between">
                             <span>{option.label}</span>
-                            <span className="text-white">{option.price}</span>
+                            <span className="text-fog">{option.price}</span>
                           </p>
                           <p className="text-xs text-text-tertiary font-light mt-1">{option.description}</p>
                         </div>
@@ -404,7 +404,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-light text-white mb-2 tracking-widest">注意</h4>
+                  <h4 className="text-sm font-light text-fog mb-2 tracking-widest">注意</h4>
                   <p className="text-xs text-text-secondary font-light">ハモリ生成、ガイド制作はオリジナルの完全再現ではありません</p>
                 </div>
               </div>
@@ -429,7 +429,7 @@ export default function Contact() {
                   value={bocaroMVData.songName}
                   onChange={(e) => handleBocaroMVChange('songName', e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm"
                 />
                 <input type="hidden" name="mv_songName" value={bocaroMVData.songName} />
               </div>
@@ -444,7 +444,7 @@ export default function Contact() {
                   value={bocaroMVData.deadline}
                   onChange={(e) => handleBocaroMVChange('deadline', e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm"
                   style={{ accentColor: 'white' }}
                 />
                 <input type="hidden" name="mv_deadline" value={bocaroMVData.deadline} />
@@ -460,7 +460,7 @@ export default function Contact() {
                   placeholder="YouTube URL など"
                   value={bocaroMVData.referenceVideo}
                   onChange={(e) => handleBocaroMVChange('referenceVideo', e.target.value)}
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm"
                 />
                 <input type="hidden" name="mv_referenceVideo" value={bocaroMVData.referenceVideo} />
               </div>
@@ -474,7 +474,7 @@ export default function Contact() {
                   placeholder="イラスト、楽曲等の素材がすでにあれば入れてください。"
                   value={bocaroMVData.sharedData}
                   onChange={(e) => handleBocaroMVChange('sharedData', e.target.value)}
-                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#a7d321] focus:outline-none transition-colors text-sm h-24"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm h-24"
                 />
                 <input type="hidden" name="mv_sharedData" value={bocaroMVData.sharedData} />
               </div>
@@ -507,7 +507,7 @@ export default function Contact() {
                     <select
                       value={bocaroMVData.mixMenu}
                       onChange={(e) => handleBocaroMVChange('mixMenu', e.target.value)}
-                      className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#a7d321] focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
+                      className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
                       style={{
                         backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333333' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
                         backgroundRepeat: 'no-repeat',
@@ -535,7 +535,7 @@ export default function Contact() {
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div>
                           <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">料金</p>
-                          <p className="text-base text-white font-light">{detailedPricingData[bocaroMVData.mixMenu].price}</p>
+                          <p className="text-base text-fog font-light">{detailedPricingData[bocaroMVData.mixMenu].price}</p>
                         </div>
                         <div>
                           <p className="text-xs text-text-tertiary mb-1 tracking-widest uppercase">納期</p>
@@ -556,7 +556,7 @@ export default function Contact() {
                         <ul className="space-y-2">
                           {detailedPricingData[bocaroMVData.mixMenu].included.map((item, idx) => (
                             <li key={idx} className="text-xs text-text-secondary font-light flex items-start">
-                              <span className="text-white mr-2">→</span>
+                              <span className="text-fog mr-2">→</span>
                               <span>{item}</span>
                             </li>
                           ))}
@@ -568,7 +568,7 @@ export default function Contact() {
                   {/* Info Sections */}
                   <div className="space-y-6">
                     <div>
-                      <h4 className="text-sm font-light text-white mb-3 tracking-widest">MIX師からの内容</h4>
+                      <h4 className="text-sm font-light text-fog mb-3 tracking-widest">MIX師からの内容</h4>
                       <ul className="space-y-2 text-xs text-text-secondary font-light">
                         <li>• エディット(ピッチ、タイミング補正)</li>
                         <li>• ミキシング</li>
@@ -580,12 +580,12 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <h4 className="text-sm font-light text-white mb-3 tracking-widest">納品形式</h4>
+                      <h4 className="text-sm font-light text-fog mb-3 tracking-widest">納品形式</h4>
                       <p className="text-xs text-text-secondary font-light">WAV 24bit/48kHz</p>
                     </div>
 
                     <div>
-                      <h4 className="text-sm font-light text-white mb-3 tracking-widest">送っていただくデータ</h4>
+                      <h4 className="text-sm font-light text-fog mb-3 tracking-widest">送っていただくデータ</h4>
                       <ul className="space-y-2 text-xs text-text-secondary font-light">
                         <li>• Vocal：WAV 24bit/48kHz 推奨、モノラル、頭出し</li>
                         <li>• Inst：本家配布のまま(原キー)</li>
@@ -593,7 +593,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <h4 className="text-sm font-light text-white mb-4 tracking-widest">オプション</h4>
+                      <h4 className="text-sm font-light text-fog mb-4 tracking-widest">オプション</h4>
                       <div className="space-y-3">
                         {optionChoices.map((option) => (
                           <label key={option.label} className="flex items-start gap-3 cursor-pointer p-3 bg-gray-50/50 hover:bg-gray-100 transition-colors rounded">
@@ -611,7 +611,7 @@ export default function Contact() {
                             <div className="flex-1">
                               <p className="text-xs text-text-secondary font-light flex items-center justify-between">
                                 <span>{option.label}</span>
-                                <span className="text-white">{option.price}</span>
+                                <span className="text-fog">{option.price}</span>
                               </p>
                               <p className="text-xs text-text-tertiary font-light mt-1">{option.description}</p>
                             </div>
@@ -622,7 +622,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <h4 className="text-sm font-light text-white mb-2 tracking-widest">注意</h4>
+                      <h4 className="text-sm font-light text-fog mb-2 tracking-widest">注意</h4>
                       <p className="text-xs text-text-secondary font-light">ハモリ生成、ガイド制作はオリジナルの完全再現ではありません</p>
                     </div>
                   </div>
@@ -639,7 +639,7 @@ export default function Contact() {
             <textarea
               name="message"
               rows="6"
-              className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#a7d321] focus:outline-none transition-colors text-sm"
+              className="w-full px-4 py-3 bg-white border border-gray-300 text-[#333333] placeholder-gray-500 focus:border-[#6b8e0f] focus:outline-none transition-colors text-sm"
             />
           </div>
 
@@ -647,7 +647,7 @@ export default function Contact() {
           <motion.button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-4 border border-acid text-acid font-light text-sm tracking-widest hover:bg-acid hover:text-ink transition-all disabled:opacity-50"
+            className="w-full py-4 border border-beni text-beni font-light text-sm tracking-widest hover:bg-beni hover:text-ink transition-all disabled:opacity-50"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >

@@ -47,7 +47,7 @@ export default function About() {
         {/* Content */}
         <div className="max-w-7xl mx-auto w-full">
           <motion.h1
-            className="font-disp font-extrabold text-5xl md:text-7xl tracking-tight text-fog mb-12"
+            className="font-disp font-light text-5xl md:text-7xl tracking-[0.12em] text-fog mb-12"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -70,7 +70,7 @@ export default function About() {
               className="lg:col-span-2"
             >
               <motion.h2
-                className="text-4xl md:text-5xl font-light mb-8 text-white"
+                className="text-4xl md:text-5xl font-light mb-8 text-fog"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
@@ -136,7 +136,7 @@ export default function About() {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.h2
-            className="font-disp font-extrabold text-5xl md:text-7xl tracking-tight text-fog mb-16"
+            className="font-disp font-light text-5xl md:text-7xl tracking-[0.12em] text-fog mb-16"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -180,7 +180,7 @@ export default function About() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                   >
-                    <h3 className="text-3xl md:text-4xl font-light text-white mb-2">
+                    <h3 className="text-3xl md:text-4xl font-light text-fog mb-2">
                       {member.name}
                     </h3>
                     <p className="text-sm text-text-tertiary mb-4">
@@ -212,7 +212,7 @@ export default function About() {
                           href={social.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex flex-col items-center gap-3 px-6 py-6 border border-dark-highlight rounded text-text-secondary hover:text-white hover:border-white transition-all font-light"
+                          className="flex flex-col items-center gap-3 px-6 py-6 border border-dark-highlight rounded text-text-secondary hover:text-beni hover:border-beni transition-all font-light"
                           whileHover={{ backgroundColor: '#1a1a1a' }}
                         >
                           <FontAwesomeIcon icon={social.icon} className="text-2xl" />

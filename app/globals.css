@@ -26,81 +26,99 @@ html {
 }
 
 body {
-  background-color: #101216;
-  color: #f2f3f0;
+  background-color: #f6f2e8;
+  color: #2a2723;
   font-family: 'Sawarabi Gothic', 'M PLUS 1', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   position: relative;
 }
 
 ::selection {
-  background: #a7d321;
-  color: #101216;
+  background: #c2451f;
+  color: #f6f2e8;
 }
 
-/* ===== Film grain (whole site) ===== */
+/* ===== Paper grain (whole site) ===== */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='darkNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' seed='2' /%3E%3C/filter%3E%3Crect width='200' height='200' fill='%23101216' filter='url(%23darkNoise)' opacity='0.10'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='240' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' seed='7' /%3E%3C/filter%3E%3Crect width='240' height='240' fill='%23f6f2e8' filter='url(%23paper)' opacity='0.35'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 40;
-  mix-blend-mode: overlay;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
 }
 
-/* ===== Timecode / player UI text ===== */
+/* ===== Vertical Japanese text ===== */
+.v-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.3em;
+}
+
+/* ===== Hanko stamp ===== */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6em;
+  height: 2.6em;
+  border: 2px solid #c2451f;
+  border-radius: 6px;
+  color: #c2451f;
+  font-weight: 700;
+  transform: rotate(-6deg);
+  opacity: 0.85;
+}
+
+/* ===== Washi tape ===== */
+.tape {
+  position: absolute;
+  width: 6rem;
+  height: 1.6rem;
+  background: rgba(167, 211, 33, 0.35);
+  backdrop-filter: blur(1px);
+  box-shadow: 0 1px 2px rgba(42, 39, 35, 0.08);
+}
+
+/* ===== Notebook text (small annotations) ===== */
 .tc {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.08em;
 }
 
-/* ===== Scanlines for video surfaces ===== */
-.scanlines::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0px,
-    transparent 3px,
-    rgba(0, 0, 0, 0.07) 3px,
-    rgba(0, 0, 0, 0.07) 4px
-  );
-  pointer-events: none;
+/* ===== Dashed trail ===== */
+.trail-h {
+  background-image: linear-gradient(to right, #b3a98f 33%, transparent 0%);
+  background-size: 12px 2px;
+  background-repeat: repeat-x;
+  background-position: bottom;
 }
 
-/* ===== Blinking REC dot ===== */
+/* ===== Gentle bob (walking / scroll cue) ===== */
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+.bob { animation: bob 1.8s ease-in-out infinite; }
+
 @keyframes blink {
   0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0.15; }
+  50%, 100% { opacity: 0.2; }
 }
-.blink { animation: blink 1.2s steps(1) infinite; }
-
-/* ===== Marquee (now playing) ===== */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-.marquee { animation: marquee 18s linear infinite; }
-
-/* ===== Glitch (kept for accents) ===== */
-@keyframes glitch {
-  0% { clip-path: inset(40% 0 61% 0); transform: translate(-2px, -2px); }
-  20% { clip-path: inset(92% 0 1% 0); transform: translate(2px, 2px); }
-  40% { clip-path: inset(43% 0 1% 0); transform: translate(-2px, 2px); }
-  60% { clip-path: inset(25% 0 58% 0); transform: translate(2px, -2px); }
-  80% { clip-path: inset(54% 0 7% 0); transform: translate(-2px, -2px); }
-  100% { clip-path: inset(58% 0 43% 0); transform: translate(2px, 2px); }
-}
+.blink { animation: blink 1.4s steps(1) infinite; }
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* kept for legacy class references */
+.scanlines::after { content: none; }
+
 /* ===== Custom scrollbar ===== */
 ::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: #101216; }
-::-webkit-scrollbar-thumb { background: #2a2f37; border-radius: 5px; }
-::-webkit-scrollbar-thumb:hover { background: #a7d321; }
+::-webkit-scrollbar-track { background: #f6f2e8; }
+::-webkit-scrollbar-thumb { background: #d9d1c0; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #c2451f; }

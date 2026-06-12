@@ -94,7 +94,7 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
       <section className="pt-20 px-4 bg-ink pb-12">
         <div className="max-w-7xl mx-auto text-center">
           <motion.h1
-            className="font-disp font-extrabold text-5xl md:text-7xl tracking-tight text-fog mb-6"
+            className="font-disp font-light text-5xl md:text-7xl tracking-[0.12em] text-fog mb-6"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -130,7 +130,7 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                 className={`text-xs font-light tracking-widest px-4 py-2 rounded-full transition-all border ${
                   selectedType === service.name
                     ? 'bg-acid text-ink border-acid'
-                    : 'border-dark-highlight text-text-secondary hover:border-white hover:text-white'
+                    : 'border-dark-highlight text-text-secondary hover:border-beni hover:text-beni'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -178,13 +178,13 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                     style={{ width: 'auto', height: 'auto' }}
                   />
                 ) : (
-                  <FontAwesomeIcon icon={selectedService.icon} className="text-6xl text-white" />
+                  <FontAwesomeIcon icon={selectedService.icon} className="text-6xl text-fog" />
                 )}
               </div>
 
               {/* Title */}
               <motion.h2
-                className="text-4xl md:text-5xl font-light text-white mb-12"
+                className="text-4xl md:text-5xl font-light text-fog mb-12"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -202,7 +202,7 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                 >
                   {selectedService.sections.map((section, i) => (
                     <div key={i} className="border-b border-dark-highlight pb-8 last:border-b-0">
-                      {i > 0 && <h3 className="text-xl md:text-2xl font-light text-white mb-4">◆ {section.title}</h3>}
+                      {i > 0 && <h3 className="text-xl md:text-2xl font-light text-fog mb-4">◆ {section.title}</h3>}
                       <p className={`text-text-secondary font-light text-sm md:text-base whitespace-pre-line leading-relaxed ${i === 0 ? 'mb-12' : ''}`}>
                         {section.content}
                       </p>
@@ -225,7 +225,7 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                   >
                     {selectedService.details.map((detail, i) => (
                       <li key={i} className="text-text-secondary text-sm md:text-base flex items-start font-light">
-                        <span className="text-white mr-4 font-light">→</span>
+                        <span className="text-fog mr-4 font-light">→</span>
                         <span>{detail}</span>
                       </li>
                     ))}

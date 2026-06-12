@@ -61,7 +61,7 @@ export default function Pricing() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="font-disp font-extrabold text-5xl md:text-6xl lg:text-7xl tracking-tight leading-tight text-fog mb-6">
+            <h1 className="font-disp font-light text-5xl md:text-6xl lg:text-7xl tracking-[0.12em] leading-tight text-fog mb-6">
               Pricing
             </h1>
             <p className="text-xl md:text-2xl text-mute max-w-2xl mx-auto">
@@ -75,7 +75,7 @@ export default function Pricing() {
       <section className="py-20 px-4 bg-ink">
         <div className="max-w-7xl mx-auto">
           <motion.h2
-            className="font-disp text-4xl md:text-5xl font-extrabold text-center mb-16 text-fog"
+            className="font-disp text-4xl md:text-5xl font-light tracking-[0.1em] text-center mb-16 text-fog"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}

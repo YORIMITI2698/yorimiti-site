@@ -48,7 +48,7 @@ export default function GraphicService() {
             transition={{ duration: 0.8 }}
           >
             <motion.h1
-              className="font-disp font-extrabold text-6xl md:text-7xl lg:text-8xl tracking-tight leading-tight text-fog mb-8"
+              className="font-disp font-light text-6xl md:text-7xl lg:text-8xl tracking-[0.1em] leading-tight text-fog mb-8"
               style={{ fontFamily: 'Georgia, serif' }}
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export default function GraphicService() {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="bg-dark-highlight border border-dark-highlight rounded-lg p-12 hover:border-white transition-all hover:shadow-lg"
+                className="bg-dark-highlight border border-dark-highlight rounded-lg p-12 hover:border-beni transition-all hover:shadow-lg"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -83,7 +83,7 @@ export default function GraphicService() {
                 whileHover={{ y: -5 }}
               >
                 <div className="text-5xl mb-6">{service.icon}</div>
-                <h3 className="text-3xl font-light text-white mb-4" style={{ fontFamily: 'Georgia, serif' }}>
+                <h3 className="text-3xl font-light text-fog mb-4" style={{ fontFamily: 'Georgia, serif' }}>
                   {service.title}
                 </h3>
                 <p className="text-text-secondary mb-3 font-light whitespace-pre-line">{service.description}</p>
@@ -93,7 +93,7 @@ export default function GraphicService() {
                 <ul className="space-y-3">
                   {service.details.map((detail, i) => (
                     <li key={i} className="text-text-secondary text-sm flex items-start font-light">
-                      <span className="text-white mr-3 font-light">→</span>
+                      <span className="text-fog mr-3 font-light">→</span>
                       <span>{detail}</span>
                     </li>
                   ))}

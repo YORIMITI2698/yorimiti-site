@@ -3,27 +3,25 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-// End-credits style footer — the MV rolls its staff credit.
+// v2: the end of today's walk.
 export default function Footer() {
   return (
-    <footer className="bg-ink border-t border-line py-16 px-4 pb-24">
+    <footer className="bg-ink border-t border-line py-16 px-4 pb-28">
       <div className="max-w-7xl mx-auto">
-        <p className="tc text-[10px] text-acid/70 tracking-[0.4em] text-center mb-12">— END CREDITS —</p>
+        <p className="tc text-[10px] text-beni/80 tracking-[0.5em] text-center mb-12">− 旅のおわり −</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Left - Logo */}
           <div>
-            <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <span className="bg-white rounded-md p-1 inline-flex">
-                <Image
-                  src="/yorimiti-logo.png"
-                  alt="YORIMITI Logo"
-                  width={24}
-                  height={24}
-                  className="w-6 h-6"
-                />
-              </span>
-              <span className="font-disp font-bold text-2xl tracking-wider text-fog">YORIMITI</span>
+            <Link href="/" className="flex items-center gap-3 hover:opacity-75 transition-opacity">
+              <Image
+                src="/yorimiti-logo.png"
+                alt="YORIMITI Logo"
+                width={28}
+                height={28}
+                className="w-7 h-7"
+              />
+              <span className="font-disp font-light text-2xl tracking-[0.2em] text-fog">YORIMITI</span>
             </Link>
           </div>
 
@@ -40,7 +38,7 @@ export default function Footer() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-xs font-light text-fog/70 hover:text-acid transition-colors tracking-widest block"
+                  className="text-xs font-light text-fog/70 hover:text-beni transition-colors tracking-widest block"
                 >
                   {item.name}
                 </Link>
@@ -53,17 +51,18 @@ export default function Footer() {
             <h3 className="tc text-[10px] text-mute mb-4 tracking-[0.3em]">CONTACT</h3>
             <div className="space-y-2">
               <p className="text-xs text-fog/70 font-light leading-relaxed">
-                Email: <a href="mailto:contact@yorimiti.jp" className="hover:text-acid transition-colors">contact@yorimiti.jp</a>
+                Email: <a href="mailto:contact@yorimiti.jp" className="hover:text-beni transition-colors">contact@yorimiti.jp</a>
               </p>
               <p className="text-xs text-fog/70 font-light leading-relaxed">
-                TEL: <a href="tel:080-8431-4877" className="hover:text-acid transition-colors">080-8431-4877</a>
+                TEL: <a href="tel:080-8431-4877" className="hover:text-beni transition-colors">080-8431-4877</a>
               </p>
             </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-line py-8">
+        <div className="border-t border-line py-8 flex flex-col items-center gap-3">
+          <span className="stamp text-sm">寄</span>
           <p className="tc text-[10px] text-mute text-center tracking-[0.25em]">
             &copy; 2026 YORIMITI. All rights reserved.
           </p>

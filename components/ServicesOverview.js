@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import KineticTitle from '@/components/mv/KineticTitle'
 
+// v2: services as roadside signposts.
 export default function Services() {
   const services = [
     {
@@ -14,6 +15,7 @@ export default function Services() {
         </svg>
       ),
       title: 'Drone Operation',
+      label: '道標 其の一',
       link: '/services'
     },
     {
@@ -25,34 +27,34 @@ export default function Services() {
         </svg>
       ),
       title: 'RE::Locus / Motion | MIX',
+      label: '道標 其の二',
       link: '/services'
     }
   ]
 
   return (
-    <section className="relative py-32 bg-ink border-y border-line overflow-hidden">
+    <section className="relative py-32 bg-panel/60 border-y border-line overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <KineticTitle text="SERVICE" chapter="02" className="mb-16" />
 
-        {/* Services Grid */}
+        {/* Signpost Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, clipPath: 'inset(0 100% 0 0)' }}
-              whileInView={{ opacity: 1, clipPath: 'inset(0 0% 0 0)' }}
-              transition={{ duration: 0.8, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
               viewport={{ once: true }}
               className="group"
             >
               <Link href={service.link}>
-                <div className="relative h-full p-12 border border-leaf/60 rounded-lg bg-leaf/15 backdrop-blur transition-all duration-300 cursor-pointer hover:border-acid hover:bg-leaf/25 hover:-translate-y-1">
-                  {/* clip number */}
-                  <span className="tc absolute top-5 right-6 text-[10px] text-acid/60 tracking-[0.25em]">
-                    CLIP {String(index + 1).padStart(2, '0')}
+                <div className="relative h-full p-12 bg-white border border-line rounded-sm shadow-[0_6px_20px_rgba(42,39,35,0.08)] transition-all duration-300 cursor-pointer hover:shadow-[0_12px_30px_rgba(42,39,35,0.14)] hover:-translate-y-1 hover:-rotate-[0.6deg]">
+                  <span className="tc absolute top-5 right-6 text-[10px] text-beni tracking-[0.3em]">
+                    {service.label}
                   </span>
-                  <div className="text-fog mb-4 group-hover:text-acid transition-colors">{service.icon}</div>
-                  <h3 className="font-disp text-xl font-bold text-fog mb-3">
+                  <div className="text-acid mb-4 transition-colors group-hover:text-leaf">{service.icon}</div>
+                  <h3 className="font-disp text-xl font-normal text-fog mb-3 tracking-wide">
                     {service.title}
                   </h3>
                   <span className="text-acid font-light text-xs tracking-widest inline-block group-hover:translate-x-2 transition-transform">
@@ -74,7 +76,7 @@ export default function Services() {
         >
           <Link
             href="/services"
-            className="group relative inline-block px-8 py-3 border border-fog/70 text-fog text-sm font-light tracking-widest overflow-hidden transition-colors hover:text-ink"
+            className="group relative inline-block px-8 py-3 border border-fog/60 text-fog text-sm font-light tracking-widest overflow-hidden transition-colors hover:text-ink"
           >
             <span className="absolute inset-0 bg-fog origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
             <span className="relative">All Services</span>

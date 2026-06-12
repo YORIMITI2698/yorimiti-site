@@ -40,7 +40,7 @@ export default function Works() {
       <section className="pt-20 px-4 bg-ink pb-8">
         <div className="max-w-7xl mx-auto text-center">
           <motion.h1
-            className="font-disp font-extrabold text-5xl md:text-7xl tracking-tight text-fog mb-6"
+            className="font-disp font-light text-5xl md:text-7xl tracking-[0.12em] text-fog mb-6"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -75,7 +75,7 @@ export default function Works() {
                 className={`text-xs font-light tracking-widest px-4 py-2 rounded-full transition-all border ${
                   selectedType === type
                     ? 'bg-acid text-ink border-acid'
-                    : 'border-dark-highlight text-text-secondary hover:border-white hover:text-white'
+                    : 'border-dark-highlight text-text-secondary hover:border-beni hover:text-beni'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -106,7 +106,7 @@ export default function Works() {
         <div className="max-w-7xl mx-auto relative z-10">
           {loading ? (
             <motion.div
-              className="text-center text-white/70"
+              className="text-center text-fog/70"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
@@ -124,7 +124,7 @@ export default function Works() {
                 <motion.button
                   key={video.id}
                   onClick={() => setSelectedVideo(video)}
-                  className="group relative aspect-video rounded-lg overflow-hidden border border-dark-highlight hover:border-white cursor-pointer transition-all"
+                  className="group relative aspect-video rounded-lg overflow-hidden border border-dark-highlight hover:border-beni cursor-pointer transition-all"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -148,7 +148,7 @@ export default function Works() {
                     whileHover={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="w-16 h-16 border-2 border-white rounded-full flex items-center justify-center">
+                    <div className="w-16 h-16 border-2 border-fog/60 rounded-full flex items-center justify-center">
                       <div className="w-0 h-0 border-l-8 border-l-white border-t-5 border-t-transparent border-b-5 border-b-transparent ml-1" />
                     </div>
                   </motion.div>
@@ -160,7 +160,7 @@ export default function Works() {
                     whileHover={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="text-white font-light text-sm line-clamp-2">
+                    <h3 className="text-fog font-light text-sm line-clamp-2">
                       {video.title}
                     </h3>
                   </motion.div>
@@ -198,7 +198,7 @@ export default function Works() {
             />
             <motion.button
               onClick={() => setSelectedVideo(null)}
-              className="absolute top-4 right-4 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full flex items-center justify-center text-white text-2xl"
+              className="absolute top-4 right-4 w-10 h-10 bg-black/50 hover:bg-black/80 rounded-full flex items-center justify-center text-fog text-2xl"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >

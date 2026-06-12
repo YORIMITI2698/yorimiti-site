@@ -18,9 +18,9 @@ export default function HomeContactLink() {
         </motion.p>
         <Link
           href="/#contact"
-          className="group relative inline-block px-8 py-3 border border-acid text-acid text-sm font-light tracking-widest overflow-hidden transition-colors hover:text-ink"
+          className="group relative inline-block px-8 py-3 border border-beni text-beni text-sm font-light tracking-widest overflow-hidden transition-colors hover:text-ink"
         >
-          <span className="absolute inset-0 bg-acid origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+          <span className="absolute inset-0 bg-beni origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
           <span className="relative">お問い合わせ</span>
         </Link>
       </div>

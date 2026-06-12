@@ -86,7 +86,7 @@ export default function Graphic() {
                 (Studio)
               </motion.p>
               <motion.h1
-                className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6"
+                className="text-5xl md:text-6xl lg:text-7xl font-light text-fog mb-6"
                 style={{ fontFamily: 'Georgia, Garamond, serif' }}
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}

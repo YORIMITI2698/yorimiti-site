@@ -5,45 +5,43 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 const items = [
-  { name: 'HOME', href: '/' },
-  { name: 'SERVICES', href: '/services' },
-  { name: 'WORKS', href: '/works' },
-  { name: 'CONTACT', href: '/#contact' },
+  { name: 'HOME', href: '/', no: '一' },
+  { name: 'SERVICES', href: '/services', no: '二' },
+  { name: 'WORKS', href: '/works', no: '三' },
+  { name: 'CONTACT', href: '/#contact', no: '四' },
 ]
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 w-full bg-ink/80 backdrop-blur-md z-50 border-b border-line">
+    <nav className="fixed top-0 w-full bg-ink/90 backdrop-blur-md z-50 border-b border-line">
       <div className="w-full px-4 sm:px-6 lg:px-12">
         <div className="flex justify-between items-center h-16">
-          {/* Logo on white chip (logo artwork is black + chartreuse) */}
-          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <span className="bg-white rounded-md p-1 inline-flex">
-              <Image
-                src="/yorimiti-logo.png"
-                alt="YORIMITI Logo"
-                width={32}
-                height={32}
-                priority
-                className="w-8 h-8"
-              />
-            </span>
-            <span className="font-disp font-bold text-sm tracking-[0.2em] text-fog hidden sm:inline">YORIMITI</span>
+          {/* Logo (black + chartreuse artwork sits naturally on paper) */}
+          <Link href="/" className="flex items-center gap-3 hover:opacity-75 transition-opacity">
+            <Image
+              src="/yorimiti-logo.png"
+              alt="YORIMITI Logo"
+              width={36}
+              height={36}
+              priority
+              className="w-9 h-9"
+            />
+            <span className="font-disp font-light text-sm tracking-[0.3em] text-fog hidden sm:inline">YORIMITI</span>
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 items-center">
-            {items.map((item, i) => (
+            {items.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-xs font-light tracking-widest text-fog/80 hover:text-acid transition-colors relative group"
+                className="text-xs font-light tracking-widest text-fog/80 hover:text-beni transition-colors relative group"
               >
-                <span className="tc text-[9px] text-acid/60 mr-1.5">{String(i + 1).padStart(2, '0')}</span>
+                <span className="text-[10px] text-beni/70 mr-1.5">{item.no}</span>
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-acid group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-px border-b border-dashed border-beni group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
           </div>
@@ -63,14 +61,14 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden pb-4 space-y-2 border-t border-line">
-            {items.map((item, i) => (
+            {items.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block px-4 py-2 text-xs font-light text-fog/80 hover:text-acid transition-colors tracking-widest"
+                className="block px-4 py-2 text-xs font-light text-fog/80 hover:text-beni transition-colors tracking-widest"
                 onClick={() => setIsOpen(false)}
               >
-                <span className="tc text-[9px] text-acid/60 mr-2">{String(i + 1).padStart(2, '0')}</span>
+                <span className="text-[10px] text-beni/70 mr-2">{item.no}</span>
                 {item.name}
               </Link>
             ))}
