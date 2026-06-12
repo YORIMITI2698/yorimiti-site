@@ -174,3 +174,25 @@ body::before {
 /* Note: decorative animations intentionally run regardless of
    prefers-reduced-motion — the OS-level "animation off" setting
    (common default on some Windows machines) was hiding them entirely. */
+
+
+/* ===== Wind gusts (occasional sweeping lines with a curl) ===== */
+.wind-path {
+  stroke: rgba(121, 113, 95, 0.5);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  fill: none;
+  stroke-dasharray: 0.32 1;
+  stroke-dashoffset: 1.35;
+  opacity: 0;
+  animation-name: windSweep;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes windSweep {
+  0% { stroke-dashoffset: 1.35; opacity: 0; }
+  3% { opacity: 0.55; }
+  20% { opacity: 0.45; }
+  26% { stroke-dashoffset: -1.05; opacity: 0; }
+  100% { stroke-dashoffset: -1.05; opacity: 0; }
+}
