@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+
 // 夜のよりみち: moon, a passing crow, falling feathers, twinkling stars.
 // Rendered only when the night theme is active (html.dark).
 const feathers = [
@@ -24,9 +26,12 @@ const stars = [
 export default function NightScene() {
   return (
     <div className="hidden dark:block fixed inset-0 z-30 overflow-hidden pointer-events-none" aria-hidden="true">
-      {/* moon */}
-      <div
-        className="absolute top-[13%] right-[18%] w-20 h-20 sm:w-24 sm:h-24 rounded-full"
+      {/* moon — click it and stray all the way to the moon */}
+      <Link
+        href="/moon"
+        aria-label="月へよりみち"
+        title="月へよりみち"
+        className="absolute top-[13%] right-[18%] w-20 h-20 sm:w-24 sm:h-24 rounded-full pointer-events-auto cursor-pointer transition-transform duration-500 hover:scale-110 block"
         style={{
           background: 'radial-gradient(circle at 38% 38%, #f6ecd0, #e3c567 60%, rgba(227,197,103,0) 75%)',
           boxShadow: '0 0 70px 22px rgba(227,197,103,0.16)',
