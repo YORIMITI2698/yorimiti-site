@@ -259,3 +259,10 @@ html.dark ::-webkit-scrollbar-thumb:hover { background: #e3c567; }
   0%, 100% { opacity: 0.45; }
   50% { opacity: 1; }
 }
+
+/* ===== Roadside car (ayumi page) ===== */
+@keyframes drive {
+  0% { transform: translateX(-160px); }
+  100% { transform: translateX(calc(100vw + 60px)); }
+}
+.drive { animation: drive 22s linear infinite; }

@@ -7,28 +7,34 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Seekbar from '@/components/mv/Seekbar'
 import WashiBackground from '@/components/mv/WashiBackground'
+import { DroneArt, PcArt, MicArt, HouseArt, CarArt, TreeArt, CloudArt } from '@/components/mv/RoadsideArt'
 
 // よりみちの歩み — hidden history page, found by following the footprints.
 const milestones = [
   {
     date: '2023.04',
     title: '創業',
-    description: 'ドローン空撮・映像制作事業を開始'
+    description: 'ドローン空撮・映像制作事業を開始',
+    Art: DroneArt,
+    float: true
   },
   {
     date: '2024.01',
     title: 'RE::Locus 立ち上げ',
-    description: 'グラフィックデザイン・アニメーション制作に参入'
+    description: 'グラフィックデザイン・アニメーション制作に参入',
+    Art: PcArt
   },
   {
     date: '2025.04',
     title: 'チーム拡大',
-    description: 'Vsinger「來世」がVOID-LAB代表として参画'
+    description: 'Vsinger「來世」がVOID-LAB代表として参画',
+    Art: MicArt
   },
   {
     date: '2026.06',
     title: 'サービス統合',
-    description: '映像・グラフィック・音声を統合したスタジオに進化'
+    description: '映像・グラフィック・音声を統合したスタジオに進化',
+    Art: HouseArt
   }
 ]
 
@@ -84,8 +90,25 @@ export default function Ayumi() {
         </motion.p>
       </section>
 
+      {/* a car passing by on the road */}
+      <div className="relative h-20 overflow-hidden" aria-hidden="true">
+        <div className="absolute bottom-5 inset-x-0 h-[2px] trail-h opacity-60" />
+        <span className="drive absolute bottom-6 text-fog/70">
+          <CarArt />
+        </span>
+      </div>
+
       {/* Timeline road */}
       <section className="relative py-20 px-4 overflow-hidden">
+        {/* roadside scenery */}
+        <div className="absolute inset-0 pointer-events-none hidden md:block" aria-hidden="true">
+          <TreeArt className="absolute top-[6%] left-[7%] text-fog/50" />
+          <CloudArt className="absolute top-[3%] right-[12%] text-mute/40" />
+          <TreeArt className="absolute top-[38%] right-[6%] text-fog/40 scale-75" />
+          <CloudArt className="absolute top-[52%] left-[9%] text-mute/35 scale-90" />
+          <TreeArt className="absolute top-[74%] left-[12%] text-fog/45 scale-90" />
+          <CloudArt className="absolute top-[86%] right-[10%] text-mute/40" />
+        </div>
         <div ref={lineRef} className="relative max-w-3xl mx-auto">
           {/* dashed road track */}
           <div
@@ -129,6 +152,21 @@ export default function Ayumi() {
                     <p className="text-sm text-mute font-light leading-relaxed">{m.description}</p>
                   </div>
                 </div>
+
+                {/* roadside illustration, opposite side */}
+                <motion.div
+                  className={`hidden sm:flex items-center justify-center row-start-1 ${
+                    i % 2 === 0 ? 'sm:col-start-2 sm:pl-14' : 'sm:col-start-1 sm:pr-14'
+                  }`}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.25 }}
+                  viewport={{ once: true, margin: '-80px' }}
+                >
+                  <span className={`text-fog/75 ${m.float ? 'bob' : ''}`}>
+                    <m.Art />
+                  </span>
+                </motion.div>
               </motion.div>
             ))}
           </div>
