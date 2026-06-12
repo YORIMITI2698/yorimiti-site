@@ -8,7 +8,7 @@ import Seekbar from '@/components/mv/Seekbar'
 import WashiBackground from '@/components/mv/WashiBackground'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeadset, faVideo } from '@fortawesome/free-solid-svg-icons'
+import { faHeadset } from '@fortawesome/free-solid-svg-icons'
 
 export default function Services() {
   const [selectedType, setSelectedType] = useState('Drone Operation')
@@ -48,16 +48,6 @@ export default function Services() {
           content: `リスク管理・安全対策を前提に状況に応じた柔軟な対応で撮影を進めます。
 万が一に備え、賠償責任保険にも加入済みです。`
         }
-      ]
-    },
-    {
-      name: 'Shooting / Editing',
-      icon: faVideo,
-      description: '広告・SNS・YouTubeなどの高品質撮影・編集サービス。',
-      details: [
-        '高品質撮影',
-        '動画編集・カラーグレーディング',
-        'ロケーション撮影対応'
       ]
     },
     {

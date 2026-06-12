@@ -6,9 +6,9 @@ import Image from 'next/image'
 // v2: the end of today's walk.
 export default function Footer() {
   return (
-    <footer className="bg-ink border-t border-line py-16 px-4 pb-28">
+    <footer className="bg-ink dark:bg-[#171a26] border-t border-line dark:border-[#343a4d] py-16 px-4 pb-28">
       <div className="max-w-7xl mx-auto">
-        <p className="tc text-[10px] text-beni/80 tracking-[0.5em] text-center mb-12">− 旅のおわり −</p>
+        <p className="tc text-[10px] text-beni/80 dark:text-[#e3c567]/80 tracking-[0.5em] text-center mb-12">− 旅のおわり −</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Left - Logo */}
@@ -21,7 +21,7 @@ export default function Footer() {
                 height={28}
                 className="w-7 h-7"
               />
-              <span className="font-disp font-light text-2xl tracking-[0.2em] text-fog">YORIMITI</span>
+              <span className="font-disp font-light text-2xl tracking-[0.2em] text-fog dark:text-[#e8e6df]">YORIMITI</span>
             </Link>
           </div>
 
@@ -38,7 +38,7 @@ export default function Footer() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-xs font-light text-fog/70 hover:text-beni transition-colors tracking-widest block"
+                  className="text-xs font-light text-fog/70 dark:text-[#e8e6df]/70 hover:text-beni dark:hover:text-[#e3c567] transition-colors tracking-widest block"
                 >
                   {item.name}
                 </Link>
@@ -50,11 +50,11 @@ export default function Footer() {
           <div>
             <h3 className="tc text-[10px] text-mute mb-4 tracking-[0.3em]">CONTACT</h3>
             <div className="space-y-2">
-              <p className="text-xs text-fog/70 font-light leading-relaxed">
-                Email: <a href="mailto:contact@yorimiti.jp" className="hover:text-beni transition-colors">contact@yorimiti.jp</a>
+              <p className="text-xs text-fog/70 dark:text-[#e8e6df]/70 font-light leading-relaxed">
+                Email: <a href="mailto:contact@yorimiti.jp" className="hover:text-beni dark:hover:text-[#e3c567] transition-colors">contact@yorimiti.jp</a>
               </p>
-              <p className="text-xs text-fog/70 font-light leading-relaxed">
-                TEL: <a href="tel:080-8431-4877" className="hover:text-beni transition-colors">080-8431-4877</a>
+              <p className="text-xs text-fog/70 dark:text-[#e8e6df]/70 font-light leading-relaxed">
+                TEL: <a href="tel:080-8431-4877" className="hover:text-beni dark:hover:text-[#e3c567] transition-colors">080-8431-4877</a>
               </p>
             </div>
           </div>

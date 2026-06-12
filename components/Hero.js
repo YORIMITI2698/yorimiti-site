@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 // v2: the journey begins. Video untouched, framed as a picture postcard on paper.
 export default function Hero() {
   return (
-    <section className="relative min-h-screen bg-ink flex items-center justify-center overflow-hidden pt-24 pb-20 px-4">
+    <section className="relative min-h-screen bg-ink dark:bg-[#171a26] flex items-center justify-center overflow-hidden pt-24 pb-20 px-4">
       {/* faint winding road in the background */}
       <svg
         className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.18]"
@@ -13,7 +13,7 @@ export default function Hero() {
       >
         <path
           d="M-50 700 C 200 620, 280 420, 520 480 S 900 640, 1250 380"
-          stroke="#79715f" strokeWidth="3" strokeDasharray="14 12" strokeLinecap="round"
+          className="hero-road" stroke="#79715f" strokeWidth="3" strokeDasharray="14 12" strokeLinecap="round"
         />
       </svg>
 
@@ -26,10 +26,10 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="stamp text-lg mt-2">寄</span>
-          <div className="v-text font-disp font-light text-6xl sm:text-7xl text-fog leading-tight">
+          <div className="v-text font-disp font-light text-6xl sm:text-7xl text-fog dark:text-[#e8e6df] leading-tight">
             よりみち
           </div>
-          <div className="v-text tc text-[11px] text-mute tracking-[0.4em] pt-3">
+          <div className="v-text tc text-[11px] text-mute dark:text-[#9aa0b0] tracking-[0.4em] pt-3">
             YORIMITI — 映像と音の制作所
           </div>
         </motion.div>
@@ -73,8 +73,8 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.8 }}
       >
-        <span className="tc text-[10px] text-mute tracking-[0.35em]">この先、寄り道あり</span>
-        <span className="text-beni text-sm bob">↓</span>
+        <span className="tc text-[10px] text-mute dark:text-[#9aa0b0] tracking-[0.35em]">この先、寄り道あり</span>
+        <span className="text-beni dark:text-[#e3c567] text-sm bob">↓</span>
       </motion.div>
     </section>
   )

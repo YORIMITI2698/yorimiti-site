@@ -6,10 +6,12 @@ import ServicesOverview from '@/components/ServicesOverview'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import Seekbar from '@/components/mv/Seekbar'
+import NightScene from '@/components/mv/NightScene'
+import EndOfRoad from '@/components/mv/EndOfRoad'
 
 export default function Home() {
   return (
-    <main className="bg-ink min-h-screen">
+    <main className="bg-ink dark:bg-[#171a26] min-h-screen">
       <Navbar />
       <Hero />
       <HomeContactLink />
@@ -17,6 +19,8 @@ export default function Home() {
       <ServicesOverview />
       <Contact />
       <Footer />
+      <EndOfRoad href="/works" label="WORKS" />
+      <NightScene />
       <Seekbar />
     </main>
   )

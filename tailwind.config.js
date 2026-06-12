@@ -2,6 +2,7 @@
 // v2 "Yorimichi Trail" palette — warm paper, sumi ink, moss green, vermilion.
 // Token NAMES kept from v1 so every page re-skins automatically.
 module.exports = {
+  darkMode: 'class',
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',

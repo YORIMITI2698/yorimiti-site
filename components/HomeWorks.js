@@ -33,7 +33,7 @@ export default function HomeWorks() {
   }, [selectedType])
 
   return (
-    <section className="relative py-32 px-4 bg-ink">
+    <section className="relative py-32 px-4 bg-ink dark:bg-[#171a26]">
       <div className="max-w-7xl mx-auto">
         <KineticTitle text="WORKS" chapter="01" className="mb-16" />
 
@@ -51,8 +51,8 @@ export default function HomeWorks() {
               onClick={() => setSelectedType(type)}
               className={`text-xs font-light tracking-widest px-4 py-2 rounded-full transition-all border ${
                 selectedType === type
-                  ? 'bg-acid text-ink border-acid'
-                  : 'border-line text-mute bg-white/40 hover:border-acid hover:text-acid'
+                  ? 'bg-acid dark:bg-[#e3c567] text-ink dark:text-[#171a26] border-acid dark:border-[#e3c567]'
+                  : 'border-line dark:border-[#343a4d] text-mute dark:text-[#9aa0b0] bg-white/40 dark:bg-transparent hover:border-acid hover:text-acid dark:hover:border-[#e3c567] dark:hover:text-[#e3c567]'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -126,9 +126,9 @@ export default function HomeWorks() {
         >
           <Link
             href="/works"
-            className="group relative inline-block px-8 py-3 border border-fog/60 text-fog text-sm font-light tracking-widest overflow-hidden transition-colors hover:text-ink"
+            className="group relative inline-block px-8 py-3 border border-fog/60 dark:border-[#e8e6df]/60 text-fog dark:text-[#e8e6df] text-sm font-light tracking-widest overflow-hidden transition-colors hover:text-ink dark:hover:text-[#171a26]"
           >
-            <span className="absolute inset-0 bg-fog origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+            <span className="absolute inset-0 bg-fog dark:bg-[#e8e6df] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
             <span className="relative">すべて見る</span>
           </Link>
         </motion.div>

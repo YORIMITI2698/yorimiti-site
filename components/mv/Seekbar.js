@@ -16,25 +16,25 @@ export default function Seekbar() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 pointer-events-none select-none">
-      <div className="flex items-center gap-3 sm:gap-4 px-4 sm:px-6 h-11 bg-ink/90 backdrop-blur-md border-t border-line">
-        <span className="tc text-[10px] text-mute tracking-[0.25em] shrink-0">出発</span>
+      <div className="flex items-center gap-3 sm:gap-4 px-4 sm:px-6 h-11 bg-ink/90 dark:bg-[#171a26]/90 backdrop-blur-md border-t border-line dark:border-[#343a4d]">
+        <span className="tc text-[10px] text-mute dark:text-[#9aa0b0] tracking-[0.25em] shrink-0">出発</span>
 
         {/* dashed road */}
         <div className="relative flex-1 h-3">
           <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[2px] trail-h" />
           {/* walked part */}
           <motion.div
-            className="absolute left-0 top-1/2 -translate-y-1/2 h-[2px] bg-beni origin-left"
+            className="absolute left-0 top-1/2 -translate-y-1/2 h-[2px] bg-beni dark:bg-[#e3c567] origin-left"
             style={{ scaleX: smooth, width: '100%' }}
           />
           {/* current position marker */}
           <motion.div className="absolute top-1/2 -translate-y-1/2 -ml-1.5" style={{ left }}>
-            <span className="block w-3 h-3 rounded-full bg-beni border-2 border-ink shadow" />
+            <span className="block w-3 h-3 rounded-full bg-beni dark:bg-[#e3c567] border-2 border-ink dark:border-[#171a26] shadow" />
           </motion.div>
         </div>
 
-        <span className="tc text-[10px] text-mute tracking-[0.25em] shrink-0">ゴール</span>
-        <span className="tc text-[10px] text-beni shrink-0 hidden sm:inline">
+        <span className="tc text-[10px] text-mute dark:text-[#9aa0b0] tracking-[0.25em] shrink-0">ゴール</span>
+        <span className="tc text-[10px] text-beni dark:text-[#e3c567] shrink-0 hidden sm:inline">
           道のり {pct}%
         </span>
       </div>

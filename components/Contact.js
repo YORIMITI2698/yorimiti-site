@@ -108,11 +108,11 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-panel/60 border-t border-line">
+    <section id="contact" className="py-24 bg-panel/60 dark:bg-[#1f2330]/70 border-t border-line dark:border-[#343a4d]">
       <div className="max-w-4xl mx-auto px-4 lg:px-8">
         {/* Title */}
         <motion.p
-          className="tc text-[11px] sm:text-xs text-beni tracking-[0.4em] text-center mb-4"
+          className="tc text-[11px] sm:text-xs text-beni dark:text-[#e3c567] tracking-[0.4em] text-center mb-4"
           initial={{ opacity: 0, x: -12 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -121,7 +121,7 @@ export default function Contact() {
           − 寄り道 其の三 −
         </motion.p>
         <motion.h2
-          className="font-disp font-light text-5xl md:text-7xl tracking-[0.12em] text-fog mb-6 text-center"
+          className="font-disp font-light text-5xl md:text-7xl tracking-[0.12em] text-fog dark:text-[#e8e6df] mb-6 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -647,7 +647,7 @@ export default function Contact() {
           <motion.button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-4 border border-beni text-beni font-light text-sm tracking-widest hover:bg-beni hover:text-ink transition-all disabled:opacity-50"
+            className="w-full py-4 border border-beni dark:border-[#e3c567] text-beni dark:text-[#e3c567] font-light text-sm tracking-widest hover:bg-beni dark:hover:bg-[#e3c567] hover:text-ink dark:hover:text-[#171a26] transition-all disabled:opacity-50"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
