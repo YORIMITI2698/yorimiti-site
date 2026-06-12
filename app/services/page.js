@@ -7,8 +7,7 @@ import Footer from '@/components/Footer'
 import Seekbar from '@/components/mv/Seekbar'
 import WashiBackground from '@/components/mv/WashiBackground'
 import { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeadset } from '@fortawesome/free-solid-svg-icons'
+import { DroneArt } from '@/components/mv/RoadsideArt'
 
 export default function Services() {
   const [selectedType, setSelectedType] = useState('Drone Operation')
@@ -16,7 +15,6 @@ export default function Services() {
   const services = [
     {
       name: 'Drone Operation',
-      icon: faHeadset,
       sections: [
         {
           title: 'SERVICE・Drone',
@@ -159,7 +157,7 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                     style={{ width: 'auto', height: 'auto' }}
                   />
                 ) : (
-                  <FontAwesomeIcon icon={selectedService.icon} className="text-6xl text-fog" />
+                  <DroneArt className="text-fog w-28 h-auto" />
                 )}
               </div>
 
