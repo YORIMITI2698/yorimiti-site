@@ -266,3 +266,30 @@ html.dark ::-webkit-scrollbar-thumb:hover { background: #e3c567; }
   100% { transform: translateX(calc(100vw + 60px)); }
 }
 .drive { animation: drive 22s linear infinite; }
+
+/* ===== 高札 / 道標 wooden signpost ===== */
+.kosatsu-post {
+  background: linear-gradient(90deg, #5e4126 0%, #7a5836 50%, #5e4126 100%);
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.35);
+}
+.kosatsu-plank {
+  background: linear-gradient(180deg, #9a774b 0%, #855f37 48%, #6f4d2a 100%);
+  box-shadow: 0 2px 5px rgba(42,39,35,0.22), inset 0 1px 0 rgba(255,240,210,0.18);
+  border: 1px solid rgba(60,42,24,0.5);
+}
+.kosatsu-plank::before {
+  /* faint wood-grain line */
+  content: '';
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 52%;
+  height: 1px;
+  background: rgba(60,42,24,0.28);
+}
+html.dark .kosatsu-post {
+  background: linear-gradient(90deg, #2c2217 0%, #3c2f22 50%, #2c2217 100%);
+}
+html.dark .kosatsu-plank {
+  background: linear-gradient(180deg, #4a3a2a 0%, #3c2f22 48%, #2e2318 100%);
+}

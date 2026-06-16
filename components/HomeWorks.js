@@ -92,7 +92,7 @@ export default function HomeWorks() {
                 style={{ rotate: index % 2 === 0 ? -1.2 : 1.2 }}
               >
                 {/* photo frame */}
-                <div className="relative bg-white p-2 pb-9 shadow-[0_8px_24px_rgba(42,39,35,0.14)] rounded-sm transition-shadow group-hover:shadow-[0_14px_32px_rgba(42,39,35,0.2)]">
+                <div className="relative bg-white p-2 pb-11 shadow-[0_8px_24px_rgba(42,39,35,0.14)] rounded-sm transition-shadow group-hover:shadow-[0_14px_32px_rgba(42,39,35,0.2)]">
                   <div className="relative aspect-video overflow-hidden rounded-sm bg-panel">
                     <img
                       src={video.thumbnail}
@@ -106,9 +106,9 @@ export default function HomeWorks() {
                       </div>
                     </div>
                   </div>
-                  {/* caption */}
-                  <p className="absolute bottom-2.5 left-0 right-0 text-center tc text-[10px] text-mute tracking-[0.25em]">
-                    寄り道 No.{String(index + 1).padStart(2, '0')}
+                  {/* caption: original video title */}
+                  <p className="absolute bottom-2 left-2 right-2 text-center text-[11px] text-fog/85 leading-snug line-clamp-2">
+                    {video.title}
                   </p>
                 </div>
               </motion.button>

@@ -111,15 +111,6 @@ export default function Contact() {
     <section id="contact" className="py-24 bg-panel/60 dark:bg-[#1f2330]/70 border-t border-line dark:border-[#343a4d]">
       <div className="max-w-4xl mx-auto px-4 lg:px-8">
         {/* Title */}
-        <motion.p
-          className="tc text-[11px] sm:text-xs text-beni dark:text-[#e3c567] tracking-[0.4em] text-center mb-4"
-          initial={{ opacity: 0, x: -12 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          − 寄り道 其の三 −
-        </motion.p>
         <motion.h2
           className="font-disp font-light text-5xl md:text-7xl tracking-[0.12em] text-fog dark:text-[#e8e6df] mb-6 text-center"
           initial={{ opacity: 0, y: 30 }}

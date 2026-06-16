@@ -10,17 +10,6 @@ export default function KineticTitle({ text, chapter, className = '', align = 'c
 
   return (
     <div className={`flex flex-col ${alignCls} ${className}`}>
-      {chapter && (
-        <motion.span
-          className="tc text-[11px] sm:text-xs text-beni dark:text-[#e3c567] tracking-[0.4em] mb-4"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: '-60px' }}
-        >
-          − 寄り道 {KANJI[chapter] || chapter} −
-        </motion.span>
-      )}
       <motion.h2
         className="font-disp font-light text-5xl md:text-7xl tracking-[0.12em] text-fog dark:text-[#e8e6df] leading-none"
         initial={{ opacity: 0, y: 24 }}

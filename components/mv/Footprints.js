@@ -27,7 +27,7 @@ export default function Footprints() {
       href="/ayumi"
       aria-label="あしあとをたどる — よりみちの歩みへ"
       title="あしあとをたどる"
-      className="dark:hidden group absolute left-[8%] bottom-[14%] w-40 h-36 text-mute/60 hover:text-mute transition-colors cursor-pointer"
+      className="dark:hidden group absolute left-[8%] bottom-[14%] w-40 h-36 text-acid/70 hover:text-acid transition-colors cursor-pointer"
     >
       {steps.map((s, i) => (
         <span

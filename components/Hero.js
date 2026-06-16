@@ -26,12 +26,26 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="stamp text-lg mt-2">寄</span>
+          {/* owl-silhouette stamp (mask of the logo) */}
+          <span
+            className="mt-2 w-11 h-11 shrink-0 bg-fog dark:bg-[#e8e6df] -rotate-6 opacity-90"
+            style={{
+              WebkitMaskImage: 'url(/yorimiti-logo.png)',
+              maskImage: 'url(/yorimiti-logo.png)',
+              WebkitMaskSize: 'contain',
+              maskSize: 'contain',
+              WebkitMaskRepeat: 'no-repeat',
+              maskRepeat: 'no-repeat',
+              WebkitMaskPosition: 'center',
+              maskPosition: 'center',
+            }}
+            aria-hidden="true"
+          />
           <div className="v-text font-disp font-light text-6xl sm:text-7xl text-fog dark:text-[#e8e6df] leading-tight">
             よりみち
           </div>
           <div className="v-text tc text-[11px] text-mute dark:text-[#9aa0b0] tracking-[0.4em] pt-3">
-            YORIMITI — 映像と音の制作所
+            もっと自由な視点を
           </div>
         </motion.div>
 
@@ -61,7 +75,7 @@ export default function Hero() {
 
             {/* postcard caption */}
             <p className="absolute bottom-4 left-0 right-0 text-center tc text-[11px] text-mute tracking-[0.2em]">
-              ボカロMV編集 × 動画制作 × アニメーション
+              ドローン空撮 ・ アニメーション
             </p>
           </div>
         </motion.div>
@@ -77,7 +91,6 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.8 }}
       >
-        <span className="tc text-[10px] text-mute dark:text-[#9aa0b0] tracking-[0.35em]">この先、寄り道あり</span>
         <span className="text-beni dark:text-[#e3c567] text-sm bob">↓</span>
       </motion.div>
     </section>
