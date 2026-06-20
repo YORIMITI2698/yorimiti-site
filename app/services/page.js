@@ -24,6 +24,7 @@ export default function Services() {
         },
         {
           title: '安定型ドローンによる空撮',
+          image: '/drone-stable.png',
           content: `安定した飛行性能を持つ機体です。
 最大8Kまでの高品質な空撮を提供します。
 広角、望遠に加えレンズ交換式の機体もあり多種多様な画角を実現します。`
@@ -182,9 +183,18 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                   {selectedService.sections.map((section, i) => (
                     <div key={i} className="border-b border-dark-highlight pb-8 last:border-b-0">
                       {i > 0 && <h3 className="text-xl md:text-2xl font-light text-fog mb-4">◆ {section.title}</h3>}
-                      <p className={`text-text-secondary font-light text-sm md:text-base whitespace-pre-line leading-relaxed ${i === 0 ? 'mb-12' : ''}`}>
-                        {section.content}
-                      </p>
+                      <div className={section.image ? 'grid md:grid-cols-2 gap-8 items-center' : ''}>
+                        <p className={`text-text-secondary font-light text-sm md:text-base whitespace-pre-line leading-relaxed ${i === 0 ? 'mb-12' : ''}`}>
+                          {section.content}
+                        </p>
+                        {section.image && (
+                          <img
+                            src={section.image}
+                            alt={section.title}
+                            className="w-full rounded-lg border border-dark-highlight bg-black object-cover"
+                          />
+                        )}
+                      </div>
                     </div>
                   ))}
                 </motion.div>
