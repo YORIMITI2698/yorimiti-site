@@ -34,7 +34,7 @@ export default function About() {
       socials: [
         { name: 'Twitter', url: 'https://twitter.com/xisz_', icon: faXTwitter, label: '@xisz_' },
         { name: 'YouTube', url: 'https://youtube.com/@xisz_', icon: faYoutube, label: 'YouTube' },
-        { name: 'VOIDLAB', url: 'https://void-lab.netlify.app/', icon: faLink, label: 'VOIDLAB' }
+        { name: 'VOIDLAB', url: 'https://void-xisz.github.io/', icon: faLink, label: 'VOIDLAB' }
       ]
     }
   ]
