@@ -45,7 +45,7 @@ export default function Hero() {
             よりみち
           </div>
           <div className="v-text tc text-[11px] text-mute dark:text-[#9aa0b0] tracking-[0.4em] pt-3">
-            もっと自由な形でもっと自由な視点を
+            カタチも、視点も、もっと自由に。
           </div>
         </motion.div>
 
