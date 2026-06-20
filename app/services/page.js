@@ -31,6 +31,7 @@ export default function Services() {
         },
         {
           title: 'FPVドローン撮影',
+          images: ['/drone-fpv-1.png', '/drone-fpv-2.png', '/drone-fpv-3.png'],
           content: `※FPVとはFirst Person View の省略で1人称視点という意味です。
 機体に搭載したFPVカメラからの映像を見ながら飛行させることを意味します。
 完全マニュアル操縦で、ダイナミックな映像表現を可能にします。
@@ -183,7 +184,7 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                   {selectedService.sections.map((section, i) => (
                     <div key={i} className="border-b border-dark-highlight pb-8 last:border-b-0">
                       {i > 0 && <h3 className="text-xl md:text-2xl font-light text-fog mb-4">◆ {section.title}</h3>}
-                      <div className={section.image ? 'grid md:grid-cols-2 gap-8 items-center' : ''}>
+                      <div className={(section.image || section.images) ? 'grid md:grid-cols-2 gap-8 items-center' : ''}>
                         <p className={`text-text-secondary font-light text-sm md:text-base whitespace-pre-line leading-relaxed ${i === 0 ? 'mb-12' : ''}`}>
                           {section.content}
                         </p>
@@ -193,6 +194,18 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                             alt={section.title}
                             className="w-full rounded-lg border border-line bg-panel object-contain"
                           />
+                        )}
+                        {section.images && (
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {section.images.map((src, k) => (
+                              <img
+                                key={k}
+                                src={src}
+                                alt={`${section.title} ${k + 1}`}
+                                className={`w-full rounded-lg border border-line bg-panel object-contain ${section.images.length === 3 && k === 2 ? 'sm:col-span-2' : ''}`}
+                              />
+                            ))}
+                          </div>
                         )}
                       </div>
                     </div>
