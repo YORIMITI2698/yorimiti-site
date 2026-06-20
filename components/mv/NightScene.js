@@ -25,19 +25,23 @@ const stars = [
 
 export default function NightScene() {
   return (
-    <div className="hidden dark:block fixed inset-0 z-30 overflow-hidden pointer-events-none" aria-hidden="true">
-      {/* moon — click it and stray all the way to the moon */}
-      <Link
-        href="/moon"
-        aria-label="月へよりみち"
-        title="月へよりみち"
-        className="absolute top-[13%] right-[18%] w-20 h-20 sm:w-24 sm:h-24 rounded-full pointer-events-auto cursor-pointer transition-transform duration-500 hover:scale-110 block"
-        style={{
-          background: 'radial-gradient(circle at 38% 38%, #f6ecd0, #e3c567 60%, rgba(227,197,103,0) 75%)',
-          boxShadow: '0 0 70px 22px rgba(227,197,103,0.16)',
-        }}
-      />
+    <>
+      {/* moon — part of the sky background: stays at the top of the page and
+          scrolls away (anchored to <main>, not the viewport) */}
+      <div className="hidden dark:block absolute top-0 inset-x-0 h-screen z-30 overflow-hidden pointer-events-none" aria-hidden="true">
+        <Link
+          href="/moon"
+          aria-label="月へよりみち"
+          title="月へよりみち"
+          className="absolute top-[13%] right-[18%] w-20 h-20 sm:w-24 sm:h-24 rounded-full pointer-events-auto cursor-pointer transition-transform duration-500 hover:scale-110 block"
+          style={{
+            background: 'radial-gradient(circle at 38% 38%, #f6ecd0, #e3c567 60%, rgba(227,197,103,0) 75%)',
+            boxShadow: '0 0 70px 22px rgba(227,197,103,0.16)',
+          }}
+        />
+      </div>
 
+    <div className="hidden dark:block fixed inset-0 z-30 overflow-hidden pointer-events-none" aria-hidden="true">
       {/* stars */}
       {stars.map((s, i) => (
         <span
@@ -74,5 +78,6 @@ export default function NightScene() {
         </span>
       ))}
     </div>
+    </>
   )
 }

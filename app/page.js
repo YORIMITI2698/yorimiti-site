@@ -11,7 +11,7 @@ import EndOfRoad from '@/components/mv/EndOfRoad'
 
 export default function Home() {
   return (
-    <main className="bg-ink dark:bg-[#171a26] min-h-screen">
+    <main className="relative bg-ink dark:bg-[#171a26] min-h-screen">
       <Navbar />
       <Hero />
       <HomeContactLink />
