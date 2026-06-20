@@ -40,7 +40,7 @@ export default function EndOfRoad() {
     const t0 = performance.now()
     let raf
     const tick = (now) => {
-      const p = Math.min((now - t0) / 2000, 1)
+      const p = Math.min((now - t0) / 1000, 1)
       setProg(p)
       if (p >= 1) {
         // dusk falls
@@ -49,8 +49,8 @@ export default function EndOfRoad() {
           sessionStorage.setItem('yorimichi-night', '1')
           document.documentElement.classList.add('dark')
           window.scrollTo({ top: 0, behavior: 'auto' })
-          setTimeout(() => setFading(false), 150)
-        }, 750)
+          setTimeout(() => setFading(false), 120)
+        }, 380)
         return
       }
       raf = requestAnimationFrame(tick)
@@ -104,7 +104,7 @@ export default function EndOfRoad() {
 
       {/* dusk overlay */}
       <div
-        className="fixed inset-0 z-[60] bg-[#171a26] pointer-events-none transition-opacity duration-700"
+        className="fixed inset-0 z-[60] bg-[#171a26] pointer-events-none transition-opacity duration-300"
         style={{ opacity: fading ? 1 : 0 }}
       />
     </>
