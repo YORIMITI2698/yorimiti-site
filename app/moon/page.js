@@ -29,7 +29,7 @@ export default function Moon() {
     {
       name: '上原幸大',
       nameEn: 'Kota Uehara',
-      nickname: 'Kotu.',
+      nickname: '52.',
       roles: ['Drone Operator', 'Motion Graphic'],
       bio: 'ドローン空撮とアニメーション制作を中心に活動。独自の視点で、各プロジェクトの世界観を構築。',
       image: '/0006.png',
