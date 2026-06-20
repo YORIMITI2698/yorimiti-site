@@ -11,13 +11,11 @@ export default function Services() {
     {
       icon: <DroneArt className="w-28 h-auto" />,
       title: 'Drone Operation',
-      label: '道標 其の一',
       link: '/services'
     },
     {
       icon: <PcArt className="w-28 h-auto" />,
       title: 'RE::Locus / Motion | MIX',
-      label: '道標 其の二',
       link: '/services'
     }
   ]
@@ -40,9 +38,6 @@ export default function Services() {
             >
               <Link href={service.link}>
                 <div className="relative h-full p-12 bg-white dark:bg-[#232838] border border-line dark:border-[#343a4d] rounded-sm shadow-[0_6px_20px_rgba(42,39,35,0.08)] transition-all duration-300 cursor-pointer hover:shadow-[0_12px_30px_rgba(42,39,35,0.14)] hover:-translate-y-1 hover:-rotate-[0.6deg]">
-                  <span className="tc absolute top-5 right-6 text-[10px] text-beni tracking-[0.3em]">
-                    {service.label}
-                  </span>
                   <div className="text-acid dark:text-[#e3c567] mb-4 transition-colors group-hover:text-leaf dark:group-hover:text-[#f6ecd0]">{service.icon}</div>
                   <h3 className="font-disp text-xl font-normal text-fog dark:text-[#e8e6df] mb-3 tracking-wide">
                     {service.title}
