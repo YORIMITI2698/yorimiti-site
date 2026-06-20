@@ -191,7 +191,7 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                           <img
                             src={section.image}
                             alt={section.title}
-                            className="w-full rounded-lg border border-dark-highlight bg-black object-cover"
+                            className="w-full rounded-lg border border-line bg-panel object-contain"
                           />
                         )}
                       </div>
