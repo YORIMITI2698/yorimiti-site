@@ -32,6 +32,7 @@ export default function Services() {
         {
           title: 'FPVドローン撮影とは？',
           images: ['/drone-fpv-1.png', '/drone-fpv-2.png', '/drone-fpv-3.png'],
+          featured: true,
           content: `FPVとは「First Person View（一人称視点）」の略です。
 パイロットがゴーグルを着用し、ドローンが見ている景色をリアルタイムで確認しながら「完全マニュアル」で操縦します。
 まるで自分が鳥になって空を飛んでいるかのような、臨場感あふれるダイナミックな映像表現が可能です。被写体のすぐ近くを並走したり、建物や木々の狭い隙間を鮮やかにすり抜けたりと、通常のドローンでは表現できない、自由で迫力のある視点をお届けします。`
@@ -183,34 +184,56 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                   {selectedService.sections.map((section, i) => (
                     <div key={i} className="border-b border-dark-highlight pb-8 last:border-b-0">
                       {i > 0 && <h3 className="text-xl md:text-2xl font-light text-fog mb-4">◆ {section.title}</h3>}
-                      <div className={(section.image || section.images) ? 'grid md:grid-cols-2 gap-8 items-start' : ''}>
-                        <div className="space-y-4">
-                          {section.content.split('\n').filter(Boolean).map((para, j) => (
-                            <p key={j} className="text-text-secondary font-light text-sm md:text-base leading-loose">
-                              {para}
-                            </p>
-                          ))}
-                        </div>
-                        {section.image && (
-                          <img
-                            src={section.image}
-                            alt={section.title}
-                            className="w-full rounded-lg object-contain"
-                          />
-                        )}
-                        {section.images && (
-                          <div className={`grid gap-4 ${section.images.length === 2 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'}`}>
+                      {section.featured && section.images ? (
+                        <div className="space-y-8">
+                          <div className="space-y-4">
+                            {section.content.split('\n').filter(Boolean).map((para, j) => (
+                              <p key={j} className="text-text-secondary font-light text-sm md:text-base leading-loose">
+                                {para}
+                              </p>
+                            ))}
+                          </div>
+                          <div className="space-y-6">
                             {section.images.map((src, k) => (
                               <img
                                 key={k}
                                 src={src}
                                 alt={`${section.title} ${k + 1}`}
-                                className={`w-full rounded-lg object-contain ${section.images.length === 3 && k === 2 ? 'sm:col-span-2' : ''}`}
+                                className={`mx-auto rounded-lg object-contain ${k < 2 ? 'w-full' : 'w-2/3 sm:w-1/2'}`}
                               />
                             ))}
                           </div>
-                        )}
-                      </div>
+                        </div>
+                      ) : (
+                        <div className={(section.image || section.images) ? 'grid md:grid-cols-2 gap-8 items-start' : ''}>
+                          <div className="space-y-4">
+                            {section.content.split('\n').filter(Boolean).map((para, j) => (
+                              <p key={j} className="text-text-secondary font-light text-sm md:text-base leading-loose">
+                                {para}
+                              </p>
+                            ))}
+                          </div>
+                          {section.image && (
+                            <img
+                              src={section.image}
+                              alt={section.title}
+                              className="w-full rounded-lg object-contain"
+                            />
+                          )}
+                          {section.images && (
+                            <div className={`grid gap-4 ${section.images.length === 2 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'}`}>
+                              {section.images.map((src, k) => (
+                                <img
+                                  key={k}
+                                  src={src}
+                                  alt={`${section.title} ${k + 1}`}
+                                  className={`w-full rounded-lg object-contain ${section.images.length === 3 && k === 2 ? 'sm:col-span-2' : ''}`}
+                                />
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </motion.div>
