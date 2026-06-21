@@ -24,7 +24,7 @@ export default function Services() {
         },
         {
           title: '安定型ドローンによる空撮',
-          images: ['/drone-stable.png', '/drone-stable-2.png'],
+          images: ['/drone-stable-2.png', '/drone-stable.png'],
           content: `高い安定性を持つ機体を使用し、ブレのない美しく落ち着いた映像を撮影します。
 最大8Kの高解像度撮影に対応しており、映画やCM、記念行事の記録など、ディテールまで美しく残したい大切なシーンに最適です。
 広角から望遠、レンズ交換式の機体まで幅広く駆使することで、壮大な風景を捉える引きのカットから、被写体にフォーカスした寄りのカットまで、多種多様な画角で理想の表現を形にします。`
