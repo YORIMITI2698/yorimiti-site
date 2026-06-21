@@ -2,9 +2,8 @@
 
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import KineticTitle from '@/components/mv/KineticTitle'
 
-// NEWS — the latest from YORIMITI's X (Twitter), framed like a washi-taped note.
+// A small X (Twitter) feed pinned to the side like a little washi-taped note.
 export default function HomeNews() {
   const ref = useRef(null)
 
@@ -25,56 +24,36 @@ export default function HomeNews() {
   }, [])
 
   return (
-    <section className="relative py-32 px-4 bg-ink dark:bg-[#171a26]">
-      <div className="max-w-2xl mx-auto">
-        <KineticTitle text="NEWS" className="mb-14" />
-
+    <section className="relative py-12 px-4 bg-ink dark:bg-[#171a26]">
+      <div className="max-w-7xl mx-auto flex justify-center sm:justify-end">
         <motion.div
-          className="relative"
-          initial={{ opacity: 0, y: 30, rotate: 0 }}
-          whileInView={{ opacity: 1, y: 0, rotate: -1.1 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="relative w-[300px] max-w-full"
+          initial={{ opacity: 0, y: 18, rotate: 0 }}
+          whileInView={{ opacity: 1, y: 0, rotate: 2 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true }}
         >
-          <div className="relative bg-white p-3 pb-8 shadow-[0_14px_40px_rgba(42,39,35,0.18)] rounded-sm">
-            {/* washi tape */}
-            <span className="tape -top-3 left-12 rotate-[-5deg]" />
-            <span className="tape -top-3 right-12 rotate-[4deg]" />
-
-            <div
-              ref={ref}
-              className="rounded-sm overflow-hidden bg-panel min-h-[480px]"
-            >
+          <div className="relative bg-white p-2 pb-4 shadow-[0_10px_26px_rgba(42,39,35,0.16)] rounded-sm">
+            <span className="tape -top-3 left-7 rotate-[-6deg]" />
+            <span className="tape -top-3 right-7 rotate-[5deg]" />
+            <div ref={ref} className="rounded-sm overflow-hidden bg-panel min-h-[340px]">
               <a
                 className="twitter-timeline"
-                data-height="540"
+                data-height="360"
+                data-width="280"
                 data-theme="light"
-                data-chrome="noheader nofooter transparent noborders"
+                data-chrome="noheader nofooter noborders transparent"
                 data-dnt="true"
                 href="https://twitter.com/KotaUehara2698?ref_src=twsrc%5Etfw"
               >
                 Tweets by KotaUehara2698
               </a>
             </div>
-
-            {/* caption */}
-            <p className="absolute bottom-2.5 left-0 right-0 text-center tc text-[11px] text-mute tracking-[0.2em]">
+            <p className="absolute bottom-1 left-0 right-0 text-center tc text-[10px] text-mute tracking-[0.2em]">
               よりみちの、いま
             </p>
           </div>
         </motion.div>
-
-        <div className="text-center mt-10">
-          <a
-            href="https://x.com/KotaUehara2698"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative inline-block px-8 py-3 border border-fog/60 dark:border-[#e8e6df]/60 text-fog dark:text-[#e8e6df] text-sm font-light tracking-widest overflow-hidden transition-colors hover:text-ink dark:hover:text-[#171a26]"
-          >
-            <span className="absolute inset-0 bg-fog dark:bg-[#e8e6df] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-            <span className="relative">Xでフォロー</span>
-          </a>
-        </div>
       </div>
     </section>
   )
