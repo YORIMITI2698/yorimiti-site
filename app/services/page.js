@@ -195,7 +195,7 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                           <img
                             src={section.image}
                             alt={section.title}
-                            className="w-full rounded-lg border border-line bg-panel object-contain"
+                            className="w-full rounded-lg object-contain"
                           />
                         )}
                         {section.images && (
@@ -205,7 +205,7 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                                 key={k}
                                 src={src}
                                 alt={`${section.title} ${k + 1}`}
-                                className={`w-full rounded-lg border border-line bg-panel object-contain ${section.images.length === 3 && k === 2 ? 'sm:col-span-2' : ''}`}
+                                className={`w-full rounded-lg object-contain ${section.images.length === 3 && k === 2 ? 'sm:col-span-2' : ''}`}
                               />
                             ))}
                           </div>
