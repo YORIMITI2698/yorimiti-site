@@ -6,7 +6,7 @@ import Footprints from '@/components/mv/Footprints'
 // v2: the journey begins. Video untouched, framed as a picture postcard on paper.
 export default function Hero() {
   return (
-    <section className="relative min-h-screen bg-ink dark:bg-[#171a26] flex items-center justify-center overflow-hidden pt-24 pb-20 px-4">
+    <section className="relative min-h-screen bg-ink dark:bg-transparent dark:pointer-events-none flex items-center justify-center overflow-hidden pt-24 pb-20 px-4">
       {/* faint winding road in the background */}
       <svg
         className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.18]"

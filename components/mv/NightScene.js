@@ -28,7 +28,7 @@ export default function NightScene() {
     <>
       {/* moon — part of the sky background: stays at the top of the page and
           scrolls away (anchored to <main>, not the viewport) */}
-      <div className="hidden dark:block absolute top-0 inset-x-0 h-screen z-30 overflow-hidden pointer-events-none" aria-hidden="true">
+      <div className="hidden dark:block absolute top-0 inset-x-0 h-screen -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
         <Link
           href="/moon"
           aria-label="月へよりみち"
