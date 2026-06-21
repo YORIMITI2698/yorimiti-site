@@ -12,7 +12,7 @@ export default function News() {
   const [items, setItems] = useState(null)
 
   useEffect(() => {
-    fetch('/api/news')
+    fetch('/api/news', { cache: 'no-store' })
       .then((r) => r.json())
       .then((d) => setItems(d?.items || []))
       .catch(() => setItems([]))

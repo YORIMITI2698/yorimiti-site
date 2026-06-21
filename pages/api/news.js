@@ -6,10 +6,10 @@ import path from 'path'
 // 2) Paste that CSV URL below.
 // Sheet columns (header row, order free): 日付/date, タイトル/title, 本文/body, 画像/image, リンク/link
 // image: a filename placed in public/news/ (e.g. event1.jpg) OR a full https URL.
-const SHEET_CSV_URL = '' // ← paste the published CSV URL here
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1Ih4TA2TKAzt4EBDN3Q93pxCry6as6G7I4Jb-p8Sw2M8/export?format=csv' // Google Sheet (share: anyone with link = viewer)
 
 let cache = { data: null, time: 0 }
-const TTL = 5 * 60 * 1000
+const TTL = 15 * 1000 // 15s — near-immediate updates
 
 // Minimal CSV parser (handles quotes, commas and newlines inside quotes)
 function parseCSV(text) {
@@ -54,6 +54,7 @@ function toImage(v) {
 }
 
 export default async function handler(req, res) {
+  res.setHeader('Cache-Control', 'no-store, max-age=0')
   try {
     if (cache.data && Date.now() - cache.time < TTL) {
       return res.status(200).json({ items: cache.data, cached: true })
@@ -61,7 +62,7 @@ export default async function handler(req, res) {
     let csv = ''
     if (SHEET_CSV_URL) {
       try {
-        const r = await fetch(SHEET_CSV_URL, { signal: AbortSignal.timeout(8000) })
+        const r = await fetch(`${SHEET_CSV_URL}&_cb=${Date.now()}`, { signal: AbortSignal.timeout(8000), cache: 'no-store' })
         if (r.ok) csv = await r.text()
       } catch (e) { /* fall through to local */ }
     }

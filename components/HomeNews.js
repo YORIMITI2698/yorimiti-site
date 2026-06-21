@@ -10,7 +10,7 @@ export default function HomeNews() {
   const [items, setItems] = useState([])
 
   useEffect(() => {
-    fetch('/api/news')
+    fetch('/api/news', { cache: 'no-store' })
       .then((r) => r.json())
       .then((d) => { if (d?.items) setItems(d.items.slice(0, 5)) })
       .catch(() => {})
