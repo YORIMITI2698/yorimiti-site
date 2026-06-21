@@ -1,21 +1,26 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
-// Small X (Twitter) feed framed like a washi-taped note.
-// Always shows a header + link; the live timeline fills in below if the
-// X widget script loads in the browser.
+// X (Twitter) note. The profile (avatar/name/bio) is fetched server-side via
+// /api/x-profile so it ALWAYS renders real data. The live tweet timeline is
+// layered below as a progressive enhancement when X's widget script loads.
 export default function HomeNews() {
   const ref = useRef(null)
+  const [p, setP] = useState(null)
+
+  useEffect(() => {
+    fetch('/api/x-profile')
+      .then((r) => r.json())
+      .then((d) => { if (d && !d.error) setP(d) })
+      .catch(() => {})
+  }, [])
 
   useEffect(() => {
     const render = () => window.twttr?.widgets?.load?.(ref.current)
     const id = 'twitter-wjs'
-    if (document.getElementById(id)) {
-      render()
-      return
-    }
+    if (document.getElementById(id)) { render(); return }
     const sc = document.createElement('script')
     sc.id = id
     sc.src = 'https://platform.twitter.com/widgets.js'
@@ -27,7 +32,7 @@ export default function HomeNews() {
 
   return (
     <motion.div
-      className="relative w-[290px] max-w-full shrink-0"
+      className="relative w-[300px] max-w-full shrink-0"
       initial={{ opacity: 0, y: 18, rotate: 0 }}
       whileInView={{ opacity: 1, y: 0, rotate: 2 }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -38,26 +43,41 @@ export default function HomeNews() {
         <span className="tape -top-3 left-7 rotate-[-6deg]" />
         <span className="tape -top-3 right-7 rotate-[5deg]" />
 
-        {/* always-visible header (also the link) */}
+        {/* profile header (real data from /api/x-profile) */}
         <a
-          href="https://x.com/KotaUehara2698"
+          href={p?.url || 'https://x.com/KotaUehara2698'}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 px-1 pb-2 text-fog hover:text-beni transition-colors"
+          className="flex items-center gap-2.5 px-1 pt-1 pb-3 group"
         >
-          <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" fill="currentColor" aria-hidden="true">
+          {p?.avatar ? (
+            <img src={p.avatar} alt={p.name || 'X'} className="w-9 h-9 rounded-full object-cover shrink-0" />
+          ) : (
+            <span className="w-9 h-9 rounded-full bg-panel shrink-0" />
+          )}
+          <span className="min-w-0">
+            <span className="block text-sm font-medium text-fog leading-tight truncate group-hover:text-beni transition-colors">
+              {p?.name || 'YORIMITI'}
+            </span>
+            <span className="block tc text-[10px] text-mute tracking-wide truncate">@{p?.screenName || 'KotaUehara2698'}</span>
+          </span>
+          <svg viewBox="0 0 24 24" className="w-4 h-4 ml-auto shrink-0 text-fog" fill="currentColor" aria-hidden="true">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
           </svg>
-          <span className="text-xs font-medium tracking-wide">@KotaUehara2698</span>
-          <span className="ml-auto tc text-[10px] text-mute tracking-[0.15em]">よりみちの、いま</span>
         </a>
 
-        {/* live timeline (enhances if widgets.js loads) */}
-        <div ref={ref} className="rounded-sm overflow-hidden bg-panel">
+        {p?.description && (
+          <p className="px-1 pb-3 text-[11px] text-mute leading-relaxed border-b border-line">
+            {p.description}
+          </p>
+        )}
+
+        {/* live timeline (enhances when widgets.js loads) */}
+        <div ref={ref} className="rounded-sm overflow-hidden bg-panel mt-2">
           <a
             className="twitter-timeline"
-            data-height="340"
-            data-width="268"
+            data-height="320"
+            data-width="276"
             data-theme="light"
             data-chrome="noheader nofooter noborders transparent"
             data-dnt="true"
@@ -66,6 +86,8 @@ export default function HomeNews() {
             最新の投稿を X (@KotaUehara2698) で見る →
           </a>
         </div>
+
+        <p className="text-center tc text-[10px] text-mute tracking-[0.2em] pt-2">よりみちの、いま</p>
       </div>
     </motion.div>
   )
