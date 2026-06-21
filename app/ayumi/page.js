@@ -12,29 +12,36 @@ import { DroneArt, PcArt, MicArt, HouseArt, CarArt, TreeArt, CloudArt } from '@/
 // よりみちの歩み — hidden history page, found by following the footprints.
 const milestones = [
   {
-    date: '2023.04',
+    date: '2022.05',
     title: '創業',
-    description: 'ドローン空撮・映像制作事業を開始',
+    description: '薇苺すたじお活動\n映像制作・ボカロMVの編集を開始',
+    Art: PcArt,
+    float: true
+  },
+  {
+    date: '2023.01',
+    title: '合同会社GadgeTankerと提携',
+    description: 'grid_FPV 合同会社でのアシスタント業務を開始',
+    Art: DroneArt
+  },
+  {
+    date: '2024.01',
+    title: '合同会社BETAcreateの立ち上げに協力',
+    description: '空撮業務の準備を開始',
+    Art: HouseArt
+  },
+  {
+    date: '2025.01',
+    title: '合同会社BETAcreateから脱退',
+    description: '空撮業務の開始',
     Art: DroneArt,
     float: true
   },
   {
-    date: '2024.01',
-    title: 'RE::Locus 立ち上げ',
-    description: 'グラフィックデザイン・アニメーション制作に参入',
-    Art: PcArt
-  },
-  {
-    date: '2025.04',
-    title: 'チーム拡大',
-    description: 'Vsinger「來世」がVOID-LAB代表として参画',
-    Art: MicArt
-  },
-  {
     date: '2026.06',
-    title: 'サービス統合',
-    description: '映像・グラフィック・音声を統合したスタジオに進化',
-    Art: HouseArt
+    title: 'RE::Locus 立ち上げ',
+    description: 'アニメーション制作×MIXでスムーズなボカロMVの作成が可能に',
+    Art: MicArt
   }
 ]
 
@@ -106,8 +113,11 @@ export default function Ayumi() {
           <CloudArt className="absolute top-[3%] right-[12%] text-mute/40" />
           <TreeArt className="absolute top-[38%] right-[6%] text-fog/40 scale-75" />
           <CloudArt className="absolute top-[52%] left-[9%] text-mute/35 scale-90" />
+          <CloudArt className="absolute top-[22%] left-[15%] text-mute/30 scale-75" />
+          <TreeArt className="absolute top-[60%] right-[8%] text-fog/40 scale-75" />
           <TreeArt className="absolute top-[74%] left-[12%] text-fog/45 scale-90" />
           <CloudArt className="absolute top-[86%] right-[10%] text-mute/40" />
+          <CloudArt className="absolute top-[92%] left-[16%] text-mute/30 scale-90" />
         </div>
         <div ref={lineRef} className="relative max-w-3xl mx-auto">
           {/* dashed road track */}
@@ -149,7 +159,7 @@ export default function Ayumi() {
                   <div className="inline-block bg-white border border-line rounded-sm p-6 shadow-[0_6px_20px_rgba(42,39,35,0.08)] hover:-translate-y-0.5 hover:shadow-[0_10px_26px_rgba(42,39,35,0.12)] transition-all text-left">
                     <p className="tc text-[11px] text-beni tracking-[0.3em] mb-2">{m.date}</p>
                     <h3 className="font-disp text-xl text-fog mb-2 tracking-wide">{m.title}</h3>
-                    <p className="text-sm text-mute font-light leading-relaxed">{m.description}</p>
+                    <p className="text-sm text-mute font-light leading-relaxed whitespace-pre-line">{m.description}</p>
                   </div>
                 </div>
 
