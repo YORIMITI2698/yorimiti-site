@@ -16,7 +16,7 @@ export default function Services() {
     {
       icon: <PcArt className="w-28 h-auto" />,
       title: 'RE::Locus / Motion | MIX',
-      link: '/services'
+      link: '/services?service=relocus'
     }
   ]
 

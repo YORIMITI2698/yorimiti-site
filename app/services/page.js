@@ -6,11 +6,16 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Seekbar from '@/components/mv/Seekbar'
 import WashiBackground from '@/components/mv/WashiBackground'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { DroneArt } from '@/components/mv/RoadsideArt'
 
 export default function Services() {
   const [selectedType, setSelectedType] = useState('Drone Operation')
+
+  useEffect(() => {
+    const svc = new URLSearchParams(window.location.search).get('service')
+    if (svc === 'relocus') setSelectedType('RE::Locus')
+  }, [])
 
   const services = [
     {
