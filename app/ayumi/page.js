@@ -119,7 +119,8 @@ export default function Ayumi() {
           <CloudArt className="absolute top-[86%] right-[10%] text-mute/40" />
           <CloudArt className="absolute top-[92%] left-[16%] text-mute/30 scale-90" />
         </div>
-        <div ref={lineRef} className="relative max-w-3xl mx-auto">
+        <div className="relative max-w-3xl mx-auto">
+          <div ref={lineRef} className="relative">
           {/* dashed road track */}
           <div
             className="absolute left-5 sm:left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2"
@@ -180,16 +181,24 @@ export default function Ayumi() {
               </motion.div>
             ))}
           </div>
+          </div>
 
           {/* road continues */}
           <motion.p
-            className="text-center tc text-[11px] text-mute tracking-[0.35em] pt-10"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            className="text-center tc text-[11px] text-mute tracking-[0.35em] pt-12"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true }}
           >
-            そして、よりみちは つづく ─
+            そして、よりみちは つづく{' '}
+            <motion.span
+              className="inline-block"
+              animate={{ x: [0, 10, 0], opacity: [0.45, 1, 0.45] }}
+              transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              ─
+            </motion.span>
           </motion.p>
           <motion.div
             className="text-center mt-10"
