@@ -24,7 +24,7 @@ export default function Services() {
         },
         {
           title: '安定型ドローンによる空撮',
-          image: '/drone-stable.png',
+          images: ['/drone-stable.png', '/drone-stable-2.png'],
           content: `安定した飛行性能を持つ機体です。
 最大8Kまでの高品質な空撮を提供します。
 広角、望遠に加えレンズ交換式の機体もあり多種多様な画角を実現します。`
@@ -199,7 +199,7 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                           />
                         )}
                         {section.images && (
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          <div className={`grid gap-4 ${section.images.length === 2 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'}`}>
                             {section.images.map((src, k) => (
                               <img
                                 key={k}
