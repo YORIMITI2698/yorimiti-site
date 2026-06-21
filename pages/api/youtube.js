@@ -52,13 +52,18 @@ async function fetchPlaylistVideos(playlistId, maxResults = 50) {
 
       if (!data.items) break
 
-      const videos = data.items.map(item => ({
-        id: item.snippet.resourceId.videoId,
-        title: item.snippet.title,
-        thumbnail: item.snippet.thumbnails.maxres?.url || item.snippet.thumbnails.high.url,
-        type: playlistType,
-        publishedAt: item.snippet.publishedAt
-      }))
+      const videos = data.items
+        .filter(item => item?.snippet?.resourceId?.videoId)
+        .map(item => {
+          const t = item.snippet.thumbnails || {}
+          return {
+            id: item.snippet.resourceId.videoId,
+            title: item.snippet.title,
+            thumbnail: t.maxres?.url || t.standard?.url || t.high?.url || t.medium?.url || t.default?.url || '',
+            type: playlistType,
+            publishedAt: item.snippet.publishedAt
+          }
+        })
 
       allVideos.push(...videos)
       pageToken = data.nextPageToken
