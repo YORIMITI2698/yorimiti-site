@@ -205,7 +205,7 @@ RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご�
                                 key={k}
                                 src={src}
                                 alt={`${section.title} ${k + 1}`}
-                                className={`w-full rounded-lg object-contain ${section.images.length === 3 && k < 2 ? 'sm:col-span-2' : ''}`}
+                                className={`w-full rounded-lg object-contain ${section.images.length === 3 && k === 0 ? 'sm:col-span-2' : ''}`}
                               />
                             ))}
                           </div>
