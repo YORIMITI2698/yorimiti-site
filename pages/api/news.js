@@ -75,6 +75,12 @@ export default async function handler(req, res) {
       o.image = toImage(o.image)
       return o
     }).filter((o) => o.title || o.body)
+    // newest date first (handles YYYY.MM / YYYY.MM.DD and unpadded months)
+    const dateKey = (v) => {
+      const p = String(v || '').split(/[^0-9]+/).filter(Boolean).map(Number)
+      return (p[0] || 0) * 10000 + (p[1] || 0) * 100 + (p[2] || 0)
+    }
+    items.sort((a, b) => dateKey(b.date) - dateKey(a.date))
     cache = { data: items, time: Date.now() }
     res.status(200).json({ items })
   } catch (e) {
