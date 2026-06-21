@@ -67,8 +67,10 @@ RE::Locusは、YORIMITIのグラフィック特化型チームです。
 リリックモーションMV（歌詞アニメーション）をはじめ、リスペクトを込めた本家再現MVから、楽曲の世界観をゼロから構築する完全オリジナルMVまで幅広く対応しています。音楽に込められたストーリーや感情を丁寧に汲み取り、リスナーの心に深く届く映像を形にします。`
         },
         {
-          title: '楽曲MIX・マスタリング',
-          content: `提携のVOiD-LAB.によってMVと同時にMIXもご依頼いただけます。`
+          title: '楽曲MIX・マスタリング（提携：VOiD-LAB.）',
+          content: `提携スタジオ「VOiD-LAB.」との連携により、MV制作と同時に楽曲のMIX（ミックス）やマスタリングも一括でご依頼いただけます。
+音楽と映像の窓口を一本化することで、作品の方向性をブレさせることなく、音と映像が完璧に調和したハイクオリティな作品へと仕上げます。進行もスムーズになるため、「初めてMVを作る」という方でも安心してすべてをお任せいただけます。`,
+          link: { url: 'https://void-xisz.github.io/', label: 'VOiD-LAB. 公式サイトはこちら' }
         }
       ]
     }
@@ -190,6 +192,17 @@ RE::Locusは、YORIMITIのグラフィック特化型チームです。
                               {para}
                             </p>
                           ))}
+                          {section.link && (
+                            <a
+                              href={section.link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 text-beni hover:text-leaf transition-colors text-sm md:text-base font-light"
+                            >
+                              <span>▶</span>
+                              <span className="underline underline-offset-4">{section.link.label}</span>
+                            </a>
+                          )}
                         </div>
                         {section.image && (
                           <img
