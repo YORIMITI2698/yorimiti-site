@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import HomeContactLink from '@/components/HomeContactLink'
+import HomeNews from '@/components/HomeNews'
 import HomeWorks from '@/components/HomeWorks'
 import ServicesOverview from '@/components/ServicesOverview'
 import Contact from '@/components/Contact'
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <HomeContactLink />
+      <HomeNews />
       <HomeWorks />
       <ServicesOverview />
       <Contact />
