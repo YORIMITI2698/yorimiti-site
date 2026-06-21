@@ -47,9 +47,16 @@ function mapHeader(h) {
 }
 
 function toImage(v) {
-  const s = (v || '').trim()
+  let s = (v || '').trim()
   if (!s) return ''
+  // Google Drive link -> direct image URL
+  const drive = s.match(/(?:\/file\/d\/|[?&]id=|\/d\/)([A-Za-z0-9_-]{20,})/)
+  if (/drive\.google\.com|docs\.google\.com/.test(s) && drive) {
+    return `https://lh3.googleusercontent.com/d/${drive[1]}=w1200`
+  }
+  // already a direct URL
   if (/^https?:\/\//i.test(s)) return s
+  // bare filename -> /news/<file>
   return `/news/${s.replace(/^\/?news\//, '')}`
 }
 
