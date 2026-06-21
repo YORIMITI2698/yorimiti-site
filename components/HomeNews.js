@@ -40,7 +40,7 @@ export default function HomeNews() {
               const inner = (
                 <>
                   {n.image && (
-                    <img src={n.image} alt={n.title || ''} className="w-full rounded-sm object-cover mb-2" loading="lazy" />
+                    <img src={n.image} alt={n.title || ''} className="w-full rounded-sm object-cover mb-2" loading="lazy" onError={(e) => { e.currentTarget.style.display = 'none' }} />
                   )}
                   {n.date && <p className="tc text-[10px] text-beni tracking-[0.25em] mb-1">{n.date}</p>}
                   {n.title && <p className="text-[13px] font-medium text-fog leading-snug mb-1">{n.title}</p>}

@@ -57,7 +57,7 @@ export default function News() {
                   <div className="bg-white border border-line rounded-sm overflow-hidden shadow-[0_6px_20px_rgba(42,39,35,0.08)] transition-all group-hover:shadow-[0_12px_30px_rgba(42,39,35,0.14)] grid md:grid-cols-2">
                     {n.image && (
                       <div className="bg-panel">
-                        <img src={n.image} alt={n.title || ''} className="w-full h-full object-cover min-h-[200px]" loading="lazy" />
+                        <img src={n.image} alt={n.title || ''} className="w-full h-full object-cover min-h-[200px]" loading="lazy" onError={(e) => { e.currentTarget.parentElement.style.display = 'none' }} />
                       </div>
                     )}
                     <div className={`p-7 ${n.image ? '' : 'md:col-span-2'}`}>
