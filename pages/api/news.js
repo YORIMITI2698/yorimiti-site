@@ -1,3 +1,6 @@
+import fs from 'fs'
+import path from 'path'
+
 // News items from a Google Sheet published as CSV.
 // 1) In Google Sheets: ファイル → 共有 → ウェブに公開 → 形式「CSV」→ 公開
 // 2) Paste that CSV URL below.
@@ -52,16 +55,27 @@ function toImage(v) {
 
 export default async function handler(req, res) {
   try {
-    if (!SHEET_CSV_URL) return res.status(200).json({ items: [] })
     if (cache.data && Date.now() - cache.time < TTL) {
       return res.status(200).json({ items: cache.data, cached: true })
     }
-    const r = await fetch(SHEET_CSV_URL, { signal: AbortSignal.timeout(8000) })
-    if (!r.ok) {
+    let csv = ''
+    if (SHEET_CSV_URL) {
+      try {
+        const r = await fetch(SHEET_CSV_URL, { signal: AbortSignal.timeout(8000) })
+        if (r.ok) csv = await r.text()
+      } catch (e) { /* fall through to local */ }
+    }
+    if (!csv) {
+      // fallback: local snapshot at public/news/data.csv
+      try {
+        csv = fs.readFileSync(path.join(process.cwd(), 'public', 'news', 'data.csv'), 'utf8')
+      } catch (e) { csv = '' }
+    }
+    if (!csv) {
       if (cache.data) return res.status(200).json({ items: cache.data, stale: true })
       return res.status(200).json({ items: [] })
     }
-    const rows = parseCSV(await r.text()).filter((r) => r.some((c) => c && c.trim()))
+    const rows = parseCSV(csv).filter((r) => r.some((c) => c && c.trim()))
     if (!rows.length) return res.status(200).json({ items: [] })
     const headers = rows[0].map(mapHeader)
     const items = rows.slice(1).map((cols) => {
