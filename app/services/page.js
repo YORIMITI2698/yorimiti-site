@@ -56,11 +56,10 @@ export default function Services() {
       sections: [
         {
           title: '',
-          content: `私たちRE::LocusはYORIMITIのGraphic特化型チームです。
-
-チーム名は物事の再試行を行い軌跡を作りご依頼者様と私たちの点と点が線になることをイメージした名前です。
-
-RE::LocusではボカロMVを始めとしたMotionGraphicの制作やMIXのご依頼を受け付けております。`
+          content: `RE::Locus（リ・ローカス）
+RE::Locusは、YORIMITIのグラフィック特化型チームです。
+チーム名には、納得がいくまで試行錯誤（RE）を重ねて確かな軌跡（Locus）を描き、ご依頼主さまと私たちの「点」と「点」を結んで一本の「線（作品）」にしていきたい、という想いが込められています。
+私たちは、ボカロMVをはじめとしたモーショングラフィックス（Motion Graphics）の制作や、音源のMIX（ミックス）のご依頼を承っています。映像と音の力を掛け合わせ、作品の世界観をより深く、魅力的に表現します。`
         },
         {
           title: 'アニメーションMVの制作',
