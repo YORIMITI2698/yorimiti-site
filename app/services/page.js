@@ -94,13 +94,23 @@ RE::Locusは、YORIMITIのグラフィック特化型チームです。
             SERVICE
           </motion.h1>
           <motion.p
-            className="text-text-secondary font-light text-base md:text-lg max-w-2xl mx-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-fog font-light text-xl md:text-3xl tracking-[0.1em] max-w-2xl mx-auto"
+            initial="hidden"
+            animate="show"
+            variants={{ show: { transition: { staggerChildren: 0.2, delayChildren: 0.35 } } }}
           >
-            映像制作・グラフィックデザイン・音声制作。
-            あらゆるクリエイティブなニーズにお応えします。
+            {['カタチも、', '視点も、', 'もっと自由に。'].map((seg, k) => (
+              <motion.span
+                key={k}
+                className="inline-block"
+                variants={{
+                  hidden: { opacity: 0, y: 16 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+                }}
+              >
+                {seg}
+              </motion.span>
+            ))}
           </motion.p>
         </div>
       </section>
