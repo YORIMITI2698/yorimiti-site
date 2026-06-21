@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 // NEWS — recent activity from a Google Sheet (server-side via /api/news),
@@ -11,7 +12,7 @@ export default function HomeNews() {
   useEffect(() => {
     fetch('/api/news')
       .then((r) => r.json())
-      .then((d) => { if (d?.items) setItems(d.items) })
+      .then((d) => { if (d?.items) setItems(d.items.slice(0, 5)) })
       .catch(() => {})
   }, [])
 
@@ -62,6 +63,13 @@ export default function HomeNews() {
         ) : (
           <p className="text-center text-[11px] text-mute py-8">準備中…</p>
         )}
+
+        <Link
+          href="/news"
+          className="block text-center tc text-[10px] text-beni tracking-[0.25em] pt-3 mt-3 border-t border-line hover:opacity-70 transition-opacity"
+        >
+          ニュース一覧へ →
+        </Link>
       </div>
     </motion.div>
   )
