@@ -72,6 +72,7 @@ export default async function handler(req, res) {
     const items = rows.slice(1).map((cols) => {
       const o = {}
       headers.forEach((k, i) => { if (k) o[k] = (cols[i] || '').trim() })
+      if (o.body) o.body = o.body.replace(/\\n/g, '\n').replace(/\r/g, '')
       o.image = toImage(o.image)
       return o
     }).filter((o) => o.title || o.body)
