@@ -31,7 +31,7 @@ export default function HomeNews() {
         {/* header */}
         <div className="flex items-baseline gap-2 pb-3 mb-3 border-b border-line">
           <span className="font-disp text-base tracking-[0.2em] text-fog">NEWS</span>
-          <span className="tc text-[10px] text-mute tracking-[0.2em]">よりみちの、いま</span>
+          <span className="tc text-[10px] text-mute tracking-[0.2em]">みちのり</span>
         </div>
 
         {items.length > 0 ? (
@@ -68,7 +68,7 @@ export default function HomeNews() {
           href="/news"
           className="block text-center tc text-[10px] text-beni tracking-[0.25em] pt-3 mt-3 border-t border-line hover:opacity-70 transition-opacity"
         >
-          ニュース一覧へ →
+          一覧を見る →
         </Link>
       </div>
     </motion.div>
