@@ -1,4 +1,5 @@
 import './globals.css'
+import SiteTracker from './SiteTracker'
 
 export const metadata = {
   title: 'YORIMITI - Vocaloid MV Editing & Music Production',
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="bg-dark-bg text-text-primary antialiased">
+        <SiteTracker />
         {children}
       </body>
     </html>
