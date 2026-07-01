@@ -6,11 +6,11 @@ const SITE_URL = 'https://yorimiti.jp'
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'YORIMITI｜ボカロMV編集・ドローン空撮・アニメーション制作',
+    default: 'YORIMITI｜ドローン空撮・ボカロMV編集',
     template: '%s｜YORIMITI',
   },
   description:
-    'YORIMITI（よりみち）は、ボカロMV編集・動画制作・アニメーション・ドローン空撮（FPV/安定型）・楽曲MIX/マスタリングまで手がける映像制作チーム。「カタチも、視点も、もっと自由に。」',
+    'YORIMITI（よりみち）は、ドローン空撮（FPV/安定型）・ボカロMV編集・動画制作・アニメーション・楽曲MIX/マスタリングまで手がける映像制作チーム。「カタチも、視点も、もっと自由に。」',
   keywords: ['ボカロMV','MV編集','動画制作','アニメーション制作','ドローン空撮','FPVドローン','楽曲MIX','マスタリング','映像制作','グラフィックデザイン','YORIMITI','よりみち'],
   authors: [{ name: 'YORIMITI' }],
   creator: 'YORIMITI',
@@ -21,14 +21,14 @@ export const metadata = {
     locale: 'ja_JP',
     url: SITE_URL,
     siteName: 'YORIMITI',
-    title: 'YORIMITI｜ボカロMV編集・ドローン空撮・アニメーション制作',
-    description: 'ボカロMV編集 × 動画制作 × アニメーション × ドローン空撮 × 楽曲MIX/マスタリング。カタチも、視点も、もっと自由に。',
+    title: 'YORIMITI｜ドローン空撮・ボカロMV編集',
+    description: 'ドローン空撮 × ボカロMV編集 × 動画制作 × アニメーション × 楽曲MIX/マスタリング。カタチも、視点も、もっと自由に。',
     images: [{ url: '/og.png', width: 1200, height: 630, alt: 'YORIMITI' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'YORIMITI｜ボカロMV編集・ドローン空撮・アニメーション制作',
-    description: 'ボカロMV編集 × 動画制作 × アニメーション × ドローン空撮 × 楽曲MIX/マスタリング。',
+    title: 'YORIMITI｜ドローン空撮・ボカロMV編集',
+    description: 'ドローン空撮 × ボカロMV編集 × 動画制作 × アニメーション × 楽曲MIX/マスタリング。',
     images: ['/og.png'],
     site: '@xisz_',
     creator: '@xisz_',
@@ -59,7 +59,7 @@ const jsonLd = {
       image: SITE_URL + '/og.png',
       email: 'contact@yorimiti.jp',
       description:
-        'ボカロMV編集・動画制作・アニメーション・ドローン空撮・楽曲MIX/マスタリングを手がける映像制作チーム。',
+        'ドローン空撮・ボカロMV編集・動画制作・アニメーション・楽曲MIX/マスタリングを手がける映像制作チーム。',
       sameAs: [
         'https://twitter.com/xisz_',
         'https://www.instagram.com/kota12698/',
